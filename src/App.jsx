@@ -1,11 +1,12 @@
-import Header from './assets/components/Header'
+import Header from "./assets/components/Header"
+import Footer from "./assets/components/Footer"
 import './App.css'
 
 function App() {
   return (
     <>
-      <h1>Ola</h1>
       <Header/>
+      <Footer/>
     </>
   )
 }
