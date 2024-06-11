@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Container from "../../components/Container"
 import Footer from "../../components/Footer";
 import styles from "./Inicio.module.css";
 
@@ -23,7 +24,8 @@ function Inicio() {
                     </div>
                 </nav>
             </header>
-            <section className={styles.container}>
+            <Container>
+            <section className={styles.inicial}>
                 <div className={styles.informacoes}>
                     <h1>SOBRE NÓS</h1>
                     <h2>Em busca de um mundo inclusivo e sem preconceito</h2>
@@ -42,6 +44,7 @@ function Inicio() {
                     <img className={styles.imgHome} src="/img/index/HomeImage.svg" alt="Ilustração Home" />
                 </figure>
             </section>
+            </Container>
             <Footer />
         </>
     );

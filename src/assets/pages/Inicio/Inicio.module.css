@@ -5,7 +5,6 @@
     justify-content: space-around;
     background-color: var(--primary);
 }
-
 .logo {
     height: 100px;
     padding: 1.5em;
@@ -65,28 +64,28 @@
     outline: 4px auto -webkit-focus-ring-color;
 }
 
-.container {
+.inicial {
     display: flex;
     align-items: center;
     padding: 0px 0px 10px 30px;
     min-height: 100vh;
 }
 
-.container img {
+.inicial img {
     height: 400px
 }
 
-.container .informacoes h1 {
+.inicial .informacoes h1 {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-size: 45px;
 }
 
-.container .informacoes p {
+.inicial .informacoes p {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     margin-bottom: 48px;
 }
 
-.container .btnLogin {
+.inicial .btnLogin {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     border-radius: 8px;
     border: 1px solid transparent;
@@ -99,12 +98,12 @@
     transition: border-color 0.25s;
 }
 
-.container .btnLogin:hover {
+.inicial .btnLogin:hover {
     background-color: var(--gray);
     border-color: #646cff;
 }
 
-.container .btnLogin:focus,
-.container .btnLogin:focus-visible {
+.inicial .btnLogin:focus,
+.inicial .btnLogin:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }

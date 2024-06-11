@@ -1,0 +1,22 @@
+.header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--primary);
+}
+
+.logo {
+    height: 100px;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
