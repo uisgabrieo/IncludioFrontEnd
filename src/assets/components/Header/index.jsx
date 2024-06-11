@@ -1,16 +1,17 @@
-import styles from "./Header.module.css"
+//import styles from "./Header.module.css"
+import { StyledHeader } from "./styles"
 
 function Header() {
     return (
-        <header className={styles.header}>
-            <span>LuisGabriel</span>
-            <nav>
-                <a href="">Home</a>
-                <a href="">Sobre</a>
-                <a href="">Projetos</a>
-                <a href="">Contatos</a>
-            </nav>
-        </header>
+        <StyledHeader>
+                <span>LuisGabriel</span>
+                <nav>
+                    <a href="">Home</a>
+                    <a href="">Sobre</a>
+                    <a href="">Projetos</a>
+                    <a href="">Contatos</a>
+                </nav>
+        </StyledHeader>
     )
 }
 

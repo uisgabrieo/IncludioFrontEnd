@@ -7,3 +7,5 @@ const StyledHeader = styled("header", {
     alignItems: "center",
     backgroundColor: "#012340"
 });
+
+export {StyledHeader}
