@@ -1,0 +1,43 @@
+.cardBug {
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    background: #E4EE91;
+    border-radius: 20px;
+}
+
+.cardBug .fomulario {
+    width: 100%;
+}
+
+.cardBug .fomulario .campoDeTexto {
+    display: flex;
+    justify-content: center;
+}
+
+.cardBug .fomulario .campoDeTexto input, select {
+    font-size: 15px;
+    padding: 0 20px;
+    border: 0;
+    outline: 0;
+    height: 50px;
+    margin: 15px;
+    width: calc(100% - 30px);
+    border-radius: 15px;
+}
+
+.voltar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px; 
+}
+
+.voltar i {
+    font-size: 30px;
+}
+

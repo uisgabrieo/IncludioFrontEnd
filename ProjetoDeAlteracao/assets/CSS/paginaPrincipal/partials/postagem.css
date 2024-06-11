@@ -1,0 +1,46 @@
+.post {
+    align-items: center;
+    margin-bottom: 25px;
+    display: flex;
+    background-color: #D9D9D9;
+    border-radius: 15px;
+    height: 35%;
+    width: 100%;
+}
+
+.post p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.informacoes {
+    margin-left: 30px;
+}
+
+#logoPost {
+    background-color: white;
+    margin-left: 20px;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+#posts {
+    margin-top: 25px;
+    width: 100vh;
+    height: 100vh;
+}
+
+.botao{
+    background-color:black;
+    border-style: none;
+    color:white;
+    margin-right: 15px;
+    height: 40px;
+    width: 70px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.botao:hover {
+    background-color: #404040;
+}

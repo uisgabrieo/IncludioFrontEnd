@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/global/Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../CSS/perfilFuncionario/perfilFuncionario.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title id="tituloNomeUsuario"></title>
+</head>
+
+<body>
+    <i class="bi bi-arrow-left-circle-fill" id="voltar" onclick="window.location.href='./homePage.html'"></i>
+    <div id="perfil">
+        <section id="coluna1">
+            <img id="fotoPerfil">
+            <div class="coluna1Perfil">
+                <i class="bi bi-person-fill"></i>
+                <p id="nomeUsuario"></p>
+            </div>
+            <div class="coluna1Perfil">
+                <i class="bi bi-envelope-at-fill"></i>
+                <p id="email">luis</p>
+            </div>
+            <button id="editar" class="botao">Editar perfil</button>
+        </section>
+        <section id="dadosUsuario">
+            <div id="endereco" class="caixa">
+                <h1 class="titulo">Endereço</h1>
+            </div>
+            <div id="infoPessoal" class="caixa">
+                <h1 class="titulo">Informações Pessoais</h1>
+            </div>
+            <div id="senha" class="caixa">
+                <h1 class="titulo">Alterar Senha</h1>
+                Alterar senha:
+                <input type="password">
+                Confirmar senha:
+                <input type="password">
+            </div>
+        </section>
+    </div>
+    <div class="janelaConfirmacao" id="janelaConfirmacao">
+        <div class="confirmacao">
+            <h1>Confirme para sair</h1>
+            <div id="botoesSair">
+                <button class="botao" id="sairSim">Sim</button>
+                <button class="botao" id="sairNao">Não</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button onclick="confirmarSaida()" class="botaoGuia" id="botaoSair">
+            <i class="bi bi-box-arrow-left"></i>
+            <h1>Sair</h1>
+        </button>
+    </div>
+
+    <script src="../../js/funcionario/perfil.js"></script>
+</body>
+
+</html>

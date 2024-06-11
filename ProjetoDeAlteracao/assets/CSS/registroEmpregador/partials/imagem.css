@@ -1,0 +1,23 @@
+.imagem {
+    border: 2px solid rgb(180, 180, 180);
+    border-radius: 5px;
+    height: 35px;
+    width: 300px;
+    line-height: 35px;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #000;
+}
+
+.imagem::file-selector-button {
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background: white;
+}
+
+.imagem::file-selector-button:hover {
+    background-color: #1c3eff;
+}

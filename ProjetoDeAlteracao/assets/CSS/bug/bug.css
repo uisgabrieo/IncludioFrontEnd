@@ -1,0 +1,4 @@
+@import "./partials/card.css";
+@import "../global/global.css";
+@import "../bug/partials/body.css";
+@import "../bug/partials/campos.css"

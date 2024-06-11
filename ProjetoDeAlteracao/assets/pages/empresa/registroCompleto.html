@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../img/global/Favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="../../CSS/registroEmpregador/registroEmpregador.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <title>Cadastre-se no Includio</title>
+</head>
+<body>
+    <header>
+        <i class="bi bi-backspace" onclick="window.location.href='../../../index.html'"></i>
+    </header>
+    <div id="coluna">
+        <section id="texto">
+            <h1>Empregador</h1>
+            <h2>Começe sua jornada no Includio</h2>
+        </section>
+        <section id="loginBody">
+                <form action="" method="post" id="registroEmployer" enctype="multipart/form-data">
+                <div>
+                    <label for="createdAt">
+                        <div>
+                            Created at<br>
+                            <div id="birth-date">
+                                <select name="dia" id="dia" class="data" required></select>
+                                <select name="mes" id="mes" class="data" required></select>
+                                <select name="ano" id="ano" class="data" required></select>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="companyName">
+                        <div>
+                            Company name<br>
+                            <input type="text" name="companyName" id="companyName" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="cnpj">
+                        <div>
+                            CNPJ<br>
+                            <input type="text" name="cnpj" id="cnpj" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="logo">
+                        <div>
+                            Logo<br>
+                            <input type="file" name="logo" id="logo" accept="image/*" class="imagem" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="companyEmail">
+                        <div>
+                            Company email<br>
+                            <input type="email" name="companyEmail" id="companyEmail" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="website">
+                        <div>
+                            Website<br>
+                            <input type="text" name="website" id="website" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="country">
+                        <div>
+                            Country<br>
+                            <input type="text" name="country" id="country" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="state">
+                        <div>
+                            State<br>
+                            <input type="text" name="state" id="state" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="city">
+                        <div>
+                            City<br>
+                            <input type="text" name="city" id="city" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="ddd">
+                        <div>
+                            DDD<br>
+                            <input type="text" name="ddd" id="ddd" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="phone">
+                        <div>
+                            Phone<br>
+                            <input type="tel" name="phone" id="phone" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="cep">
+                        <div>
+                            CEP<br>
+                            <input type="text" name="cep" id="cep" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="description">
+                        <div>
+                            Description<br>
+                            <input type="text" name="description" id="description" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                
+                <div>
+                    <button type="submit" id="submitEmployer" class="botaoConfirme">Enviar Dados</button>
+                </div>
+                </form>
+        </section>
+    </div>
+
+    
+
+<script src="../js/registroEmpregador.js"></script>
+</body>
+</html>

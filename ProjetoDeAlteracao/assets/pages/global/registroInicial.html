@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/global/Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../CSS/registro/registro.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Cadastre-se no Includio</title>
+</head>
+
+<body>
+    <header>
+        <i class="bi bi-backspace" onclick="window.location.href='../../../index.html'"></i>
+    </header>
+    <div id="coluna">
+        <section id="texto">
+            <h1>Cadastre-se</h1>
+            <h2>Começe sua jornada no Includio</h2>
+        </section>
+        <section id="loginBody">
+            <form action="" method="post" id="registroAccount">
+                <div>
+                    <label for="nomeCompleto">
+                        <div>
+                            Nome completo<br>
+                            <input type="text" name="nomeCompleto" id="nomeCompleto" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="email">
+                        <div>
+                            Email<br>
+                            <input type="email" name="email" id="email" class="credenciais" required>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="password">
+                        <div id="caixaSenha">
+                            Password<br>
+                            <input type="password" name="password" id="password" class="credenciais">
+                            <i class="bi bi-eye-fill" id="botaoSenha" onclick="mostrarSenha()"></i>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="confirmPassword">
+                        <div id="caixaSenha">
+                            Confirm password<br>
+                            <input type="password" name="confirmPassword" id="confirmPassword" class="credenciais"
+                                required>
+                            <i class="bi bi-eye-fill" id="botaoConfirmarSenha" onclick="mostrarConfirmarSenha()"></i>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <label for="typeAccount">
+                        <div>
+                            Type account<br>
+                            <select id="typeAccount" name="typeAccount" class="credenciais" required>
+                                <option value="" disabled selected class="credenciais"></option>
+                                <option value="EMPLOYEE" class="credenciais">Funcionário</option>
+                                <option value="EMPLOYER" class="credenciais">Empregador</option>
+                            </select>
+                        </div>
+                    </label>
+                </div>
+                <div>
+                    <button type="submit" id="submitAccount" class="botaoConfirme">Enviar Dados</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <script src="../../js/global/registroInicial.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+.credenciais {
+    position: relative;
+    border: 2px solid rgb(180, 180, 180);
+    border-radius: 5px;
+    height: 35px;
+    width: 300px;
+}
+
+.botaoConfirme {
+    background-color:black;
+    border-style: none;
+    color:white;
+    margin-top: 5%;
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.botaoConfirme:hover {
+    background-color: #404040;
+}

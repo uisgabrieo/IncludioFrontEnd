@@ -1,0 +1,19 @@
+.data {
+    border: 2px solid rgb(180, 180, 180);
+    border-radius: 5px;
+}
+
+#dia {
+    height: 35px;
+    width: 90px;
+}
+
+#mes {
+    height: 35px;
+    width: 110px;
+}
+
+#ano {
+    height: 35px;
+    width: 90px;
+}

@@ -1,0 +1,42 @@
+.caixaFiltro {
+    border-radius: 50px;
+    background-color: rgb(216, 216, 216);
+    width: 400px;
+    height: 55px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.caixaFiltro .iconeFiltrar, .caixaFiltro .fechar {
+    min-width: 80px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caixaFiltro .fechar i {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.caixaFiltro .iconeFiltrar i {
+    font-size: 30px;
+}
+
+.caixaFiltro .filtro {
+    position: absolute;
+    left: 80px;
+    width: calc(100% - 120px);
+    height: 100%;
+    line-height: 60px;
+}
+
+.caixaFiltro .filtro input {
+    background-color: rgb(216, 216, 216);
+    border: none;
+    outline: none;
+    font-size: 20px;
+}

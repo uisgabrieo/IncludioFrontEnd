@@ -1,0 +1,40 @@
+#perfil {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+#coluna1 {
+    height: 450px;
+    width: 250px;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    background-color: gray;
+    align-items: center;
+}
+
+.coluna1Perfil {
+    display: flex;
+    align-items: center;
+}
+
+.coluna1Perfil p {
+    margin-left: 10px;
+}
+
+#dadosUsuario > div {
+    margin-bottom: 30px; 
+}
+
+.coluna {
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+p, h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}

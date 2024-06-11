@@ -1,0 +1,19 @@
+#senha {
+    background-color: blue;
+}
+#infoPessoal {
+    background-color: aquamarine;
+}
+#endereco {
+    background-color: blueviolet;
+}
+
+.caixa {
+    margin-top: 10px;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.titulo {
+    background-color: rgb(75, 78, 255);
+}
