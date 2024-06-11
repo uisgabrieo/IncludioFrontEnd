@@ -1,14 +1,30 @@
-import { Link } from "react-router-dom"
-import Header from "../../components/Header";
+import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
-import "./Inicio.module.css"
+import styles from "./Inicio.module.css";
 
 function Inicio() {
     return (
         <>
-            <Header />
-            <section className="container">
-                <div className="informacoes">
+            <header className={styles.header}>
+                <Link to="/"><img src="/img/global/Logo_Site_Autismo.png" alt="Logo Includio" className={styles.logo} /></Link>
+                <nav className={styles.navegacao}>
+                    <div>
+                        <a href="" className={styles.link}>Sobre</a>
+                        <a href="" className={styles.link}>Entenda Sobre o Autismo</a>
+                    </div>
+
+                    <div className={styles.divBotoes}>
+                        <Link to="/login">
+                            <button className={styles.botao}>Login</button>
+                        </Link>
+                        <Link to="/registro">
+                            <button className={styles.botao}>Sign Up</button>
+                        </Link>
+                    </div>
+                </nav>
+            </header>
+            <section className={styles.container}>
+                <div className={styles.informacoes}>
                     <h1>SOBRE NÓS</h1>
                     <h2>Em busca de um mundo inclusivo e sem preconceito</h2>
                     <p>
@@ -18,17 +34,17 @@ function Inicio() {
                     </p>
                     <div>
                         <Link to="/login">
-                        <button className="btnLogin">Entrar com e-mail</button>
+                            <button className={styles.btnLogin}>Entrar com e-mail</button>
                         </Link>
                     </div>
                 </div>
                 <figure>
-                    <img clasName="imgHome" src="/img/index/HomeImage.svg" alt="Ilustração Home" />
+                    <img className={styles.imgHome} src="/img/index/HomeImage.svg" alt="Ilustração Home" />
                 </figure>
             </section>
             <Footer />
         </>
-    )
+    );
 }
 
-export default Inicio;    
+export default Inicio;
