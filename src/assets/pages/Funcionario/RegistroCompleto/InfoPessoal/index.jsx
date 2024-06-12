@@ -49,7 +49,7 @@ function Informacoes() {
                                     Formação Academica<br />
                                     <input type="text" name="complemento" id="complemento" className={styles.credenciais} placeholder="Engenharia de Software" onChange={(e) => setFormacao(e.target.value)}/>
                                 </div>
-                                <p>*Deixar o campo vazio concidera-se sem formação</p>
+                                <p>*Deixar o campo vazio considera-se sem formação.</p>
                             </label>
                         </div>
                         <div>

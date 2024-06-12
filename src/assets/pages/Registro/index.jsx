@@ -61,7 +61,7 @@ function Registro() {
                             </label>
                         </div>
                         <div>
-                            <label htmlFor="genero">
+                            <label htmlFor="conta">
                                 <div>
                                     Conta<br />
                                     <select name="conta" id="conta" className={styles.credenciais} onChange={(e) => setTipoConta(e.target.value)}>

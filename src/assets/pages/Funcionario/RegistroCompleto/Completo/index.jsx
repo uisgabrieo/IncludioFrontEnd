@@ -21,7 +21,7 @@ function Completo() {
             <Header />
             <main className={styles.main}>
                 <section className={styles.cardLocalizacao}>
-                    <form id="localizacaoPage">
+                    <form id="localizacaoPage" encType="multipart/form-data">
                         <h1>Informações Finais</h1>
                         <div>
                             <label htmlFor="dataNascimento">
@@ -32,15 +32,28 @@ function Completo() {
                             </label>
                         </div>
                         <div>
-                            <label htmlFor="telefone">
-                                Telefone<br />
-                                <input type="tel" name="telefone" id="telefone" className={styles.credenciais} placeholder="(00) 0000-0000" onChange={(e) => setTelefone(e.target.value)} />
+                            <label htmlFor="genero">
+                                Genero<br />
+                                <select name="genero" id="genero" className={styles.credenciais}>
+                                    <option value="" disabled selected></option>
+                                    <option value="Homem">Homem</option>
+                                    <option value="Mulher">Mulher</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
                             </label>
                         </div>
                         <div>
-                            <label htmlFor="setor">
-                                Setor de Atuação<br />
-                                <input type="text" name="setor" id="setor" className={styles.credenciais} placeholder="Educação" onChange={(e) => setSetor(e.target.value)} />
+                            <label htmlFor="foto">
+                                Foto<br />
+                                <label htmlFor="imagemPerfil" className={styles.btnUpload}>Insira sua Foto</label>
+                                <input type="file" name="imagemPerfil" id="imagemPerfil" className={styles.credenciaisFile} accept="image/*" />
+                            </label>
+                        </div>
+                        <div>
+                            <label htmlFor="foto">
+                                Diagnostico<br />
+                                <label htmlFor="diagnostico" className={styles.btnUpload}>Insira o diagnostico</label>
+                                <input type="file" name="diagnostico" id="diagnostico" className={styles.credenciaisFile} accept="image/*" />
                             </label>
                         </div>
                         <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>

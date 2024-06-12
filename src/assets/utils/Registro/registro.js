@@ -9,14 +9,14 @@ export function envioDados(event, nomeCompleto, email, senha, confirmarSenha, ti
         setErro("Por favor, selecione um tipo de conta!");
     } else {
         
-        const resgistro = new FormData()
+        const registro = new FormData()
 
         registro.append("completeName", nomeCompleto);
         registro.append("email", email);
         registro.append("password", senha);
         registro.append("account", tipoConta);
     
-        localStorage.setItem("dadosRegistro", JSON.stringify(resgistro));
+        localStorage.setItem("dadosRegistro", JSON.stringify(registro));
         
         let url = "/registro/funcionario/localizacao";
         if (tipoConta === 'EMPLOYER') {

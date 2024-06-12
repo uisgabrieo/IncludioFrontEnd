@@ -27,13 +27,19 @@
     gap: 40px;
 }
 
+.cardLocalizacao .data {
+    border: 2px solid rgb(180, 180, 180);
+    border-radius: 5px;
+    height: 35px;
+    width: 100px;
+}
+
 .cardLocalizacao .ilustracaoLocalizacao {
     height: 300px;
 }
 
-.cardLocalizacao h1 {
-    text-align: center;
-    margin-bottom: 40px;
+.cardLocalizacao .credenciaisFile {
+    display: none;
 }
 
 .cardLocalizacao .credenciais {
@@ -43,6 +49,20 @@
     width: 300px;
     border-radius: 15px;
     padding: 0px 30px 0px 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cardLocalizacao .btnUpload {
+    text-align: center;
+    justify-content: center;
+    display: inline-block;
+    background-color: rgb(202, 202, 202);
+    color: var(--gray);
+    height: 40px;
+    width: 300px;
+    border-radius: 15px;
+    padding-top: 5px;
     margin-bottom: 20px;
     position: relative;
 }
@@ -59,14 +79,10 @@
     color: var(--white);
     cursor: pointer;
     transition: border-color 0.25s;
+    transition: .5s;
 }
 
 .cardLocalizacao .btnConfirme:hover {
     background-color: var(--gray);
     border-color: #646cff;
-}
-
-.cardLocalizacao .btnConfirme:focus,
-.cardLocalizacao .btnConfirme:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
 }
