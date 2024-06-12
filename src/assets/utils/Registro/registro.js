@@ -7,22 +7,24 @@ export function envioDados(event, nomeCompleto, email, senha, confirmarSenha, ti
     }
     if (!tipoConta) {
         setErro("Por favor, selecione um tipo de conta!");
-    }
+    } else {
+        
+        const resgistro = new FormData()
 
-    const resgistro = {
-        nomeCompleto: nomeCompleto,
-        email: email,
-        password: senha,
-        tipoConta: tipoConta
-    };
-
-    localStorage.setItem("dadosRegistro", JSON.stringify(resgistro));
+        registro.append("completeName", nomeCompleto);
+        registro.append("email", email);
+        registro.append("password", senha);
+        registro.append("account", tipoConta);
     
-    let url = "/registro/funcionario/localizacao";
-    if (tipoConta === 'EMPLOYER') {
-        url = "/registro/empresa/registroCompleto";
+        localStorage.setItem("dadosRegistro", JSON.stringify(resgistro));
+        
+        let url = "/registro/funcionario/localizacao";
+        if (tipoConta === 'EMPLOYER') {
+            url = "/registro/empresa/registroCompleto";
+        }
+        window.location.href = url;
     }
-    window.location.href = url;
+
 }
 
 export function mostrarSenha() {

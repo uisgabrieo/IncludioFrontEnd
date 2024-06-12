@@ -4,7 +4,7 @@ import Login from "./assets/pages/Login";
 import Registro from "./assets/pages/Registro";
 import RegistroLocalizacaoFuncionario from "./assets/pages/Funcionario/RegistroCompleto/Localizacao"
 import RegistroInformacoesFuncionario from "./assets/pages/Funcionario/RegistroCompleto/InfoPessoal"
-import RegistroCompletoFuncionario from "./assets/pages/Funcionario/RegistroCompleto/Diaginostico"
+import RegistroCompletoFuncionario from "./assets/pages/Funcionario/RegistroCompleto/Completo"
 import RegistroCompletoEmpresa from "./assets/pages/Empresa/RegistroCompleto";
 import Home from "./assets/pages/Home";
 import Buscar from "./assets/pages/Buscar";
