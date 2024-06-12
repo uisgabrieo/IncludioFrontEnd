@@ -40,7 +40,7 @@ function Inicio() {
                         </div>
                     </div>
                     <figure>
-                        <img className={styles.imgHome} src="/img/index/HomeImage.svg" alt="Ilustração Home" />
+                        <img className={styles.imgHome} src="/img/index/undraw_work_time_re_hdyv.svg" alt="Ilustração Home" />
                     </figure>
                 </section>
             </Container>

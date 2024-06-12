@@ -15,12 +15,18 @@
 }
 
 .cardLogin {
+    justify-content: center;
     margin: 10px;
-    width: 352px;
+    width: 800px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     padding: 24px;
     border-radius: 8px;
     margin: 0 auto;
+    display: flex;
+}
+
+.cardLogin .ilustracaoLogin {
+    height: 300px;
 }
 
 .cardLogin h1 {
@@ -40,6 +46,7 @@
 }
 
 .cardLogin .btnConfirme {
+    margin-right: 0;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     border-radius: 8px;
     border: 1px solid transparent;
