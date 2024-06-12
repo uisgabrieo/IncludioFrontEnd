@@ -24,7 +24,7 @@ export function envioDados(event, email, senha, setErro) {
     .then(data => {
         console.log(data); 
         localStorage.setItem('accountResponse', JSON.stringify(data));
-        window.location.href = '../global/homePage.html';
+        window.location.href = '/home';
     })
     .catch(error => {
         console.log("Erro: " + error.message);
