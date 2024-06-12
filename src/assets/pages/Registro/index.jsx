@@ -17,11 +17,11 @@ function Registro() {
             <Header />
             <main className={styles.main}>
                 <section className={styles.cardRegistro}>
-                    <div className={styles.tituloEsubTitulo}>
-                        <h1>Cadastrar</h1>
-                        <p>Começe sua jornada no INCLUDIO</p>
-                    </div>
                     <form onSubmit={(e) => envioDados(e, nomeCompleto, email, senha, confirmarSenha, tipoConta, setErro)} id="registro">
+                        <div className={styles.tituloEsubTitulo}>
+                            <h1>Cadastrar</h1>
+                            <p>Começe sua jornada no INCLUDIO</p>
+                        </div>
                         <div>
                             <label htmlFor="nomeCompleto">
                                 <div>
@@ -77,6 +77,9 @@ function Registro() {
                             <button type="submit" className={styles.btnConfirme}>Cadastrar-se</button>
                         </div>
                     </form>
+                    <section>
+                        <img src="../../../../public/img/Registro/undraw_sign_up_n6im.svg" alt="Ilustração Registro" className={styles.ilustracaoLogin}/>
+                    </section>
                 </section>
             </main>
             <Footer />
