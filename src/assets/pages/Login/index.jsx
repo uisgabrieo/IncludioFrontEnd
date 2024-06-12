@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import styles from "./Login.module.css";
 import { envioDados, mostrarSenha } from "../../utils/Login/login";
 
@@ -47,6 +48,7 @@ function Login() {
                     <p>Não possui cadastro? <Link to="/registro" className={styles.registroLink}>Registre-se aqui!</Link></p>
                 </section>
             </main>
+            <Footer />
         </>
     );
 }
