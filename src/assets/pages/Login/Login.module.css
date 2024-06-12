@@ -1,12 +1,21 @@
 .main {
+    margin: auto;
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
     width: 100%;
+    height: 90vh;
+    gap: 20px;
+}
+
+.registre .registroLink {
+    text-decoration: none;
+    color: blue;
 }
 
 .cardLogin {
+    margin: 10px;
     width: 352px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     padding: 24px;
@@ -14,7 +23,53 @@
     margin: 0 auto;
 }
 
+.cardLogin h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cardLogin .credenciais {
+    background-color: rgb(202, 202, 202);
+    color: var(--gray);
+    height: 40px;
+    width: 300px;
+    border-radius: 15px;
+    padding: 0px 30px 0px 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
 .cardLogin .btnConfirme {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 15px;
+    font-weight: 400;
     background-color: var(--black);
     color: var(--white);
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+.cardLogin .btnConfirme:hover {
+    background-color: var(--gray);
+    border-color: #646cff;
+}
+
+.cardLogin .btnConfirme:focus,
+.cardLogin .btnConfirme:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.cardLogin .campoSenha {
+    position: relative;
+}
+
+.cardLogin .olho {
+    position: absolute;
+    right: 15px;
+    top: 30%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
