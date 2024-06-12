@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Footer from "../../../../components/Footer";
 import Header from "../../../../components/Header";
 import styles from "./Completo.module.css";
-//import { envioDados, preencherData } from "../../../../utils/Funcionario/Completo/completo";
+import { envioDados, preencherData } from "../../../../utils/Funcionario/Completo/completo";
 
 function Completo() {
     const [cpf, setCPF] = useState("");
@@ -12,9 +12,9 @@ function Completo() {
     const [instituicao, setInstituicao] = useState("");
     const [erro, setErro] = useState("");
 
-    // useEffect(() => {
-    //     preencherData();
-    // }, []);
+    useEffect(() => {
+        preencherData();
+    }, []);
 
     return (
         <>

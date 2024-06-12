@@ -26,3 +26,7 @@ export function preencherData() {
         ano.appendChild(option);
     }
 }
+
+export function envioDados() {
+    
+}
