@@ -26,9 +26,9 @@ botao.addEventListener("click", function (event) {
     
         localStorage.setItem('accountData', JSON.stringify(accountData));
     
-        let url = "../global/registroCompleto.html";
+        let url = "../../pages/funcionario/registroCompleto.html";
         if (iTypeAccount === 'EMPLOYER') {
-            url = "../empresa/registroCompleto.html";
+            url = "../../pages/empresa/registroCompleto.html";
         }
         window.location.href = url;
         

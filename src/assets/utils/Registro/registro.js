@@ -18,7 +18,7 @@ export function envioDados(event, nomeCompleto, email, senha, confirmarSenha, ti
 
     localStorage.setItem("dadosRegistro", JSON.stringify(resgistro));
     
-    let url = "/registro/funcionario/registroCompleto";
+    let url = "/registro/funcionario/localizacao";
     if (tipoConta === 'EMPLOYER') {
         url = "/registro/empresa/registroCompleto";
     }
