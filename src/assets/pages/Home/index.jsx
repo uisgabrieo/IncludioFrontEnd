@@ -11,12 +11,13 @@ function Home() {
             <section className={styles.homePage}>
                 <Header />
                 <nav className={styles.menu}>
-                    <Link to="/home"  id={styles.paginaAtual} className={styles.navegacaoMenu}>Home</Link>
+                    <Link to="/home" id={styles.paginaAtual} className={styles.navegacaoMenu}>Home</Link>
                     <Link to="/home/busca" className={styles.navegacaoMenu}>Buscar</Link>
                     <Link to="/home/bug" className={styles.navegacaoMenu}>Relatar Bug</Link>
                     <i className={`bi bi-moon-fill ${styles.navegacaoMenu}`}></i>
                 </nav>
                 <section className={styles.campoBusca}>
+                    <i class={`bi bi-filter ${styles.iconeFiltro}`}></i>
                     <input type="text" id="buscar" className={styles.buscar} placeholder="Filtar" />
                     <img src="../../../../public/img/Home/undraw_filter_re_sa16.svg" alt="Ilustração de busca" className={styles.imgBusca} />
                 </section>
