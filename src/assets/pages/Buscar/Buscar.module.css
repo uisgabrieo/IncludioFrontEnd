@@ -45,3 +45,13 @@
     position: absolute;
     font-size: 22px;
 }
+
+.vagas {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.vagas .imgVazio {
+    height: 500px;
+}

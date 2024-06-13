@@ -16,9 +16,12 @@ function Buscar() {
             </nav>
             <Container>
                 <section className={styles.container}>
-                    <input type="text" className={styles.caixaBuscar} />
+                    <input type="text" className={styles.caixaBuscar} placeholder="Buscar"/>
                     <i class={`bi bi-search ${styles.lupa}`}></i>
                     <div className={styles.vagas}></div>
+                </section>
+                <section className={styles.vagas}>
+                    <img src="../../../../public/img/Busca/undraw_no_data_re_kwbl.svg" alt="Vagas vazias" className={styles.imgVazio}/>
                 </section>
             </Container>
             <Footer />
