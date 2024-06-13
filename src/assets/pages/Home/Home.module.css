@@ -1,0 +1,56 @@
+.homePage {
+    display: flex;
+    flex-direction: column;
+}
+
+.homePage .campoBusca {
+    background-color: aliceblue;
+    display: flex;
+}
+
+.homePage .corpoPagina {
+    margin-top: 30px;
+}
+
+.menu {
+    background-color: var(--secundary);
+    height: 30px;
+    display: flex;
+    justify-content: end;
+    gap: 40px;
+    align-items: center;
+}
+
+.menu .navegacaoMenu {
+    text-decoration: none;
+    margin-right: 40px;
+    color: black;   
+}
+
+.imgBusca {
+    margin: 50px 0px 0px 50px;
+    height: 300px;
+    position: relative;
+    justify-content: end;
+}
+
+.buscar {
+    margin: 100px 0px 0px 70px;
+    font-size: 25px;
+    padding: 0px 50px 10px 20px;
+    border-radius: 5px;
+    background-color: rgba(226, 226, 226, 0.575);
+    height: 55px;
+    width: 457px;
+    align-items: center;
+    z-index: 1000;
+}
+
+.corpoPagina .titulo {
+    font-size: 50px;
+    text-align: center;
+}
+
+.menu .navegacaoMenu:hover {
+    color: aliceblue;
+}

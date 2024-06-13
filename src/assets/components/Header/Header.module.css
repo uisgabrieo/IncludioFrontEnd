@@ -1,13 +1,35 @@
 .header {
-    height: 70px;
+    height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: var(--primary);
 }
 
+.caixaPerfil {
+    margin-right: 40px;
+}
+
+.caixaPerfil p {
+    font-size: 12px;
+    color: var(--white);
+}
+
+.caixaPerfil img {
+    height: 40px;
+    border-radius: 20px;
+}
+
+.caixaPerfil .perfil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+}
+
 .logo {
-    height: 100px;
+    margin-left: 30px;
+    height: 90px;
     padding: 1.5em;
     will-change: filter;
     transition: filter 300ms;
