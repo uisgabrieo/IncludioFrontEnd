@@ -8,13 +8,13 @@ export function envioDados(event, nomeCompleto, email, senha, confirmarSenha, ti
     if (!tipoConta) {
         setErro("Por favor, selecione um tipo de conta!");
     } else {
-        
-        const registro = new FormData()
 
-        registro.append("completeName", nomeCompleto);
-        registro.append("email", email);
-        registro.append("password", senha);
-        registro.append("account", tipoConta);
+        const registro = {
+            completeName: nomeCompleto,
+            email: email,
+            password: senha,
+            account: tipoConta
+        }
     
         localStorage.setItem("dadosRegistro", JSON.stringify(registro));
         

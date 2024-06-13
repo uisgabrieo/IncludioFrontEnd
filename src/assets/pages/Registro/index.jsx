@@ -26,7 +26,7 @@ function Registro() {
                             <label htmlFor="nomeCompleto">
                                 <div>
                                     Nome Completo<br />
-                                    <input type="text" name="nomeComplero" id="nomeCompleto" className={styles.credenciais} placeholder="Exemplo" onChange={(e) => setNomeCompleto(e.target.value)} />
+                                    <input type="text" name="nomeCompleto" id="nomeCompleto" className={styles.credenciais} placeholder="Exemplo" onChange={(e) => setNomeCompleto(e.target.value)} />
                                 </div>
                             </label>
                         </div>
@@ -64,8 +64,8 @@ function Registro() {
                             <label htmlFor="conta">
                                 <div>
                                     Conta<br />
-                                    <select name="conta" id="conta" className={styles.credenciais} onChange={(e) => setTipoConta(e.target.value)}>
-                                        <option value="" disabled></option>
+                                    <select name="conta" id="conta" defaultValue="" className={styles.credenciais} onChange={(e) => setTipoConta(e.target.value)}>
+                                        <option value="" disabled>Escolha uma opção</option>
                                         <option value="EMPLOYER">Empresa</option>
                                         <option value="EMPLOYEE">Funcionário</option>
                                     </select>
@@ -78,7 +78,7 @@ function Registro() {
                         </div>
                     </form>
                     <section>
-                        <img src="../../../../public/img/Registro/undraw_sign_up_n6im.svg" alt="Ilustração Registro" className={styles.ilustracaoLogin}/>
+                        <img src="../../../../public/img/Registro/undraw_sign_up_n6im.svg" alt="Ilustração Registro" className={styles.ilustracaoLogin} />
                     </section>
                 </section>
             </main>

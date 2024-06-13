@@ -1,25 +1,28 @@
 export function envioDados(event, pais, estado, cidade, cep, complemento, setErro) {
-    console.log(pais, estado, cidade, cep, complemento)
     event.preventDefault();
 
     if (!(pais && estado && cidade && cep)) {
         setErro('Dados incompletos');
     } else {
-        const dadosLocalizacao = new FormData();
 
         const dadosRegistro = JSON.parse(localStorage.getItem("dadosRegistro"))
 
-        console.log(dadosRegistro)
+        if (!dadosRegistro) {
+            setErro("Dados não encontrados")
+            return
+        }
 
-        dadosLocalizacao.append("completeName", dadosRegistro.completeName);
-        dadosLocalizacao.append("email", dadosRegistro.email);
-        dadosLocalizacao.append("password", dadosRegistro.password);
-        dadosLocalizacao.append("account", dadosRegistro.account);
-        dadosLocalizacao.append("country", pais);
-        dadosLocalizacao.append("state", estado);
-        dadosLocalizacao.append("city", cidade);
-        dadosLocalizacao.append("cep", cep);
-        dadosLocalizacao.append("complement", complemento);
+        const dadosLocalizacao = {
+            completeName: dadosRegistro.completeName,
+            email: dadosRegistro.email,
+            password: dadosRegistro.password,
+            account: dadosRegistro.account,
+            country: pais,
+            state: estado,
+            city: cidade,
+            cep: cep,
+            complement: complemento
+        }
 
         localStorage.setItem("dadosLocalizacao", JSON.stringify(dadosLocalizacao));
 
@@ -27,4 +30,9 @@ export function envioDados(event, pais, estado, cidade, cep, complemento, setErr
         window.location.href = url;
     }
 
+}
+
+export function log() {
+    const dadosRegistro = JSON.parse(localStorage.getItem("dadosRegistro"))
+    console.log(dadosRegistro)
 }

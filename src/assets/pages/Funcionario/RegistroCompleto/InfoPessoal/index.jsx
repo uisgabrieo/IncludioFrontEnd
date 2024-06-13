@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../../../../components/Footer";
 import Header from "../../../../components/Header";
 import styles from "./Informacoes.module.css"
-import { envioDados } from "../../../../utils/Funcionario/InfoPessoal/informacao"
+import { envioDados, log } from "../../../../utils/Funcionario/InfoPessoal/informacao"
 
 function Informacoes() {
     const [cpf, setCPF] = useState("");
@@ -11,6 +11,10 @@ function Informacoes() {
     const [formacao, setFormacao] = useState("");
     const [instituicao, setInstituicao] = useState("");
     const [erro, setErro] = useState("")
+
+    useEffect(() => {
+        log();
+    }, []);
 
     return (
         <>

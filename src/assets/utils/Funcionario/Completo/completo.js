@@ -1,42 +1,3 @@
-export function envioDados(event, dia, mes, ano, imgPerfil, imgDiagnostico, setErro) {
-    event.preventDefault();
-
-    if (!(dia && mes && ano && imgPerfil && imgDiagnostico)) {
-        setErro('Dados incompletos');
-    } else {
-        const dateOfBirth = `${dia}/${mes}/${ano}`;
-
-        const dadosCompleto = new FormData();
-
-        const dadosInformacao = JSON.parse(localStorage.getItem("dadosInformacao"))
-
-        console.log(dadosInformacao)
-
-        dadosCompleto.append("completeName", dadosInformacao.completeName);
-        dadosCompleto.append("email", dadosInformacao.email);
-        dadosCompleto.append("password", dadosInformacao.password);
-        dadosCompleto.append("account", dadosInformacao.account);
-        dadosCompleto.append("country", dadosInformacao.pais);
-        dadosCompleto.append("state", dadosInformacao.estado);
-        dadosCompleto.append("city", dadosInformacao.cidade);
-        dadosCompleto.append("cep", dadosInformacao.cep);
-        dadosCompleto.append("complement", dadosInformacao.complemento);
-        dadosCompleto.append("cpf", dadosInformacao.cpf);
-        dadosCompleto.append("numberPhone", dadosInformacao.telefone);
-        dadosCompleto.append("sector", dadosInformacao.setor);
-        dadosCompleto.append("training", dadosInformacao.formacao);
-        dadosCompleto.append("institution", dadosInformacao.instituicao);
-        dadosCompleto.append("dateOfBirth", dateOfBirth);
-        dadosCompleto.append("photograph", imgPerfil.files[0]);
-        dadosCompleto.append("diagnostic", imgDiagnostico.files[0]);
-        
-        enviarAPI(dadosCompleto);
-
-        let url = "/registro/funcionario/completo";
-        window.location.href = url;
-    }
-}
-
 export function preencherData() {
     const dia = document.getElementById("dia");
     const mes = document.getElementById("mes");
@@ -66,14 +27,54 @@ export function preencherData() {
     }
 }
 
+export function envioDados(event, dia, mes, ano, genero, imgPerfil, imgDiagnostico, setErro) {
+    event.preventDefault();
+
+    if (!(dia && mes && ano && imgPerfil && imgDiagnostico)) {
+        setErro("Erro");
+    } else {
+        const dadosCompleto = new FormData();
+        const dadosInformacao = JSON.parse(localStorage.getItem("dadosInformacao"));
+
+        if (!dadosInformacao) {
+            setErro("Dados não encontrados")
+            return
+        }
+
+        const diaFomr = formatarDoisDigitos(dia);
+        const mesFomr = formatarDoisDigitos(mes);
+        const dateOfBirth = `${diaFomr}/${mesFomr}/${ano}`;
+
+        console.log(dadosInformacao);
+
+        dadosCompleto.append("completeName", dadosInformacao.completeName);
+        dadosCompleto.append("email", dadosInformacao.email);
+        dadosCompleto.append("password", dadosInformacao.password);
+        dadosCompleto.append("account", dadosInformacao.account);
+        dadosCompleto.append("country", dadosInformacao.country);
+        dadosCompleto.append("state", dadosInformacao.state);
+        dadosCompleto.append("city", dadosInformacao.city);
+        dadosCompleto.append("cep", dadosInformacao.cep);
+        dadosCompleto.append("complement", dadosInformacao.complement);
+        dadosCompleto.append("cpf", dadosInformacao.cpf);
+        dadosCompleto.append("numberPhone", dadosInformacao.numberPhone);
+        dadosCompleto.append("sector", dadosInformacao.sector);
+        dadosCompleto.append("training", dadosInformacao.training);
+        dadosCompleto.append("institution", dadosInformacao.institution);
+        dadosCompleto.append("dateOfBirth", dateOfBirth);
+        dadosCompleto.append("gender", genero);
+        dadosCompleto.append("photograph", imgPerfil);
+        dadosCompleto.append("diagnostic", imgDiagnostico);
+
+        localStorage.setItem("dadosCompletos", JSON.stringify(dadosCompleto));
+        enviarAPI(dadosCompleto);
+    }
+}
+
 function enviarAPI(dados) {
     fetch("http://localhost:8080/api/account/employee/register", {
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
         method: "POST",
-        body: JSON.stringify(dados)
+        body: dados
     })
     .then(response => {
         if (response.ok) {
@@ -83,11 +84,20 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        console.log(data); 
-        localStorage.setItem('accountResponse', JSON.stringify(data));
+        localStorage.setItem("data", JSON.stringify(data));
+        window.location.href = "/home";
     })
     .catch(error => {
         console.log("Erro: " + error.message);
-        setErro("Credenciais inválidas");
     });
+}
+
+export function formatarDoisDigitos(numero) {
+    return numero.toString().padStart(2, '0');
+}
+
+export function log() {
+    const dadosInformacao = JSON.parse(localStorage.getItem("dadosInformacao"));
+
+    console.log(dadosInformacao);
 }
