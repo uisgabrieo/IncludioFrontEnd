@@ -1,0 +1,61 @@
+.homePage {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(241, 241, 241);
+}
+.menu {
+    background-color: var(--secundary);
+    height: 30px;
+    display: flex;
+    justify-content: end;
+    gap: 40px;
+    align-items: center;
+}
+
+.menu .navegacaoMenu {
+    text-decoration: none;
+    margin-right: 40px;
+    color: black;   
+}
+
+.menu .navegacaoMenu:hover {
+    color: aliceblue;
+}
+
+.container {
+    display: flex;
+}
+
+.campoPerfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 300px;
+    height: 50vh;
+}
+
+.container .campoPerfil img {
+    margin-top: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 100px;
+}
+
+.container .campoVagas{
+    margin-top: 100px;
+    margin-left: 50px;
+    width: 800px;
+    max-width: 700px;
+    min-width: 500px;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+
+.container .campoVagas #vagas {
+    background-color: aquamarine;
+    width: 300px;
+    height: 300px;
+}
