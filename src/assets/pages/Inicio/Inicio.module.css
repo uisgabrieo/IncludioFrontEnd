@@ -83,6 +83,7 @@
 .inicial .informacoes p {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     margin-bottom: 48px;
+    text-align: justify;
 }
 
 .inicial .btnLogin {
