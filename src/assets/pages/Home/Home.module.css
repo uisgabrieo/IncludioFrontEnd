@@ -24,6 +24,7 @@
 .menu .navegacaoMenu {
     margin-right: 40px;
     color: black;  
+    text-decoration: none;
     font-weight: bolder; 
 }
 
