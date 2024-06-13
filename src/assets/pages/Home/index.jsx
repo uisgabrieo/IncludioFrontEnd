@@ -11,9 +11,9 @@ function Home() {
             <section className={styles.homePage}>
                 <Header />
                 <nav className={styles.menu}>
-                    <Link to="" className={styles.navegacaoMenu}>Home</Link>
-                    <Link to="" className={styles.navegacaoMenu}>Buscar</Link>
-                    <Link to="" className={styles.navegacaoMenu}>Relatar Bug</Link>
+                    <Link to="/home"  id={styles.paginaAtual} className={styles.navegacaoMenu}>Home</Link>
+                    <Link to="/home/busca" className={styles.navegacaoMenu}>Buscar</Link>
+                    <Link to="/home/bug" className={styles.navegacaoMenu}>Relatar Bug</Link>
                     <i className={`bi bi-moon-fill ${styles.navegacaoMenu}`}></i>
                 </nav>
                 <section className={styles.campoBusca}>

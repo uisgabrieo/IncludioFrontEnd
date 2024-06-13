@@ -22,9 +22,9 @@
 }
 
 .menu .navegacaoMenu {
-    text-decoration: none;
     margin-right: 40px;
-    color: black;   
+    color: black;  
+    font-weight: bolder; 
 }
 
 .imgBusca {
@@ -53,4 +53,8 @@
 
 .menu .navegacaoMenu:hover {
     color: aliceblue;
+}
+
+#paginaAtual{
+    color: white;
 }

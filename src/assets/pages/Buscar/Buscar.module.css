@@ -1,0 +1,46 @@
+.menu {
+    background-color: var(--secundary);
+    height: 30px;
+    display: flex;
+    justify-content: end;
+    gap: 40px;
+    align-items: center;
+}
+
+.menu .navegacaoMenu {
+    margin-right: 40px;
+    color: black;  
+    font-weight: bolder; 
+}
+
+
+.menu .navegacaoMenu:hover {
+    color: aliceblue;
+}
+
+#paginaAtual{
+    color: var(--white);
+}
+
+.container {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .caixaBuscar {
+    font-size: 16px;
+    padding: 0px 50px 0px 20px;
+    border: 1px black solid;
+    height: 40px;
+    width: 800px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.container .lupa {
+    left:77.5%;
+    position: absolute;
+    font-size: 22px;
+}
