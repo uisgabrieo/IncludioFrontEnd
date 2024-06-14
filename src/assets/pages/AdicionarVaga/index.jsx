@@ -1,40 +1,25 @@
-import { Link } from "react-router-dom"
-import { useState, useEffect } from "react"
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import styles from "./AddVaga.module.css"
-import { envioDados, rolarScroll } from "../../utils/Bug/bug"
 
-function Bug() {
-    useEffect(() => {
-        window.addEventListener("scroll", rolarScroll);
-        return () => {
-            window.removeEventListener("scroll", rolarScroll);
-        };
-    }, []);
+const MyEditor = () => {
+    const [value, setValue] = useState('');
 
     return (
         <>
-            <section className={styles.header} id="header">
-                <Header />
-                <nav id="navMenu" className={styles.menu}>
-                    <Link to="/home" className={styles.navegacaoMenu}>Home</Link>
-                    <Link to="/home/busca" className={styles.navegacaoMenu}>Buscar</Link>
-                    <Link to="/home/bug" className={styles.navegacaoMenu}>Relatar Bug</Link>
-                    <i className={`bi bi-moon-fill ${styles.navegacaoMenu}`}></i>
-                </nav>
-            </section>
+            <Header />
             <main className={styles.main}>
                 <section className={styles.cardLogin}>
-                    <form onSubmit={(e) => envioDados(e, descricao, nomeCompleto, email, setErro)} className={styles.formulario}>
-                        <div>
-                            <h1>FeedBack, Avaliação ou Relatar Bug</h1>
-                        </div>
+                    <form id="loginPage">
+                        <h1>Entrar</h1>
                         <div>
                             <label htmlFor="email">
                                 <div>
-                                    Descrição<br />
-                                    <input type="email" name="email" id="email" className={styles.credenciais} placeholder="Descreva"
+                                    Email<br />
+                                    <input type="email" name="email" id="email" className={styles.credenciais} placeholder="exemplo@gmail.com" onChange={(e) => setEmail(e.target.value)}
                                     />
                                 </div>
                             </label>
@@ -42,32 +27,30 @@ function Bug() {
                         <div>
                             <label htmlFor="senha">
                                 <div className={styles.caixaSenha}>
-                                    Nome Completo<br />
+                                    Senha<br />
                                     <div className={styles.campoSenha}>
-                                        <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Nome Completo" />
+                                        <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Senha" onChange={(e) => setSenha(e.target.value)} />
+                                        <i className={`bi bi-eye-fill ${styles.olho}`} id="olho" ></i>
                                     </div>
                                 </div>
                             </label>
                         </div>
+                        <p className={styles.mensagemErro} style={{ color: "red" }}></p>
                         <div>
-                            <div>
-                                <label htmlFor="senha">
-                                    <div className={styles.caixaSenha}>
-                                        Emial<br />
-                                        <div className={styles.campoSenha}>
-                                            <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Email" />
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-                            <button type="submit" className={styles.btnConfirme}>Enviar</button>
+                            <button type="submit" className={styles.btnConfirme}>Login</button>
                         </div>
                     </form>
+                    <section className={styles.ilustracaoLogin}>
+                        <img src="../../../../public/img/Login/undraw_undraw_undraw_undraw_sign_up_ln1s_-1-_s4bc_-1-_ee41_-1-_kf4d.svg" alt="Representação login" className={styles.ilustracaoLogin} />
+                    </section>
+                </section>
+                <section className="registre">
                 </section>
             </main>
             <Footer />
+            <ReactQuill value={value} onChange={setValue} />
         </>
-    )
-}
+    );
+};
 
-export default Bug;
+export default MyEditor;
