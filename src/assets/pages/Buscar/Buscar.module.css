@@ -49,9 +49,9 @@
 .vagas {
     margin-top: 40px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
 .vagas .imgVazio {
-    height: 500px;
+    height: 400px;
 }

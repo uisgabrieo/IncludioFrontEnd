@@ -1,16 +1,15 @@
-export function abriFiltro() {
-    const texto = document.getElementById("filtrar")
-    const botao = document.getElementById("imgFeicgar")
+import styles from "../../pages/Home/Home.module.css";
 
-    texto.classList.add("abrir");
-    botao.classList.add("abrir")
+export function rolarScroll() {
+    const cabecalho = document.querySelector("#header");
+    const navegacao = document.querySelector("#navMenu");
+    const scroll = window.scrollY;
 
-}
-
-export function feicharFiltro() {
-    const texto = document.getElementById("filtrar")
-    const botao = document.getElementById("imgFeicgar")
-
-    texto.classList.remove("abrir")
-    botao.classList.remove("abrir")
+    if (scroll > 0) {
+        cabecalho.classList.add(styles.rolar);
+        navegacao.classList.add(styles.rolar);
+    } else {
+        cabecalho.classList.remove(styles.rolar);
+        navegacao.classList.remove(styles.rolar);
+    }
 }

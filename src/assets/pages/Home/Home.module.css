@@ -12,6 +12,13 @@
     margin-top: 30px;
 }
 
+.header.rolar nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 .menu {
     background-color: var(--secundary);
     height: 30px;
@@ -21,11 +28,19 @@
     align-items: center;
 }
 
+.menu.rolar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--secundary); 
+    z-index: 1000;
+}
+
 .menu .navegacaoMenu {
     margin-right: 40px;
-    color: black;  
+    color: black;
     text-decoration: none;
-    font-weight: bolder; 
+    font-weight: bolder;
 }
 
 .imgBusca {
@@ -56,7 +71,7 @@
     color: aliceblue;
 }
 
-#paginaAtual{
+#paginaAtual {
     color: white;
 }
 
@@ -65,4 +80,29 @@
     left: 100px;
     position: relative;
     font-size: 24px;
+}
+
+.corpoPagina .vagas {
+    opacity: 40%;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.corpoPagina .btnVaga {
+    margin-left: 20px;
+    gap: 10px;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    height: 35px;
+    width: 150px;
+    background-color: green;
+}
+
+.corpoPagina .btnVaga:hover {
+    background-color: var(--secundary);
 }
