@@ -3,22 +3,6 @@
     flex-direction: column;
 }
 
-.homePage .campoBusca {
-    background-color: aliceblue;
-    display: flex;
-}
-
-.homePage .corpoPagina {
-    margin-top: 30px;
-}
-
-.header.rolar nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
 .menu {
     background-color: var(--secundary);
     height: 30px;
@@ -32,7 +16,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--secundary); 
+    background-color: var(--secundary);
     z-index: 1000;
 }
 
@@ -43,30 +27,6 @@
     font-weight: bolder;
 }
 
-.imgBusca {
-    margin: 50px 0px 0px 50px;
-    height: 250px;
-    position: relative;
-    justify-content: end;
-}
-
-.buscar {
-    margin: 100px 0px 0px 70px;
-    font-size: 20px;
-    padding: 0px 50px 0px 35px;
-    border-radius: 5px;
-    background-color: rgba(226, 226, 226, 0.575);
-    height: 40px;
-    width: 457px;
-    align-items: center;
-    z-index: 1000;
-}
-
-.corpoPagina .titulo {
-    font-size: 50px;
-    text-align: center;
-}
-
 .menu .navegacaoMenu:hover {
     color: aliceblue;
 }
@@ -75,11 +35,77 @@
     color: white;
 }
 
-.campoBusca .iconeFiltro {
-    top: 103px;
-    left: 100px;
+.homePage .campoBusca {
+    background-color: aliceblue;
+    display: flex;
+    width: 100%;
+    min-height: 250px;
+}
+
+.campoFiltro {
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
     position: relative;
-    font-size: 24px;
+    transition: .5s;
+}
+
+.campoFiltro.abrir {
+    width: 250px;
+}
+
+.campoFiltro .lupaFiltro,
+.campoFiltro .btnFeichar {
+    min-width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.campoFiltro .inputFiltro {
+    position: absolute;
+    left: 50px;
+    width: calc(100%-120px);
+    height: 100%;
+    line-height: 50px;
+}
+
+.campoFiltro .inputFiltro input{
+    top: 0;
+    height: 50px;
+    width: 160px;
+    outline: none;
+    font-size: 15px;
+}
+
+.campoFiltro .lupaFiltro i{
+    font-size: 30px;
+}
+
+.campoFiltro .btnFeichar i{
+    font-size: 20px;
+}
+
+.imgBusca {
+    margin: 50px 0px 0px 50px;
+    height: 250px;
+    justify-content: end;
+}
+
+.homePage .corpoPagina {
+    margin-top: 30px;
+}
+
+.corpoPagina .titulo {
+    font-size: 50px;
+    text-align: center;
 }
 
 .corpoPagina .vagas {
@@ -91,11 +117,14 @@
     gap: 60px;
 }
 
-.corpoPagina .btnVaga {
+.corpoPagina .linkVaga {
+    text-decoration: none;
+}
+
+.corpoPagina .linkVaga .btnVaga {
     margin-left: 20px;
     gap: 10px;
     justify-content: center;
-    text-decoration: none;
     align-items: center;
     display: flex;
     height: 35px;
@@ -106,3 +135,15 @@
 .corpoPagina .btnVaga:hover {
     background-color: var(--secundary);
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@ function Bug() {
                             <label htmlFor="email">
                                 <div>
                                     Descrição<br />
-                                    <input type="email" name="email" id="email" className={styles.credenciais} placeholder="exemplo@gmail.com"
+                                    <input type="email" name="email" id="email" className={styles.credenciais} placeholder="Descreva"
                                     />
                                 </div>
                             </label>
@@ -41,7 +41,7 @@ function Bug() {
                                 <div className={styles.caixaSenha}>
                                     Nome Completo<br />
                                     <div className={styles.campoSenha}>
-                                        <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Senha" />
+                                        <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Nome Completo" />
                                     </div>
                                 </div>
                             </label>
@@ -52,7 +52,7 @@ function Bug() {
                                     <div className={styles.caixaSenha}>
                                         Emial<br />
                                         <div className={styles.campoSenha}>
-                                            <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Senha" />
+                                            <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Email" />
                                         </div>
                                     </div>
                                 </label>
