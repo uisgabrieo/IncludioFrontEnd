@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Home.module.css";
-import { rolarScroll} from "../../utils/Home/home";
+import { rolarScroll } from "../../utils/Home/home";
 
 function Home() {
     useEffect(() => {
@@ -38,12 +38,15 @@ function Home() {
                     <img src="../../../../public/img/Home/undraw_filter_re_sa16.svg" alt="Ilustração de busca" className={styles.imgBusca} />
                 </section>
                 <section className={styles.corpoPagina}>
-                    {/* <Link to="/home/adicionarVaga" className={styles.linkVaga}>
-                        <button className={styles.btnVaga}>
-                            <i className="bi bi-plus-square-fill"></i>
-                            <p>Adicionar vaga</p>
-                        </button>
-                    </Link> */}
+                    <div className={styles.limite}>
+                        <Link to="/home/adicionarVaga" className={styles.linkVaga} id={styles.linkVaga}>
+                            <button className={styles.btnVaga}>
+                                <i className="bi bi-plus-square-fill"></i>
+                                <p>Adicionar vaga</p>
+                            </button>
+                        </Link>
+                    </div>
+
                     <h1 className={styles.titulo}>EXPLORAR VAGAS</h1>
                     <div className={styles.vagas}>
                         <img src="../../../../public/img/Home/undraw_posts_1aht.svg" alt="" />

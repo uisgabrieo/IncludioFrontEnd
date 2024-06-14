@@ -103,8 +103,15 @@
     gap: 60px;
 }
 
-.corpoPagina .linkVaga {
+.corpoPagina .limite {
+    height: 35px;
+    width: 150px;
+}
+
+.corpoPagina .limite .linkVaga {
     text-decoration: none;
+    width: 100%;
+    height: 100%;
 }
 
 .corpoPagina .linkVaga .btnVaga {
@@ -116,6 +123,7 @@
     height: 35px;
     width: 150px;
     background-color: green;
+    cursor: pointer;
 }
 
 .corpoPagina .btnVaga:hover {
