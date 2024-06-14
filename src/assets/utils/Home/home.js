@@ -5,7 +5,7 @@ export function rolarScroll() {
     const navegacao = document.querySelector("#navMenu");
     const scroll = window.scrollY;
 
-    if (scroll > 0) {
+    if (scroll > 52) {
         cabecalho.classList.add(styles.rolar);
         navegacao.classList.add(styles.rolar);
     } else {
