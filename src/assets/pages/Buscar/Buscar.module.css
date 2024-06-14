@@ -7,6 +7,14 @@
     align-items: center;
 }
 
+.menu.rolar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--secundary);
+    z-index: 1000;
+}
+
 .menu .navegacaoMenu {
     margin-right: 40px;
     color: black;  

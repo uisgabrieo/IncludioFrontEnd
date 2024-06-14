@@ -1,3 +1,5 @@
+import styles from "../../pages/Bug/Bug.module.css";
+
 export function envioDados(event, descricao, nomeCompleto, emial, setErro) {
     event.preventDefault();
 
@@ -34,4 +36,18 @@ export function envioDados(event, descricao, nomeCompleto, emial, setErro) {
         setErro("Credenciais inválidas");
     });
 
+}
+
+export function rolarScroll() {
+    const cabecalho = document.querySelector("#header");
+    const navegacao = document.querySelector("#navMenu");
+    const scroll = window.scrollY;
+
+    if (scroll > 51) {
+        cabecalho.classList.add(styles.rolar);
+        navegacao.classList.add(styles.rolar);
+    } else {
+        cabecalho.classList.remove(styles.rolar);
+        navegacao.classList.remove(styles.rolar);
+    }
 }

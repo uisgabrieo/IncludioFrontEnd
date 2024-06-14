@@ -1,29 +1,37 @@
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 import styles from "./Bug.module.css"
-import { envioDados } from "../../utils/Bug/bug"
+import { envioDados, rolarScroll } from "../../utils/Bug/bug"
 
 function Bug() {
     const [descricao, setDescricao] = useState("");
     const [nomeCompleto, setNomeCompleto] = useState("");
-    const [emial, setEmail] = useState("");
+    const [email, setEmail] = useState("");
     const [erro, setErro] = useState("");
 
+    useEffect(() => {
+        window.addEventListener("scroll", rolarScroll);
+        return () => {
+            window.removeEventListener("scroll", rolarScroll);
+        };
+    }, []);
 
     return (
         <>
-            <Header />
-            <nav className={styles.menu}>
-                <Link to="/home" className={styles.navegacaoMenu}>Home</Link>
-                <Link to="/home/busca" className={styles.navegacaoMenu}>Buscar</Link>
-                <Link to="/home/bug" id={styles.paginaAtual} className={styles.navegacaoMenu}>Relatar Bug</Link>
-                <i className={`bi bi-moon-fill ${styles.navegacaoMenu}`}></i>
-            </nav>
+            <section className={styles.header} id="header">
+                <Header />
+                <nav id="navMenu" className={styles.menu}>
+                    <Link to="/home" className={styles.navegacaoMenu}>Home</Link>
+                    <Link to="/home/busca" className={styles.navegacaoMenu}>Buscar</Link>
+                    <Link to="/home/bug" id={styles.paginaAtual} className={styles.navegacaoMenu}>Relatar Bug</Link>
+                    <i className={`bi bi-moon-fill ${styles.navegacaoMenu}`}></i>
+                </nav>
+            </section>
             <main className={styles.main}>
                 <section className={styles.cardLogin}>
-                    <form onSubmit={(e) => envioDados(e, setDescricao, setNomeCompleto, setEmail, setErro)} className={styles.formulario}>
+                    <form onSubmit={(e) => envioDados(e, descricao, nomeCompleto, email, setErro)} className={styles.formulario}>
                         <div>
                             <h1>FeedBack, Avaliação ou Relatar Bug</h1>
                         </div>

@@ -13,6 +13,23 @@
     align-items: center;
 }
 
+.menu.rolar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--secundary);
+    z-index: 1000;
+}
+
+.menu {
+    background-color: var(--secundary);
+    height: 30px;
+    display: flex;
+    justify-content: end;
+    gap: 40px;
+    align-items: center;
+}
+
 .menu .navegacaoMenu {
     text-decoration: none;
     margin-right: 40px;
