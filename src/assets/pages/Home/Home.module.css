@@ -1,5 +1,4 @@
 .homePage {
-    display: flex;
     flex-direction: column;
 }
 
@@ -36,67 +35,53 @@
 }
 
 .homePage .campoBusca {
-    background-color: aliceblue;
     display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
     width: 100%;
     min-height: 250px;
 }
 
 .campoFiltro {
-    border-radius: 50px;
-    height: 50px;
-    width: 50px;
-    background-color: #fff;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    transition: .5s;
-}
-
-.campoFiltro.abrir {
-    width: 250px;
-}
-
-.campoFiltro .lupaFiltro,
-.campoFiltro .btnFeichar {
-    min-width: 50px;
-    height: 50px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1;
 }
 
-.campoFiltro .inputFiltro {
-    position: absolute;
-    left: 50px;
-    width: calc(100%-120px);
-    height: 100%;
-    line-height: 50px;
-}
-
-.campoFiltro .inputFiltro input{
-    top: 0;
-    height: 50px;
-    width: 160px;
-    outline: none;
-    font-size: 15px;
-}
-
-.campoFiltro .lupaFiltro i{
-    font-size: 30px;
-}
-
-.campoFiltro .btnFeichar i{
+.campoFiltro .iconeFiltro{
     font-size: 20px;
+    position: absolute;
+    left: 410px;
+    top: 105px;
+
+}
+
+.campoFiltro .inputFiltro{
+    height: 40px;
+    width: 500px;
+}
+
+.campoFiltro .inputFiltro input {
+    padding-left: 40px;
+    width: 100%;
+    height: 100%;
+}
+
+.campoFiltro .btnFiltrar {
+    position: relative;
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 60px;
 }
 
 .imgBusca {
     margin: 50px 0px 0px 50px;
     height: 250px;
-    justify-content: end;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .homePage .corpoPagina {
@@ -135,15 +120,3 @@
 .corpoPagina .btnVaga:hover {
     background-color: var(--secundary);
 }
-
-
-
-
-
-
-
-
-
-
-
-

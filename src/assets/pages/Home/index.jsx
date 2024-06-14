@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Home.module.css";
-import { rolarScroll, abrirCaixaFiltro, feicharCaixaFiltro } from "../../utils/Home/home";
+import { rolarScroll} from "../../utils/Home/home";
 
 function Home() {
     useEffect(() => {
@@ -27,15 +27,13 @@ function Home() {
                 </section>
                 <section className={styles.campoBusca} id="campoBusca">
                     <div className={styles.campoFiltro} id="campoFiltro">
-                        <div className={styles.lupaFiltro} id="lupaFiltro" onClick={abrirCaixaFiltro}>
+                        <div className={styles.lupaFiltro} id="lupaFiltro">
                             <i className={`bi bi-filter ${styles.iconeFiltro}`} id="imgFiltro"></i>
                         </div>
                         <div className={styles.inputFiltro}>
                             <input type="text" id="filtrar" className={styles.filtrar} placeholder="Filtrar" />
                         </div>
-                        <div className={styles.btnFeichar} id="ficharFiltro" onClick={feicharCaixaFiltro}>
-                            <i className={`bi bi-x-circle ${styles.iconeFeichar}`} id="imgFeichar"></i>
-                        </div>
+                        <button type="submit" className={styles.btnFiltrar}>Filtar</button>
                     </div>
                     <img src="../../../../public/img/Home/undraw_filter_re_sa16.svg" alt="Ilustração de busca" className={styles.imgBusca} />
                 </section>

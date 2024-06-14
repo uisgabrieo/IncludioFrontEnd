@@ -13,17 +13,3 @@ export function rolarScroll() {
         navegacao.classList.remove(styles.rolar);
     }
 }
-
-export function abrirCaixaFiltro() {
-    console.log("abrir");
-    const caixaFiltro = document.querySelector("#campoFiltro");
-    console.log(caixaFiltro)
-    caixaFiltro.classList.add(styles.abrir);
-}
-
-export function feicharCaixaFiltro() {
-    console.log("feichar");
-    const caixaFiltro = document.querySelector("#campoFiltro");
-
-    caixaFiltro.classList.remove(styles.abrir);
-}
