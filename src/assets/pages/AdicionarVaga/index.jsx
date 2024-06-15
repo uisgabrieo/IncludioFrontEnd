@@ -36,7 +36,7 @@ const AdicionarVaga = () => {
             </section>
             <main className={styles.main}>
                 <section className={styles.cardVaga}>
-                    <h1>Criar Vaga</h1>
+                    <h1>Criar Vaga</h1> <br /> 
                     <form className={styles.formVaga}>
                         <div className={styles.colunasVagas}>
                             <div className={styles.colunaUm}>
@@ -60,16 +60,16 @@ const AdicionarVaga = () => {
                                 <label htmlFor="setor">
                                     Setor <br />
                                     <select name="setor" id="setor" defaultValue="" className={styles.credenciais} onChange={selecionarSetor}>
-                                        <option value="" disabled>Selecione uma área...</option>
-                                        <option value="livre">Livre</option>
-                                        <option value="saude">Saúde</option>
-                                        <option value="educacao">Educação</option>
-                                        <option value="ti">Tecnologia da Informação (TI)</option>
-                                        <option value="engenharia">Engenharia</option>
-                                        <option value="administracao">Administração</option>
-                                        <option value="financas">Finanças</option>
-                                        <option value="marketing">Marketing</option>
-                                        <option value="outro">Outro...</option>
+                                        <option value="" disabled>Escolha um setor</option>
+                                        <option value="Livre">Livre</option>
+                                        <option value="Saúde">Saúde</option>
+                                        <option value="Educação">Educação</option>
+                                        <option value="Tecnologia da Informação">Tecnologia da Informação (TI)</option>
+                                        <option value="Engenharia">Engenharia</option>
+                                        <option value="Adiministração">Administração</option>
+                                        <option value="Finanças">Finanças</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Outro">Outro...</option>
                                     </select>
                                     <div className={styles.resultado} id="resultado">
                                         {areas.map((setor, index) => (
@@ -85,48 +85,14 @@ const AdicionarVaga = () => {
                             <label htmlFor="pais">
                                 Pais<br />
                                 <select name="pais" id="pais" defaultValue="" className={styles.credenciais} onChange={selecionarSetor}>
-                                    <option value="" disabled>Selecione uma área...</option>
-                                    <option value="livre">Livre</option>
-                                    <option value="saude">Saúde</option>
-                                    <option value="educacao">Educação</option>
-                                    <option value="ti">Tecnologia da Informação (TI)</option>
-                                    <option value="engenharia">Engenharia</option>
-                                    <option value="administracao">Administração</option>
-                                    <option value="financas">Finanças</option>
-                                    <option value="marketing">Marketing</option>
-                                    <option value="outro">Outro...</option>
+                                    <option value="" disabled>Selecione um pais</option>
                                 </select>
-                                <div className={styles.resultado} id="resultado">
-                                    {areas.map((setor, index) => (
-                                        <span
-                                            key={index}>{setor}{index < areas.length - 1 ? ', ' : ''}
-                                        </span>
-
-                                    ))}
-                                </div>
                             </label>
                             <label htmlFor="estado">
                                 Estado<br />
                                 <select name="estado" id="estado" defaultValue="" className={styles.credenciais} onChange={selecionarSetor}>
-                                    <option value="" disabled>Selecione uma área...</option>
-                                    <option value="livre">Livre</option>
-                                    <option value="saude">Saúde</option>
-                                    <option value="educacao">Educação</option>
-                                    <option value="ti">Tecnologia da Informação (TI)</option>
-                                    <option value="engenharia">Engenharia</option>
-                                    <option value="administracao">Administração</option>
-                                    <option value="financas">Finanças</option>
-                                    <option value="marketing">Marketing</option>
-                                    <option value="outro">Outro...</option>
+                                    <option value="" disabled>Selecione um estado</option>
                                 </select>
-                                <div className={styles.resultado} id="resultado">
-                                    {areas.map((setor, index) => (
-                                        <span
-                                            key={index}>{setor}{index < areas.length - 1 ? ', ' : ''}
-                                        </span>
-
-                                    ))}
-                                </div>
                             </label>
                         </div>
                         <div className={styles.colunaQuatro}>

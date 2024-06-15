@@ -18,7 +18,7 @@
 .menu .navegacaoMenu {
     text-decoration: none;
     margin-right: 40px;
-    color: black;
+    color: var(--black);
     font-weight: bolder;   
 }
 
@@ -54,14 +54,18 @@
     flex: 1;
 }
 
-.requisitos {
-    width: 100%;
-    margin-bottom: 20px;
+.resultado {
+    padding: 10px;
+    height: 83px;
+    border: 1px black solid;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.descricao {
+.descricao, .requisitos {
     width: 100%;
     margin-bottom: 20px;
+    border: 1px black solid;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .cardVaga .credenciais {

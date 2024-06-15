@@ -11,6 +11,7 @@ import Buscar from "./assets/pages/Buscar";
 import Bug from "./assets/pages/Bug";
 import Perfil from "./assets/pages/Perfil";
 import AdicionarVaga from "./assets/pages/AdicionarVaga";
+import Pagina404 from "./assets/pages/notFoundPage"
 
 function AppRoutes() {
     return (
@@ -27,6 +28,7 @@ function AppRoutes() {
                 <Route path="/home/bug" element={ <Bug /> }></Route>
                 <Route path="/home/perfil" element={ <Perfil /> }></Route>
                 <Route path="/home/adicionarVaga" element={ <AdicionarVaga /> }></Route>
+                <Route path="*" element={ <Pagina404 /> }></Route>
             </Routes>
         </BrowserRouter>
     )

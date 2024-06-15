@@ -21,4 +21,3 @@ export function rolarScroll() {
         navegacao.classList.remove(styles.rolar);
     }
 }
-
