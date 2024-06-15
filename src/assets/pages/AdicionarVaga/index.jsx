@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import styles from "./AddVaga.module.css";
-import { exibirSetor } from '../../utils/AdicionarVaga/AddVaga';
+import { exibirSetor, rolarScroll } from '../../utils/AdicionarVaga/AddVaga';
 
 const AdicionarVaga = () => {
     const [requisitos, setRequisitos] = useState('');
@@ -15,6 +15,13 @@ const AdicionarVaga = () => {
     const selecionarSetor = (e) => {
         exibirSetor(e, areas, setSetor);
     };
+
+    useEffect(() => {
+        window.addEventListener("scroll", rolarScroll);
+        return () => {
+            window.removeEventListener("scroll", rolarScroll);
+        };
+    }, []);
 
     return (
         <>
