@@ -18,8 +18,7 @@
 .menu .navegacaoMenu {
     text-decoration: none;
     margin-right: 40px;
-    color: black; 
-    text-decoration: none;
+    color: black;
     font-weight: bolder;   
 }
 
@@ -30,17 +29,39 @@
 .cardVaga {
     display: flex;
     flex-direction: column;
-    margin: 10px;
-    height: 100vh;
+    height: auto;
     width: 800px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     padding: 24px;
     border-radius: 8px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .colunasVagas {
+    gap: 20px;
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.colunasVagas .colunaUm,
+.colunasVagas .colunaDois,
+.colunasVagas .colunaTres,  
+.colunasVagas .colunaQuatro  {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.requisitos {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.descricao {
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .cardVaga .credenciais {
@@ -49,15 +70,13 @@
     background-color: rgb(255, 255, 255);
     color: var(--gray);
     height: 40px;
-    width: 300px;
+    width: 100%;
     border-radius: 2px;
     padding: 0px 30px 0px 20px;
     margin-bottom: 20px;
-    position: relative;
 }
 
-.cardLogin .btnConfirme {
-    margin-right: 0;
+.cardVaga .btnConfirme {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     border-radius: 8px;
     border: 1px solid transparent;
@@ -68,14 +87,16 @@
     color: var(--white);
     cursor: pointer;
     transition: border-color 0.25s;
+    align-self: flex-start;
+    margin-top: 20px; 
 }
 
-.cardLogin .btnConfirme:hover {
+.cardVaga .btnConfirme:hover {
     background-color: var(--gray);
     border-color: #646cff;
 }
 
-.cardLogin .btnConfirme:focus,
-.cardLogin .btnConfirme:focus-visible {
+.cardVaga .btnConfirme:focus,
+.cardVaga .btnConfirme:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }

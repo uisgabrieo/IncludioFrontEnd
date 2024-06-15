@@ -39,7 +39,7 @@ const AdicionarVaga = () => {
                     <h1>Criar Vaga</h1>
                     <form className={styles.formVaga}>
                         <div className={styles.colunasVagas}>
-                            <div>
+                            <div className={styles.colunaUm}>
                                 <label htmlFor="vaga">
                                     <div>
                                         Vaga <br />
@@ -47,7 +47,7 @@ const AdicionarVaga = () => {
                                     </div>
                                 </label>
                                 <label htmlFor="modalidade">
-                                    Modalidade
+                                    Modalidade <br />
                                     <select name="modalidade" id="modalidade" defaultValue="" className={styles.credenciais} >
                                         <option value="" disabled>Escolha uma opção</option>
                                         <option value="REMOTO">Remoto</option>
@@ -56,9 +56,9 @@ const AdicionarVaga = () => {
                                     </select>
                                 </label>
                             </div>
-                            <div>
+                            <div className={styles.colunaDois}>
                                 <label htmlFor="setor">
-                                    Área de Atuação<br />
+                                    Setor <br />
                                     <select name="setor" id="setor" defaultValue="" className={styles.credenciais} onChange={selecionarSetor}>
                                         <option value="" disabled>Selecione uma área...</option>
                                         <option value="livre">Livre</option>
@@ -79,20 +79,73 @@ const AdicionarVaga = () => {
                                         ))}
                                     </div>
                                 </label>
-                                <label htmlFor="requisitos">
-                                    <div>
-                                        <ReactQuill className={styles.descricao} id={styles.requisitos} value={requisitos} onChange={setRequisitos} />
-                                    </div>
-                                </label>
                             </div>
                         </div>
-                        <dir>
+                        <div className={styles.colunaTres}>
+                            <label htmlFor="pais">
+                                Pais<br />
+                                <select name="pais" id="pais" defaultValue="" className={styles.credenciais} onChange={selecionarSetor}>
+                                    <option value="" disabled>Selecione uma área...</option>
+                                    <option value="livre">Livre</option>
+                                    <option value="saude">Saúde</option>
+                                    <option value="educacao">Educação</option>
+                                    <option value="ti">Tecnologia da Informação (TI)</option>
+                                    <option value="engenharia">Engenharia</option>
+                                    <option value="administracao">Administração</option>
+                                    <option value="financas">Finanças</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="outro">Outro...</option>
+                                </select>
+                                <div className={styles.resultado} id="resultado">
+                                    {areas.map((setor, index) => (
+                                        <span
+                                            key={index}>{setor}{index < areas.length - 1 ? ', ' : ''}
+                                        </span>
+
+                                    ))}
+                                </div>
+                            </label>
+                            <label htmlFor="estado">
+                                Estado<br />
+                                <select name="estado" id="estado" defaultValue="" className={styles.credenciais} onChange={selecionarSetor}>
+                                    <option value="" disabled>Selecione uma área...</option>
+                                    <option value="livre">Livre</option>
+                                    <option value="saude">Saúde</option>
+                                    <option value="educacao">Educação</option>
+                                    <option value="ti">Tecnologia da Informação (TI)</option>
+                                    <option value="engenharia">Engenharia</option>
+                                    <option value="administracao">Administração</option>
+                                    <option value="financas">Finanças</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="outro">Outro...</option>
+                                </select>
+                                <div className={styles.resultado} id="resultado">
+                                    {areas.map((setor, index) => (
+                                        <span
+                                            key={index}>{setor}{index < areas.length - 1 ? ', ' : ''}
+                                        </span>
+
+                                    ))}
+                                </div>
+                            </label>
+                        </div>
+                        <div className={styles.colunaQuatro}>
+                            <label htmlFor="requisitos">
+                                Requisitos <br />
+                                <div>
+                                    <ReactQuill className={styles.requisitos} id={styles.requisitos} value={requisitos} onChange={setRequisitos} />
+                                </div>
+                            </label>
                             <label htmlFor="sobre a vaga">
+                                Sobre a vaga <br />
                                 <div>
                                     <ReactQuill className={styles.descricao} id={styles.descricao} value={descricao} onChange={setDescricao} />
                                 </div>
                             </label>
-                        </dir>
+                        </div>
+                        <div>
+                            <button type="submit" className={styles.btnConfirme}>Criar Vaga</button>
+                        </div>
                     </form>
                 </section>
             </main>
