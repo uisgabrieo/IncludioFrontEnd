@@ -20,7 +20,7 @@ export function envioDados(event, nomeCompleto, email, senha, confirmarSenha, ti
         
         let url = "/registro/funcionario/localizacao";
         if (tipoConta === 'EMPLOYER') {
-            url = "/registro/empresa/registroCompleto";
+            url = "/registro/empregador/localizacao";
         }
         window.location.href = url;
     }

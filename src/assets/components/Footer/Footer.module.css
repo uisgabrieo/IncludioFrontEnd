@@ -4,7 +4,11 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
 }
+
 
 .footer .icones {
     font-size: 20px;
