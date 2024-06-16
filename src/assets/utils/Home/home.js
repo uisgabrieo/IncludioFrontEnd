@@ -34,6 +34,7 @@ export function exibirVagas() {
                 imgPost.classList.add(styles.comVaga);
                 carregarPost(data)
             }
+            imgPost.classList.remove(styles.comVaga);
         })
         .catch(error => {
             console.error("Erro: ", error)

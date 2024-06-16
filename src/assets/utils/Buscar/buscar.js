@@ -39,10 +39,12 @@ function vagasFiltradas(busca) {
         .then(response => response.json())
         .then(data => {
             console.log(data)
+            carregarPost(data)
             if(data.length != 0) {
+                console.log("Entrou")
                 imgPost.classList.add(styles.comVaga);
-                carregarPost(data)
             }
+            //Ajuste
             imgPost.classList.remove(styles.comVaga);
         })
         .catch(error => {
