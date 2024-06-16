@@ -58,67 +58,67 @@ fetch(`http://localhost:8080/api/account/${typeAccount}/${id}`, {
         console.error("Error: ", error)
     })
 
-fetch("http://localhost:8080/api/account/employer/post",
-    {
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        method: "GET",
-    })
-    .then(response => response.json())
-    .then(data => {
-        //console.log(data)
-        carregarPost(data)
+// fetch("http://localhost:8080/api/account/employer/post",
+//     {
+//         headers: {
+//             "Accept": "application/json",
+//             "Content-Type": "application/json"
+//         },
+//         method: "GET",
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         //console.log(data)
+//         carregarPost(data)
 
-    })
-    .catch(error => {
-        console.error("Erro: ", error)
-    })
+//     })
+//     .catch(error => {
+//         console.error("Erro: ", error)
+//     })
 
-function fomatarData(data) {
-    var dataOriginal = new Date(data);
-    var dataFormatada = dataOriginal.toLocaleDateString("pt-BR", {
-        timeZone: "UTC",
-    })
-    return dataFormatada;
-}
+// function fomatarData(data) {
+//     var dataOriginal = new Date(data);
+//     var dataFormatada = dataOriginal.toLocaleDateString("pt-BR", {
+//         timeZone: "UTC",
+//     })
+//     return dataFormatada;
+// }
 
-function criarPost(postagem) {
-    var botao = document.createElement("button")
-    botao.className = "botao"
-    botao.innerHTML = "Ver mais"
-    botao.addEventListener("click", function () {
-        abrirVaga(postagem.id)
-    })
-    var logo = document.createElement("img")
-    logo.id = "logoPost"
-    logo.src = postagem.author.logo;
+// function criarPost(postagem) {
+//     var botao = document.createElement("button")
+//     botao.className = "botao"
+//     botao.innerHTML = "Ver mais"
+//     botao.addEventListener("click", function () {
+//         abrirVaga(postagem.id)
+//     })
+//     var logo = document.createElement("img")
+//     logo.id = "logoPost"
+//     logo.src = postagem.author.logo;
 
-    var data = document.createElement("div")
-    data.className = "informacoes"
-    data.innerHTML = "<p>DATA DE PUBLICAÇÃO: " + fomatarData(postagem.createAt) + "</p>"
-    data.appendChild(botao)
+//     var data = document.createElement("div")
+//     data.className = "informacoes"
+//     data.innerHTML = "<p>DATA DE PUBLICAÇÃO: " + fomatarData(postagem.createAt) + "</p>"
+//     data.appendChild(botao)
 
-    var informacoes = document.createElement("div")
-    informacoes.className = "informacoes";
-    informacoes.innerHTML = "<p>EMPRESA: " + postagem.author.companyName + "</p>" +
-        "<p>VAGA: " + postagem.role + "</p>" +
-        "<p>DESCRIÇÃO: " + postagem.description + "</p>";
+//     var informacoes = document.createElement("div")
+//     informacoes.className = "informacoes";
+//     informacoes.innerHTML = "<p>EMPRESA: " + postagem.author.companyName + "</p>" +
+//         "<p>VAGA: " + postagem.role + "</p>" +
+//         "<p>DESCRIÇÃO: " + postagem.description + "</p>";
 
-    var post = document.createElement("div");
-    post.className = "post"
-    post.appendChild(logo)
-    post.appendChild(informacoes)
-    post.appendChild(data)
-    document.getElementById("posts").appendChild(post)
-}
+//     var post = document.createElement("div");
+//     post.className = "post"
+//     post.appendChild(logo)
+//     post.appendChild(informacoes)
+//     post.appendChild(data)
+//     document.getElementById("posts").appendChild(post)
+// }
 
-function carregarPost(postagens) {
-    postagens.forEach(function (postagem) {
-        criarPost(postagem);
-    });
-}
+// function carregarPost(postagens) {
+//     postagens.forEach(function (postagem) {
+//         criarPost(postagem);
+//     });
+// }
 
 function informacoesPerfil(data) {
     if(typeAccount == "employer"){

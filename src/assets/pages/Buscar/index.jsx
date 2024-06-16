@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Container from "../../components/Container";
 import styles from "./Buscar.module.css";
-import { rolarScroll } from "../../utils/Buscar/buscar"
+import { rolarScroll, buscarVagas } from "../../utils/Buscar/buscar"
 
 function Buscar() {
+    const [vaga, setVaga] = useState("");
+
     useEffect(() => {
         window.addEventListener("scroll", rolarScroll);
         return () => {
@@ -27,12 +29,17 @@ function Buscar() {
             </section>
             <Container>
                 <section className={styles.container}>
-                    <input type="text" className={styles.caixaBuscar} placeholder="Buscar" />
-                    <i class={`bi bi-search ${styles.lupa}`}></i>
-                    <div className={styles.vagas}></div>
+                    <form onSubmit={(e) => buscarVagas(e, vaga)}>
+                        <div>
+                            <input type="text" name="busca" className={styles.caixaBuscar} placeholder="Buscar" onChange={(e) => setVaga(e.target.value)}/>
+                            <i className={`bi bi-search ${styles.lupa}`}></i>
+                        </div>
+                    </form>
                 </section>
-                <section className={styles.vagas}>
-                    <img src="../../../../public/img/Busca/undraw_no_data_re_kwbl.svg" alt="Vagas vazias" className={styles.imgVazio} />
+                <section>
+                    <div className={styles.vagas} id="posts">
+                        <img src="../../../../public/img/Busca/undraw_no_data_re_kwbl.svg" alt="Vagas vazias" className={styles.imgVazio} id="imgVazio"/>
+                    </div>
                 </section>
             </Container>
             <Footer />

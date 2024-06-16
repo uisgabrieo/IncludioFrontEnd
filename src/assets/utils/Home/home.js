@@ -1,5 +1,6 @@
 import styles from "../../pages/Home/Home.module.css";
 
+//Nav fixa quando desce o scroll
 export function rolarScroll() {
     const cabecalho = document.querySelector("#header");
     const navegacao = document.querySelector("#navMenu");
@@ -14,7 +15,10 @@ export function rolarScroll() {
     }
 }
 
+//Retorna as vagas do db
 export function exibirVagas() {
+    const imgPost = document.getElementById("imgVaga")
+
     fetch("http://localhost:8080/api/account/employer/post",
         {
             headers: {
@@ -25,7 +29,11 @@ export function exibirVagas() {
         })
         .then(response => response.json())
         .then(data => {
-            carregarPost(data)
+            console.log(data)
+            if(data.length != 0) {
+                imgPost.classList.add(styles.comVaga);
+                carregarPost(data)
+            }
         })
         .catch(error => {
             console.error("Erro: ", error)
@@ -71,10 +79,38 @@ function criarPost(postagem) {
 }
 
 function carregarPost(postagens) {
-    const postsContainer = document.getElementById("posts");
-    postsContainer.innerHTML = "";
+    const posts = document.getElementById("posts");
+    posts.innerHTML = "";
 
     postagens.forEach(function (postagem) {
         criarPost(postagem);
     });
+}
+
+//Filtar por área
+export function buscarVagas(event, filtro) {
+    const posts = document.getElementById("posts");
+    if (posts != null){
+        posts.innerHTML = "";
+    }
+    event.preventDefault();
+    const url = `http://localhost:8080/api/account/employer/post/filter?caixaDeFiltro=${filtro}`
+    vagasFiltradas(url)
+}
+
+function vagasFiltradas(busca) {
+    fetch(busca, {
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        method: "GET",
+    })
+        .then(response => response.json())
+        .then(data => {
+            carregarPost(data)  
+        })
+        .catch(error => {
+            console.error("Error: ", error)
+        })
 }

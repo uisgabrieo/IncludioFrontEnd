@@ -95,12 +95,20 @@
 }
 
 .corpoPagina .vagas {
-    /* opacity: 40%; */
     margin-bottom: 20px;
     margin-top: 50px;
     display: flex;
     justify-content: center;
     gap: 60px;
+}
+
+.corpoPagina .vagas .imgVaga.comVaga {
+    display: none;
+}
+
+.corpoPagina .vagas .imgVaga {
+    display: block;
+    opacity: 40%;
 }
 
 .corpoPagina .limite {
