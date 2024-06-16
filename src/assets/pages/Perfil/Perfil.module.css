@@ -1,81 +1,97 @@
 .homePage {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(241, 241, 241);
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 241, 241);
 }
 
 .menu {
-    background-color: var(--secundary);
-    height: 30px;
-    display: flex;
-    justify-content: end;
-    gap: 40px;
-    align-items: center;
-}
-
-.menu.rolar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: var(--secundary);
-    z-index: 1000;
-}
-
-.menu {
-    background-color: var(--secundary);
-    height: 30px;
-    display: flex;
-    justify-content: end;
-    gap: 40px;
-    align-items: center;
+  background-color: var(--secundary);
+  height: 30px;
+  display: flex;
+  justify-content: end;
+  gap: 40px;
+  align-items: center;
 }
 
 .menu .navegacaoMenu {
-    text-decoration: none;
-    margin-right: 40px;
-    color: black;   
-    text-decoration: none;
-    font-weight: bolder; 
+  text-decoration: none;
+  margin-right: 40px;
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
 }
 
 .menu .navegacaoMenu:hover {
-    color: aliceblue;
+  color: aliceblue;
+}
+.editar {
+  padding-left: 350px;
+  padding-bottom: 10px;
+}
+.editarButton {
+  background-color: rgb(186, 186, 186);
+  padding: 5px;
+  border-radius: 4px;
+  color: var(--secundary);
 }
 
 .container {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .campoPerfil {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(255, 255, 255);
-    margin-top: 100px;
-    margin-left: 100px;
-    width: 300px;
-    height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 10px;
+  width: 450px;
+  height: 80vh;
+  border-radius: 4px;
 }
 
 .container .campoPerfil img {
-    margin-top: 20px;
-    height: 150px;
-    width: 150px;
-    border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.profileName {
+  margin-top: 10px;
 }
 
-.container .campoVagas{
-    margin-top: 100px;
-    margin-left: 50px;
-    width: 800px;
-    max-width: 700px;
-    min-width: 500px;
-    height: 100vh;
-    background-color: rgb(255, 255, 255);
+.profileDetails {
+  text-align: left;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  width: 400px;
 }
 
-.container .campoVagas #vagas {
-    background-color: aquamarine;
-    width: 300px;
-    height: 300px;
+.profileItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.profileItem:first-child {
+  border-top: none;
+}
+
+.logout {
+  text-align: right;
+}
+
+.logoutButton {
+  background-color: rgb(186, 186, 186);
+  color: var(--black);
+  cursor: pointer;
+  display: flex;
+  padding: 5px;
+  padding-right: 380px;
 }
