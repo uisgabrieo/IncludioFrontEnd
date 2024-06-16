@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Home.module.css";
-import { rolarScroll } from "../../utils/Home/home";
+import { rolarScroll, exibirVagas } from "../../utils/Home/home";
 
 function Home() {
     useEffect(() => {
@@ -11,6 +11,10 @@ function Home() {
         return () => {
             window.removeEventListener("scroll", rolarScroll);
         };
+    }, []);
+
+    useEffect(() => {
+        exibirVagas();
     }, []);
 
     return (
@@ -48,9 +52,9 @@ function Home() {
                     </div>
 
                     <h1 className={styles.titulo}>EXPLORAR VAGAS</h1>
-                    <div className={styles.vagas}>
-                        <img src="../../../../public/img/Home/undraw_posts_1aht.svg" alt="" />
-                        <img src="../../../../public/img/Home/undraw_posts_1aht.svg" alt="" />
+                    <div className={styles.vagas} id="posts">
+                        {/* <img src="../../../../public/img/Home/undraw_posts_1aht.svg" alt="" />
+                        <img src="../../../../public/img/Home/undraw_posts_1aht.svg" alt="" /> */}
                     </div>
                 </section>
             </section>

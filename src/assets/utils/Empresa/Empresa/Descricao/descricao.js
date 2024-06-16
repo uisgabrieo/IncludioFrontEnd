@@ -26,24 +26,25 @@ export function envioDados(event, descricao, setErro) {
         cadastroCompleto.append("numberPhone", informacoesEmpresa.numberPhone)
         cadastroCompleto.append("jobTitle", informacoesEmpresa.jobTitle)
         cadastroCompleto.append("dateOfBirth", informacoesEmpresa.dateOfBirth)
-        cadastroCompleto.append("gender", informacoesEmpresa.genero)
-        cadastroCompleto.append("photograph", informacoesEmpresa.imgPerfil)
+        cadastroCompleto.append("gender", informacoesEmpresa.gender)
+        cadastroCompleto.append("photograph", informacoesEmpresa.photograph)
         cadastroCompleto.append("logo", informacoesEmpresa.logo)
-        cadastroCompleto.append("companyName", informacoesEmpresa.nomeEmpresa)
-        cadastroCompleto.append("companyEmail", informacoesEmpresa.email)
-        cadastroCompleto.append("country", informacoesEmpresa.pais)
-        cadastroCompleto.append("state", informacoesEmpresa.estado)
-        cadastroCompleto.append("city", informacoesEmpresa.cidade)
+        cadastroCompleto.append("companyName", informacoesEmpresa.companyName)
+        cadastroCompleto.append("companyEmail", informacoesEmpresa.companyEmail)
+        cadastroCompleto.append("country", informacoesEmpresa.country)
+        cadastroCompleto.append("state", informacoesEmpresa.state)
+        cadastroCompleto.append("city", informacoesEmpresa.city)
         cadastroCompleto.append("cep", informacoesEmpresa.cep)
-        cadastroCompleto.append("neighborhood", informacoesEmpresa.bairro)
-        cadastroCompleto.append("street", informacoesEmpresa.rua)
-        cadastroCompleto.append("numCompany", informacoesEmpresa.numEmpresa)
+        cadastroCompleto.append("neighborhood", informacoesEmpresa.neighborhood)
+        cadastroCompleto.append("street", informacoesEmpresa.street)
+        cadastroCompleto.append("numCompany", informacoesEmpresa.numCompany)
         cadastroCompleto.append("createdAt", informacoesEmpresa.createdAt)
         cadastroCompleto.append("cnpj", informacoesEmpresa.cnpj)
         cadastroCompleto.append("website", informacoesEmpresa.website)
-        cadastroCompleto.append("numberPhone", informacoesEmpresa.telefone)
+        cadastroCompleto.append("numberPhone", informacoesEmpresa.numberPhone)
         cadastroCompleto.append("desciption", descricao)
 
+        console.log(cadastroCompleto)
         enviarAPI(cadastroCompleto)
     }
 }
@@ -61,7 +62,6 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        localStorage.setItem("data", JSON.stringify(data));
         window.location.href = "/home";
     })
     .catch(error => {

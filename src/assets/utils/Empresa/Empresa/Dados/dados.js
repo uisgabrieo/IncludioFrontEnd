@@ -1,8 +1,8 @@
-export function envioDados(event, logo, nomeEmpresa, email, senha, confirmarSenha, setErro) {
+export function envioDados(event, logo, nomeEmpresa, email, setErro) {
     event.preventDefault();
 
-    if (senha != confirmarSenha){
-        setErro('Senhas diferentes');
+    if (!(logo && nomeEmpresa && email)){
+        setErro('Dados incompletos');
     } else {
         const dadosCompletosEmpregador = JSON.parse(localStorage.getItem("dadosCompletosEmpregador"));
 
@@ -20,13 +20,14 @@ export function envioDados(event, logo, nomeEmpresa, email, senha, confirmarSenh
             numberPhone: dadosCompletosEmpregador.numberPhone,
             jobTitle: dadosCompletosEmpregador.jobTitle,
             dateOfBirth: dadosCompletosEmpregador.dateOfBirth,
-            gender: dadosCompletosEmpregador.genero,
-            photograph: dadosCompletosEmpregador.imgPerfil,
+            gender: dadosCompletosEmpregador.gender,
+            photograph: dadosCompletosEmpregador.photograph,
             logo: logo,
             companyName: nomeEmpresa,
-            companyEmail: email,
-            password: senha
+            companyEmail: email
         }
+
+        console.log(dadosEmpresa)
     
         localStorage.setItem("dadosEmpresa", JSON.stringify(dadosEmpresa));
         
@@ -34,31 +35,5 @@ export function envioDados(event, logo, nomeEmpresa, email, senha, confirmarSenh
         window.location.href = url;
     }
 
-}
-
-export function mostrarSenha() {
-    const senha = document.getElementById("senha");
-    const exporSenha = document.getElementById("olho");
-
-    if (senha.type === "password") {
-        senha.setAttribute("type", "text");
-        exporSenha.classList.replace("bi-eye-fill", "bi-eye-slash-fill");
-    } else {
-        senha.setAttribute("type", "password");
-        exporSenha.classList.replace("bi-eye-slash-fill", "bi-eye-fill");
-    }
-}
-
-export function mostrarSenhaConfirmar() {
-    const senha = document.getElementById("confirmarSenha");
-    const exporSenha = document.getElementById("olhoConfirmar");
-
-    if (senha.type === "password") {
-        senha.setAttribute("type", "text");
-        exporSenha.classList.replace("bi-eye-fill", "bi-eye-slash-fill");
-    } else {
-        senha.setAttribute("type", "password");
-        exporSenha.classList.replace("bi-eye-slash-fill", "bi-eye-fill");
-    }
 }
 

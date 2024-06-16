@@ -30,24 +30,24 @@ export function envioDados(event, dia, mes, ano, cnpj, telefone, website, setErr
             numberPhone: localizacaoEmpresa.numberPhone,
             jobTitle: localizacaoEmpresa.jobTitle,
             dateOfBirth: localizacaoEmpresa.dateOfBirth,
-            gender: localizacaoEmpresa.genero,
-            photograph: localizacaoEmpresa.imgPerfil,
+            gender: localizacaoEmpresa.gender,
+            photograph: localizacaoEmpresa.photograph,
             logo: localizacaoEmpresa.logo,
-            companyName: localizacaoEmpresa.nomeEmpresa,
-            companyEmail: localizacaoEmpresa.email,
-            password: localizacaoEmpresa.senha,
-            country: localizacaoEmpresa.pais,
-            state: localizacaoEmpresa.estado,
-            city: localizacaoEmpresa.cidade,
+            companyName: localizacaoEmpresa.companyName,
+            companyEmail: localizacaoEmpresa.companyEmail,
+            country: localizacaoEmpresa.country,
+            state: localizacaoEmpresa.state,
+            city: localizacaoEmpresa.city,
             cep: localizacaoEmpresa.cep,
-            neighborhood: localizacaoEmpresa.bairro,
-            street: localizacaoEmpresa.rua,
-            numCompany: localizacaoEmpresa.numEmpresa,
+            neighborhood: localizacaoEmpresa.neighborhood,
+            street: localizacaoEmpresa.street,
+            numCompany: localizacaoEmpresa.numCompany,
             createdAt: createdAt,
             cnpj: cnpj,
             website: website,
             numberPhone: telefone
         }
+        console.log(informacoesEmpresa)
 
         localStorage.setItem("informacoesEmpresa", JSON.stringify(informacoesEmpresa));
 

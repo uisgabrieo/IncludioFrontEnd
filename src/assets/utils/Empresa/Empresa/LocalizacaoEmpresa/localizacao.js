@@ -21,12 +21,11 @@ export function envioDados(event, pais, estado, cidade, cep, bairro, rua, numEmp
             numberPhone: dadosEmpresa.numberPhone,
             jobTitle: dadosEmpresa.jobTitle,
             dateOfBirth: dadosEmpresa.dateOfBirth,
-            gender: dadosEmpresa.genero,
-            photograph: dadosEmpresa.imgPerfil,
+            gender: dadosEmpresa.gender,
+            photograph: dadosEmpresa.photograph,
             logo: dadosEmpresa.logo,
-            companyName: dadosEmpresa.nomeEmpresa,
-            companyEmail: dadosEmpresa.email,
-            password: dadosEmpresa.senha,
+            companyName: dadosEmpresa.companyName,
+            companyEmail: dadosEmpresa.companyEmail,
             country: pais,
             state: estado,
             city: cidade,
@@ -36,15 +35,12 @@ export function envioDados(event, pais, estado, cidade, cep, bairro, rua, numEmp
             numCompany: numEmpresa
         }
 
+        console.log(localizacaoEmpresa)
+
         localStorage.setItem("localizacaoEmpresa", JSON.stringify(localizacaoEmpresa));
 
         let url = "/registro/empresa/info";
         window.location.href = url;
     }
 
-}
-
-export function log() {
-    const dadosRegistro = JSON.parse(localStorage.getItem("dadosRegistro"))
-    console.log(dadosRegistro)
 }
