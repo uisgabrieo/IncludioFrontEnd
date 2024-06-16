@@ -44,8 +44,6 @@ function vagasFiltradas(busca) {
                 console.log("Entrou")
                 imgPost.classList.add(styles.comVaga);
             }
-            //Ajuste
-            imgPost.classList.remove(styles.comVaga);
         })
         .catch(error => {
             console.error("Error: ", error)

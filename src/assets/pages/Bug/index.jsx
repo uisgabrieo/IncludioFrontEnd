@@ -36,37 +36,37 @@ function Bug() {
                             <h1>FeedBack, Avaliação ou Relatar Bug</h1>
                         </div>
                         <div>
-                            <label htmlFor="email">
+                            <label htmlFor="nomeCompleto">
                                 <div>
-                                    Descrição<br />
-                                    <input type="email" name="email" id="email" className={styles.credenciais} placeholder="Descreva"
-                                    />
-                                </div>
-                            </label>
-                        </div>
-                        <div>
-                            <label htmlFor="senha">
-                                <div className={styles.caixaSenha}>
                                     Nome Completo<br />
-                                    <div className={styles.campoSenha}>
-                                        <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Nome Completo" />
-                                    </div>
+                                    <input type="text" name="nomeCompleto" className={styles.credenciais} placeholder="Nome Completo" onChange={(e) => setNomeCompleto(e.target.value)} />
                                 </div>
                             </label>
                         </div>
                         <div>
                             <div>
-                                <label htmlFor="senha">
-                                    <div className={styles.caixaSenha}>
-                                        Emial<br />
-                                        <div className={styles.campoSenha}>
-                                            <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Email" />
-                                        </div>
-                                    </div>
+                                <label htmlFor="email">
+                                    Emial<br />
+                                    <input type="email" name="email" className={styles.credenciais} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                                 </label>
                             </div>
-                            <button type="submit" className={styles.btnConfirme}>Enviar</button>
                         </div>
+                        <div>
+                            <label htmlFor="descricao">
+                                <div>
+                                    Descrição<br />
+                                    <textarea name="descricao" className={styles.credenciais} id={styles.descricao} placeholder="Descreva" onChange={(e) => setDescricao(e.target.value)} />
+                                </div>
+                            </label>
+                        </div>
+                        {/* <div>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                        </div> */}
+                        <button type="submit" className={styles.btnConfirme}>Enviar</button>
                     </form>
                 </section>
             </main>
