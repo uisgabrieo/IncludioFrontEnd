@@ -62,7 +62,9 @@ function Perfil() {
             </div>
             <div className={styles.logout}>
               <button className={styles.logoutButton}>
-                <span>Log out</span>
+                <span>
+                  <i class="bi bi-box-arrow-left"></i>Log out
+                </span>
               </button>
             </div>
           </section>

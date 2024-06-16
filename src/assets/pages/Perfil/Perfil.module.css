@@ -29,7 +29,7 @@
   padding-bottom: 10px;
 }
 .editarButton {
-  background-color: gray;
+  background-color: rgb(186, 186, 186);
   padding: 5px;
   border-radius: 4px;
   color: var(--secundary);
@@ -47,7 +47,8 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(255, 255, 255);
-  margin-top: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   padding-top: 10px;
   width: 450px;
   height: 80vh;
@@ -83,18 +84,14 @@
 }
 
 .logout {
-  text-align: left;
+  text-align: right;
 }
 
 .logoutButton {
-  background: none;
-  border: none;
+  background-color: rgb(186, 186, 186);
   color: var(--black);
   cursor: pointer;
   display: flex;
-  align-items: center;
-}
-
-.logout-button span {
-  margin-left: 5px;
+  padding: 5px;
+  padding-right: 380px;
 }
