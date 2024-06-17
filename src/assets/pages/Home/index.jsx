@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Home.module.css";
-import { rolarScroll, exibirVagas, buscarVagas, fecharVaga } from "../../utils/Home/home";
+import { rolarScroll, exibirVagas, buscarVagas, fecharVaga, log } from "../../utils/Home/home";
 
 function Home() {
     const [filtro, setFiltro] = useState("");
@@ -27,6 +27,11 @@ function Home() {
             }
         });
     }, []);
+
+    useEffect(() => {
+        log()
+    })
+
 
     return (
         <>

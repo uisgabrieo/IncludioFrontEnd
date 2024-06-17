@@ -1,5 +1,15 @@
 import styles from "../../pages/Home/Home.module.css";
 
+
+//Carregar perfil
+const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
+const conta = JSON.parse(contaResposta)
+
+const idConta = conta.id
+const tipoConta = conta.account
+
+
+
 //Nav fixa quando desce o scroll
 export function rolarScroll() {
     const cabecalho = document.querySelector("#header");
@@ -30,7 +40,7 @@ export function exibirVagas() {
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            if(data.length != 0) {
+            if (data.length != 0) {
                 imgPost.classList.add(styles.comVaga);
                 carregarPost(data)
             }
@@ -90,7 +100,7 @@ function carregarPost(postagens) {
 //Filtar por área
 export function buscarVagas(event, filtro) {
     const posts = document.getElementById("posts");
-    if (posts != null){
+    if (posts != null) {
         posts.innerHTML = "";
     }
     event.preventDefault();
@@ -108,7 +118,7 @@ function vagasFiltradas(busca) {
     })
         .then(response => response.json())
         .then(data => {
-            carregarPost(data)  
+            carregarPost(data)
         })
         .catch(error => {
             console.error("Error: ", error)
@@ -187,21 +197,21 @@ function gerarVaga(vaga) {
 
     let localHorario = document.createElement("div")
     localHorario.className = styles.localHorario
-    localHorario.innerHTML = "<h3>" + vaga.country + "/" + vaga.state + "/"  + vaga.city + "-" + fomatarData(vaga.createAt) + "</h3>"
+    localHorario.innerHTML = "<h3>" + vaga.country + "/" + vaga.state + "/" + vaga.city + "-" + fomatarData(vaga.createAt) + "</h3>"
     document.getElementById("verMais").appendChild(localHorario)
 
     let info = document.createElement("div")
     info.className = styles.info
     info.innerHTML =
-        `<i class="bi bi-clock-fill"></i>`+
+        `<i class="bi bi-clock-fill"></i>` +
         `<h3>Modalidade: ${vaga.jobType}</h3>` +
         `<i class="bi bi-exclamation-circle-fill"></i>` +
         `<h3>Requisitos: ${vaga.requirements}</h3>`;
     document.getElementById("verMais").appendChild(info)
 
-    
+
     let sobreAVaga = document.createElement("div")
     sobreAVaga.className = styles.sobreAVaga
-    sobreAVaga.innerHTML = "<h3> Sobre a vaga:  </h3>" + "<p>"+ vaga.description +"</p>"
+    sobreAVaga.innerHTML = "<h3> Sobre a vaga:  </h3>" + "<p>" + vaga.description + "</p>"
     document.getElementById("verMais").appendChild(sobreAVaga)
 }
