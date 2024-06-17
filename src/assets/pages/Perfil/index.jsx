@@ -45,8 +45,8 @@ function Perfil() {
                 <span>10/05/2001</span>
               </div>
               <div className={styles.profileItem}>
-                <span>Nacionalidade</span>
-                <span>Brasileira</span>
+                <span>Localização</span>
+                <span>Teresina</span>
               </div>
               <div className={styles.profileItem}>
                 <span>Contato</span>
@@ -55,9 +55,6 @@ function Perfil() {
               <div className={styles.profileItem}>
                 <span>Gênero</span>
                 <span>Mulher</span>
-              </div>
-              <div className={styles.profileItem}>
-                <span></span>
               </div>
             </div>
             <div className={styles.logout}>
