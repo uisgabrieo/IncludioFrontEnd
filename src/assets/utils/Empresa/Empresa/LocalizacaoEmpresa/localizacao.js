@@ -7,23 +7,10 @@ export function envioDados(event, pais, estado, cidade, cep, bairro, rua, numEmp
 
         const dadosEmpresa = JSON.parse(localStorage.getItem("dadosEmpresa"))
 
+        console.log(dadosEmpresa)
+
         const localizacaoEmpresa = {
-            completeName: dadosEmpresa.completeName,
-            email: dadosEmpresa.email,
-            password: dadosEmpresa.password,
-            account: dadosEmpresa.account,
-            country: dadosEmpresa.country,
-            state: dadosEmpresa.state,
-            city: dadosEmpresa.city,
-            cep: dadosEmpresa.cep,
-            complement: dadosEmpresa.complement,
-            cpf: dadosEmpresa.cpf,
-            numberPhone: dadosEmpresa.numberPhone,
-            jobTitle: dadosEmpresa.jobTitle,
-            dateOfBirth: dadosEmpresa.dateOfBirth,
-            gender: dadosEmpresa.gender,
-            photograph: dadosEmpresa.photograph,
-            logo: dadosEmpresa.logo,
+            idEmployer: dadosEmpresa.idEmployer,
             companyName: dadosEmpresa.companyName,
             companyEmail: dadosEmpresa.companyEmail,
             country: pais,
@@ -35,7 +22,6 @@ export function envioDados(event, pais, estado, cidade, cep, bairro, rua, numEmp
             numCompany: numEmpresa
         }
 
-        console.log(localizacaoEmpresa)
 
         localStorage.setItem("localizacaoEmpresa", JSON.stringify(localizacaoEmpresa));
 
@@ -43,4 +29,10 @@ export function envioDados(event, pais, estado, cidade, cep, bairro, rua, numEmp
         window.location.href = url;
     }
 
+}
+
+export function log() {
+    const dadosEmpresa = JSON.parse(localStorage.getItem("dadosEmpresa"))
+
+    console.log(dadosEmpresa)
 }

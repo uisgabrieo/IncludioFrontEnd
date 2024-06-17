@@ -1,25 +1,29 @@
 import styles from "../../pages/Bug/Bug.module.css";
 
-export function envioDados(event, descricao, nomeCompleto, emial, setErro) {
+export function envioDados(event, descricao, nomeCompleto, email, setErro) {
     event.preventDefault();
 
-    if (!(descricao, nomeCompleto, emial)) {
-        setErro("Dados incompletos")
+    if (!(descricao && nomeCompleto && email)) {
+        setErro("Dados incompletos");
+        return;
     }
 
     const feedback = {
-        decription: descricao,
-        nameComplete: nomeCompleto,
-        emial: emial
-    }
+        completeName: nomeCompleto,
+        email: email,
+        description: descricao
+    };
 
-    fetch("http://localhost:8080/api/feedback", {
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
+    enviarAPI(feedback);
+}
+
+function enviarAPI(dados) {
+    fetch("http://localhost:8080/api/account/feedback", {
         method: "POST",
-        body: JSON.stringify(feedback)
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
     })
     .then(response => {
         if (response.ok) {
@@ -29,14 +33,13 @@ export function envioDados(event, descricao, nomeCompleto, emial, setErro) {
         }
     })
     .then(data => {
-        console.log(data); 
+        console.log(data);
     })
     .catch(error => {
         console.log("Erro: " + error.message);
-        setErro("Credenciais inválidas");
     });
-
 }
+
 
 export function rolarScroll() {
     const cabecalho = document.querySelector("#header");

@@ -1,26 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../../../../../components/Footer";
 import Header from "../../../../../components/Header";
 import styles from "./Descricao.module.css"
-import { envioDados } from "../../../../../utils/Empresa/Empresa/Descricao/descricao"
+import { envioDados, log } from "../../../../../utils/Empresa/Empresa/Descricao/descricao"
 
 function Descricao() {
+    const [logo, setLogo] = useState("")
     const [descricao, setDescricao] = useState("");
     const [erro, setErro] = useState("")
 
+    useEffect(() => {
+        log();
+    }, []);
 
     return (
         <>
             <Header />
             <main className={styles.main}>
                 <section className={styles.cardLocalizacao}>
-                    <form onSubmit={(e) => envioDados(e, descricao, setErro)} id="localizacaoPage">
+                    <form onSubmit={(e) => envioDados(e, logo, descricao, setErro)} id="localizacaoPage">
                         <h1>Dados</h1>
+                        <div>
+                            <label htmlFor="logo">
+                                Logotipo<br />
+                                <label htmlFor="imagemLogo" className={styles.btnUpload}>Insira sua Foto</label>
+                                <input type="file" name="imagemLogo" id="imagemLogo" className={styles.credenciaisFile} accept="image/*" onChange={(e) => setLogo(e.target.files[0])} />
+                            </label>
+                        </div>
                         <div>
                             <label htmlFor="website">
                                 <div>
                                     Descrição<br />
-                                    <input type="text" name="website" id="website" className={styles.credenciais} placeholder="Descreva sobre o que é a empresa e qual é o seu intúito" onChange={(e) => setDescricao(e.target.value)}/>
+                                    <textarea name="descricao" className={styles.credenciais} id={styles.descricao} placeholder="Descreva sobre o que é a empresa e qual é o seu intúito" onChange={(e) => setDescricao(e.target.value)} />
                                 </div>
                             </label>
                         </div>

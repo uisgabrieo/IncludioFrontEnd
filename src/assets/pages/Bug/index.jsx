@@ -44,12 +44,12 @@ function Bug() {
                             </label>
                         </div>
                         <div>
-                            <div>
-                                <label htmlFor="email">
-                                    Emial<br />
+                            <label htmlFor="email">
+                                <div>
+                                    Email<br />
                                     <input type="email" name="email" className={styles.credenciais} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                                </label>
-                            </div>
+                                </div>
+                            </label>
                         </div>
                         <div>
                             <label htmlFor="descricao">
@@ -59,13 +59,6 @@ function Bug() {
                                 </div>
                             </label>
                         </div>
-                        {/* <div>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-star"></i>
-                        </div> */}
                         <button type="submit" className={styles.btnConfirme}>Enviar</button>
                     </form>
                 </section>

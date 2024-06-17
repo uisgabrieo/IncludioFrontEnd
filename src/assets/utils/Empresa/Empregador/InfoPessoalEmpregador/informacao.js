@@ -12,10 +12,13 @@ export function envioDados(event, cpf, telefone, cargo, setErro) {
             return
         }
 
+        console.log(dadosLocalizacao)
+
         const dadosInformacao = {
             completeName: dadosLocalizacao.completeName,
             email: dadosLocalizacao.email,
             password: dadosLocalizacao.password,
+            account: dadosLocalizacao.account,
             country: dadosLocalizacao.country,
             state: dadosLocalizacao.state,
             city: dadosLocalizacao.city,

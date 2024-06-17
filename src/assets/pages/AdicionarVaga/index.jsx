@@ -5,15 +5,20 @@ import 'react-quill/dist/quill.snow.css';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import styles from "./AddVaga.module.css";
-import { exibirSetor, rolarScroll } from '../../utils/AdicionarVaga/AddVaga';
+import { exibirSetor, rolarScroll, envioDados } from '../../utils/AdicionarVaga/AddVaga';
 
 const AdicionarVaga = () => {
+    const [vaga, setVaga] = useState('');
+    const [setor, setSetor] = useState([]);
+    const [modalidade, setModalidade] = useState('');
+    const [pais, setPais] = useState('');
+    const [estado, setEstado] = useState('');
+    const [cidade, setCidade] = useState('');
     const [requisitos, setRequisitos] = useState('');
     const [descricao, setDescricao] = useState('');
-    const [areas, setSetor] = useState([]);
 
     const selecionarSetor = (e) => {
-        exibirSetor(e, areas, setSetor);
+        exibirSetor(e, setor, setSetor);
     };
 
     useEffect(() => {
@@ -36,19 +41,19 @@ const AdicionarVaga = () => {
             </section>
             <main className={styles.main}>
                 <section className={styles.cardVaga}>
-                    <h1>Criar Vaga</h1> <br /> 
-                    <form className={styles.formVaga}>
+                    <h1>Criar Vaga</h1> <br />
+                    <form onSubmit={(e) => envioDados(e, vaga, setor, modalidade, pais, estado, cidade, requisitos, descricao)} className={styles.formVaga}>
                         <div className={styles.colunasVagas}>
                             <div className={styles.colunaUm}>
                                 <label htmlFor="vaga">
                                     <div>
                                         Vaga <br />
-                                        <input type="text" name="vaga" className={styles.credenciais} id="inputVaga" />
+                                        <input type="text" name="vaga" className={styles.credenciais} id="inputVaga" onChange={(e) => setVaga(e.target.value)}/>
                                     </div>
                                 </label>
                                 <label htmlFor="modalidade">
                                     Modalidade <br />
-                                    <select name="modalidade" id="modalidade" defaultValue="" className={styles.credenciais} >
+                                    <select name="modalidade" id="modalidade" defaultValue="" className={styles.credenciais} onChange={(e) => setModalidade(e.target.value)}>
                                         <option value="" disabled>Escolha uma opção</option>
                                         <option value="REMOTO">Remoto</option>
                                         <option value="PRESENCIAL">Presencial</option>
@@ -72,9 +77,9 @@ const AdicionarVaga = () => {
                                         <option value="Outro">Outro...</option>
                                     </select>
                                     <div className={styles.resultado} id="resultado">
-                                        {areas.map((setor, index) => (
+                                        {setor.map((setor, index) => (
                                             <span
-                                                key={index}>{setor}{index < areas.length - 1 ? ', ' : ''}
+                                                key={index}>{setor}{index < setor.length - 1 ? ', ' : ''}
                                             </span>
                                         ))}
                                     </div>
@@ -83,16 +88,22 @@ const AdicionarVaga = () => {
                         </div>
                         <div className={styles.colunaTres}>
                             <label htmlFor="pais">
-                                Pais<br />
-                                <select name="pais" id="pais" defaultValue="" className={styles.credenciais} onChange={selecionarSetor}>
-                                    <option value="" disabled>Selecione um pais</option>
-                                </select>
+                                <div>
+                                    Pais <br />
+                                    <input type="text" name="pais" className={styles.credenciais} onChange={(e) => setPais(e.target.value)}/>
+                                </div>
                             </label>
                             <label htmlFor="estado">
-                                Estado<br />
-                                <select name="estado" id="estado" defaultValue="" className={styles.credenciais} onChange={selecionarSetor}>
-                                    <option value="" disabled>Selecione um estado</option>
-                                </select>
+                                <div>
+                                    Estado <br />
+                                    <input type="text" name="estado" className={styles.credenciais} onChange={(e) => setEstado(e.target.value)}/>
+                                </div>
+                            </label>
+                            <label htmlFor="cidade">
+                                <div>
+                                    Cidade <br />
+                                    <input type="text" name="cidade" className={styles.credenciais} onChange={(e) => setCidade(e.target.value)}/>
+                                </div>
                             </label>
                         </div>
                         <div className={styles.colunaQuatro}>

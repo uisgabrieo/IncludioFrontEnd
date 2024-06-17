@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../../../../../components/Footer";
 import Header from "../../../../../components/Header";
 import styles from "./Completo.module.css";
@@ -11,6 +12,7 @@ function Completo() {
     const [genero, setGenero] = useState("");
     const [imgPerfil, setImgPerfil] = useState("");
     const [erro, setErro] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         preencherData();
@@ -22,7 +24,7 @@ function Completo() {
             <Header />
             <main className={styles.main}>
                 <section className={styles.cardLocalizacao}>
-                    <form id="localizacaoPage" onSubmit={(e) => envioDados(e, dia, mes, ano, genero, imgPerfil, setErro)} encType="multipart/form-data">
+                    <form id="localizacaoPage" onSubmit={(e) => envioDados(e, dia, mes, ano, genero, imgPerfil, setErro, navigate)} encType="multipart/form-data">
                         <h1>Informações Finais</h1>
                         <div>
                             <label htmlFor="dataNascimento">

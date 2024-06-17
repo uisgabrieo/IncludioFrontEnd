@@ -11,28 +11,14 @@ export function envioDados(event, dia, mes, ano, cnpj, telefone, website, setErr
             setErro("Dados não encontrados")
             return
         }
-
+        
         const diaFomr = formatarDoisDigitos(dia);
         const mesFomr = formatarDoisDigitos(mes);
         const createdAt = `${diaFomr}/${mesFomr}/${ano}`;
-
+        
+        console.log(localizacaoEmpresa)
         const informacoesEmpresa = {
-            completeName: localizacaoEmpresa.completeName,
-            email: localizacaoEmpresa.email,
-            password: localizacaoEmpresa.password,
-            account: localizacaoEmpresa.account,
-            country: localizacaoEmpresa.country,
-            state: localizacaoEmpresa.state,
-            city: localizacaoEmpresa.city,
-            cep: localizacaoEmpresa.cep,
-            complement: localizacaoEmpresa.complement,
-            cpf: localizacaoEmpresa.cpf,
-            numberPhone: localizacaoEmpresa.numberPhone,
-            jobTitle: localizacaoEmpresa.jobTitle,
-            dateOfBirth: localizacaoEmpresa.dateOfBirth,
-            gender: localizacaoEmpresa.gender,
-            photograph: localizacaoEmpresa.photograph,
-            logo: localizacaoEmpresa.logo,
+            idEmployer: localizacaoEmpresa.idEmployer,
             companyName: localizacaoEmpresa.companyName,
             companyEmail: localizacaoEmpresa.companyEmail,
             country: localizacaoEmpresa.country,
@@ -47,7 +33,6 @@ export function envioDados(event, dia, mes, ano, cnpj, telefone, website, setErr
             website: website,
             numberPhone: telefone
         }
-        console.log(informacoesEmpresa)
 
         localStorage.setItem("informacoesEmpresa", JSON.stringify(informacoesEmpresa));
 
@@ -88,4 +73,9 @@ export function preencherData() {
         optAnos.textContent = i;
         ano.appendChild(optAnos);
     }
+}
+
+export function log() {
+    const localizacaoEmpresa = JSON.parse(localStorage.getItem("localizacaoEmpresa"))
+    console.log(localizacaoEmpresa)
 }

@@ -1,39 +1,28 @@
-export function envioDados(event, logo, nomeEmpresa, email, setErro) {
+export function envioDados(event, nomeEmpresa, email, setErro) {
     event.preventDefault();
 
-    if (!(logo && nomeEmpresa && email)){
-        setErro('Dados incompletos');
+    if (!(nomeEmpresa && email)) {
+        setErro("Dados incompletos");
     } else {
-        const dadosCompletosEmpregador = JSON.parse(localStorage.getItem("dadosCompletosEmpregador"));
+        const idEmployer = localStorage.getItem("idEmployer");
 
         const dadosEmpresa = {
-            completeName: dadosCompletosEmpregador.completeName,
-            email: dadosCompletosEmpregador.email,
-            password: dadosCompletosEmpregador.password,
-            account: dadosCompletosEmpregador.account,
-            country: dadosCompletosEmpregador.country,
-            state: dadosCompletosEmpregador.state,
-            city: dadosCompletosEmpregador.city,
-            cep: dadosCompletosEmpregador.cep,
-            complement: dadosCompletosEmpregador.complement,
-            cpf: dadosCompletosEmpregador.cpf,
-            numberPhone: dadosCompletosEmpregador.numberPhone,
-            jobTitle: dadosCompletosEmpregador.jobTitle,
-            dateOfBirth: dadosCompletosEmpregador.dateOfBirth,
-            gender: dadosCompletosEmpregador.gender,
-            photograph: dadosCompletosEmpregador.photograph,
-            logo: logo,
+            idEmployer: idEmployer,
             companyName: nomeEmpresa,
             companyEmail: email
         }
 
-        console.log(dadosEmpresa)
-    
+
         localStorage.setItem("dadosEmpresa", JSON.stringify(dadosEmpresa));
-        
+
         let url = "/registro/empresa/localizacao";
         window.location.href = url;
     }
 
 }
 
+export function log() {
+    const idEmployer = localStorage.getItem("idEmployer");
+
+    console.log(idEmployer)
+}

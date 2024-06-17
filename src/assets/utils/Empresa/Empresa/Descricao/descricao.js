@@ -1,4 +1,4 @@
-export function envioDados(event, descricao, setErro) {
+export function envioDados(event, logo, descricao, setErro) {
     event.preventDefault();
 
     if (!(descricao)) {
@@ -13,22 +13,10 @@ export function envioDados(event, descricao, setErro) {
             return
         }
 
-        cadastroCompleto.append("completeName", informacoesEmpresa.completeName)
-        cadastroCompleto.append("email", informacoesEmpresa.email)
-        cadastroCompleto.append("password", informacoesEmpresa.password)
-        cadastroCompleto.append("account", informacoesEmpresa.account)
-        cadastroCompleto.append("country", informacoesEmpresa.country)
-        cadastroCompleto.append("state", informacoesEmpresa.state)
-        cadastroCompleto.append("city", informacoesEmpresa.city)
-        cadastroCompleto.append("cep", informacoesEmpresa.cep)
-        cadastroCompleto.append("complement", informacoesEmpresa.complement)
-        cadastroCompleto.append("cpf", informacoesEmpresa.cpf)
-        cadastroCompleto.append("numberPhone", informacoesEmpresa.numberPhone)
-        cadastroCompleto.append("jobTitle", informacoesEmpresa.jobTitle)
-        cadastroCompleto.append("dateOfBirth", informacoesEmpresa.dateOfBirth)
-        cadastroCompleto.append("gender", informacoesEmpresa.gender)
-        cadastroCompleto.append("photograph", informacoesEmpresa.photograph)
-        cadastroCompleto.append("logo", informacoesEmpresa.logo)
+        console.log(informacoesEmpresa)
+
+
+        cadastroCompleto.append("idEmployer", informacoesEmpresa.idEmployer)
         cadastroCompleto.append("companyName", informacoesEmpresa.companyName)
         cadastroCompleto.append("companyEmail", informacoesEmpresa.companyEmail)
         cadastroCompleto.append("country", informacoesEmpresa.country)
@@ -42,9 +30,9 @@ export function envioDados(event, descricao, setErro) {
         cadastroCompleto.append("cnpj", informacoesEmpresa.cnpj)
         cadastroCompleto.append("website", informacoesEmpresa.website)
         cadastroCompleto.append("numberPhone", informacoesEmpresa.numberPhone)
+        cadastroCompleto.append("logo", logo)
         cadastroCompleto.append("desciption", descricao)
 
-        console.log(cadastroCompleto)
         enviarAPI(cadastroCompleto)
     }
 }
@@ -62,9 +50,15 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        window.location.href = "/home";
+        localStorage.setItem("idEmployer", data)
+        window.location.href = "/login";
     })
     .catch(error => {
         console.log("Erro: " + error.message);
     });
+}
+
+export function log() {
+    const informacoesEmpresa = JSON.parse(localStorage.getItem("informacoesEmpresa"))
+    console.log(informacoesEmpresa)
 }
