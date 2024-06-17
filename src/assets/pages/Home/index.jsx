@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Home.module.css";
-import { rolarScroll, exibirVagas, buscarVagas, fecharVaga, log } from "../../utils/Home/home";
+import { rolarScroll, exibirVagas, buscarVagas, fecharVaga, removerBotao/*log*/ } from "../../utils/Home/home";
 
 function Home() {
     const [filtro, setFiltro] = useState("");
@@ -29,7 +29,7 @@ function Home() {
     }, []);
 
     useEffect(() => {
-        log()
+        removerBotao();
     })
 
 
@@ -59,7 +59,7 @@ function Home() {
                 </section>
                 <section className={styles.corpoPagina}>
                     <div className={styles.limite}>
-                        <Link to="/home/adicionarVaga" className={styles.linkVaga} id={styles.linkVaga}>
+                        <Link to="/home/adicionarVaga" className={styles.linkVaga} id="linkVaga">
                             <button className={styles.btnVaga}>
                                 <i className="bi bi-plus-square-fill"></i>
                                 <p>Adicionar vaga</p>

@@ -1,13 +1,42 @@
 import styles from "../../pages/Home/Home.module.css";
 
 
-//Carregar perfil
+
 const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
 const conta = JSON.parse(contaResposta)
 
 const idConta = conta.id
-const tipoConta = conta.account
+const tipoConta = conta.account.toLowerCase();
 
+//Remover botão adicionar vaga
+export function removerBotao() {
+    if (tipoConta == "employee") {
+        let adicionar = document.getElementById("linkVaga")
+        console.log(adicionar)
+        adicionar.classList.add(styles.remover)
+    }
+}
+
+//Carregar perfil
+fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
+    headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    },
+    method: "GET",
+})
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        if (tipoConta == "employer"){
+            localStorage.setItem("dadoUsuario", (data.employer.email))
+        } else {
+            localStorage.setItem("dadoUsuario", (data.email))
+        }
+    })
+    .catch(error => {
+        console.error("Error: ", error)
+    })
 
 
 //Nav fixa quando desce o scroll
@@ -39,7 +68,6 @@ export function exibirVagas() {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             if (data.length != 0) {
                 imgPost.classList.add(styles.comVaga);
                 carregarPost(data)
