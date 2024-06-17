@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from "../../../../../components/Footer";
 import Header from "../../../../../components/Header";
 import styles from "./Localizacao.module.css"
-import { envioDados } from "../../../../../utils/Empresa/Empresa/LocalizacaoEmpresa/localizacao.js";
+import { envioDados, log } from "../../../../../utils/Empresa/Empresa/LocalizacaoEmpresa/localizacao.js";
 
 function Localizacao() {
     const [pais, setPais] = useState("");
@@ -13,6 +13,10 @@ function Localizacao() {
     const [rua, setRua] = useState("");
     const [numEmpresa, setNumEmpresa] = useState("");
     const [erro, setErro] = useState("")
+
+    useEffect(() => {
+        log();
+    }, []);
 
     return (
         <>

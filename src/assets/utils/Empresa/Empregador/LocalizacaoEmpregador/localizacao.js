@@ -12,10 +12,13 @@ export function envioDados(event, pais, estado, cidade, cep, complemento, setErr
             return
         }
 
+        console.log(dadosRegistro)
+
         const dadosLocalizacao = {
             completeName: dadosRegistro.completeName,
             email: dadosRegistro.email,
             password: dadosRegistro.password,
+            account: dadosRegistro.account,
             country: pais,
             state: estado,
             city: cidade,

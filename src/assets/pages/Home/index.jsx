@@ -3,10 +3,9 @@ import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Home.module.css";
-import { rolarScroll, exibirVagas, buscarVagas } from "../../utils/Home/home";
+import { rolarScroll, exibirVagas, buscarVagas, fecharVaga, log } from "../../utils/Home/home";
 
 function Home() {
-
     const [filtro, setFiltro] = useState("");
 
     useEffect(() => {
@@ -19,6 +18,20 @@ function Home() {
     useEffect(() => {
         exibirVagas();
     }, []);
+
+    useEffect(() => {
+        const botao = document.getElementById("janelaVaga");
+        botao.addEventListener("click", (event) => {
+            if (event.target.id === "fechar" || event.target.id === "janelaVaga") {
+                fecharVaga();
+            }
+        });
+    }, []);
+
+    useEffect(() => {
+        log()
+    })
+
 
     return (
         <>
@@ -38,7 +51,7 @@ function Home() {
                             <i className={`bi bi-filter ${styles.iconeFiltro}`} id="imgFiltro"></i>
                         </div>
                         <div className={styles.inputFiltro}>
-                            <input type="text" name="filtro" id="filtrar" className={styles.filtrar} placeholder="Filtrar" onChange={(e) => setFiltro(e.target.value)}/>
+                            <input type="text" name="filtro" id="filtrar" className={styles.filtrar} placeholder="Filtrar" onChange={(e) => setFiltro(e.target.value)} />
                         </div>
                         <button type="submit" className={styles.btnFiltrar}>Filtrar</button>
                     </form>
@@ -61,6 +74,15 @@ function Home() {
                     </div>
                 </section>
             </section>
+            <div id="janelaVaga" className={styles.janelaVaga}>
+                <div className={styles.verMais} id="verMais">
+                    <i className={`bi bi-x-circle-fill ${styles.fechar}`} id="fechar"></i>
+                    <button id="botaoEmail" className={styles.botaoEmail}>
+                        <i className="bi bi-at"></i>
+                        <h1>Email</h1>
+                    </button>
+                </div>
+            </div>
             <Footer />
         </>
     );

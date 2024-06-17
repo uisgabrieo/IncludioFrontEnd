@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Footer from "../../../../../components/Footer";
 import Header from "../../../../../components/Header";
 import styles from "./Info.module.css"
-import { envioDados, preencherData } from "../../../../../utils/Empresa/Empresa/InfoEmpresa/info"
+import { envioDados, preencherData, log } from "../../../../../utils/Empresa/Empresa/InfoEmpresa/info"
 
 function Info() {
     const [dia, setDia]  = useState("");
@@ -15,6 +15,7 @@ function Info() {
 
     useEffect(() => {
         preencherData()
+        log()
     }, []);
 
     return (

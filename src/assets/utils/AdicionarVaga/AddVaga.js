@@ -1,5 +1,18 @@
 import styles from "../../pages/AdicionarVaga/AddVaga.module.css";
 
+export function envioDados(e, vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga, setErro) {
+
+    e.preventDefault();
+    if (!(vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga)){
+        setErro("Dados incompletos")
+    } else {
+        const post = new FormData();
+
+        console.log(vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga)
+
+    }
+}
+
 export function exibirSetor(e, setor, setSetor) {
     const aetorSelecionada = e.target.value;
 

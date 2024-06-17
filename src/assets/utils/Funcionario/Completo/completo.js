@@ -84,8 +84,8 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        localStorage.setItem("data", JSON.stringify(data));
-        window.location.href = "/home";
+        localStorage.setItem("idEmployee", data);
+        window.location.href = "/login";
     })
     .catch(error => {
         console.log("Erro: " + error.message);

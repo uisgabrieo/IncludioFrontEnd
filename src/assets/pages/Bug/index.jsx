@@ -36,37 +36,30 @@ function Bug() {
                             <h1>FeedBack, Avaliação ou Relatar Bug</h1>
                         </div>
                         <div>
+                            <label htmlFor="nomeCompleto">
+                                <div>
+                                    Nome Completo<br />
+                                    <input type="text" name="nomeCompleto" className={styles.credenciais} placeholder="Nome Completo" onChange={(e) => setNomeCompleto(e.target.value)} />
+                                </div>
+                            </label>
+                        </div>
+                        <div>
                             <label htmlFor="email">
                                 <div>
+                                    Email<br />
+                                    <input type="email" name="email" className={styles.credenciais} placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                                </div>
+                            </label>
+                        </div>
+                        <div>
+                            <label htmlFor="descricao">
+                                <div>
                                     Descrição<br />
-                                    <input type="email" name="email" id="email" className={styles.credenciais} placeholder="Descreva"
-                                    />
+                                    <textarea name="descricao" className={styles.credenciais} id={styles.descricao} placeholder="Descreva" onChange={(e) => setDescricao(e.target.value)} />
                                 </div>
                             </label>
                         </div>
-                        <div>
-                            <label htmlFor="senha">
-                                <div className={styles.caixaSenha}>
-                                    Nome Completo<br />
-                                    <div className={styles.campoSenha}>
-                                        <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Nome Completo" />
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-                        <div>
-                            <div>
-                                <label htmlFor="senha">
-                                    <div className={styles.caixaSenha}>
-                                        Emial<br />
-                                        <div className={styles.campoSenha}>
-                                            <input type="password" name="senha" id="senha" className={styles.credenciais} placeholder="Email" />
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-                            <button type="submit" className={styles.btnConfirme}>Enviar</button>
-                        </div>
+                        <button type="submit" className={styles.btnConfirme}>Enviar</button>
                     </form>
                 </section>
             </main>
