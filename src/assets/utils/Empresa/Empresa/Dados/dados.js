@@ -4,7 +4,7 @@ export function envioDados(event, nomeEmpresa, email, setErro) {
     if (!(nomeEmpresa && email)) {
         setErro("Dados incompletos");
     } else {
-        const idEmployer = sessionStorage.getItem("idEmployer");
+        const idEmployer = localStorage.getItem("idEmployer");
 
         const dadosEmpresa = {
             idEmployer: idEmployer,
@@ -13,7 +13,7 @@ export function envioDados(event, nomeEmpresa, email, setErro) {
         }
 
 
-        sessionStorage.setItem("dadosEmpresa", JSON.stringify(dadosEmpresa));
+        localStorage.setItem("dadosEmpresa", JSON.stringify(dadosEmpresa));
 
         let url = "/registro/empresa/localizacao";
         window.location.href = url;
@@ -22,7 +22,7 @@ export function envioDados(event, nomeEmpresa, email, setErro) {
 }
 
 export function log() {
-    const idEmployer = sessionStorage.getItem("idEmployer");
+    const idEmployer = localStorage.getItem("idEmployer");
 
     console.log(idEmployer)
 }

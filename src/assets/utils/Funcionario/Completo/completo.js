@@ -34,7 +34,7 @@ export function envioDados(event, dia, mes, ano, genero, imgPerfil, imgDiagnosti
         setErro("Erro");
     } else {
         const dadosCompleto = new FormData();
-        const dadosInformacao = JSON.parse(sessionStorage.getItem("dadosInformacao"));
+        const dadosInformacao = JSON.parse(localStorage.getItem("dadosInformacao"));
 
         if (!dadosInformacao) {
             setErro("Dados não encontrados")
@@ -66,7 +66,7 @@ export function envioDados(event, dia, mes, ano, genero, imgPerfil, imgDiagnosti
         dadosCompleto.append("photograph", imgPerfil);
         dadosCompleto.append("diagnostic", imgDiagnostico);
 
-        sessionStorage.setItem("dadosCompletos", JSON.stringify(dadosCompleto));
+        localStorage.setItem("dadosCompletos", JSON.stringify(dadosCompleto));
         enviarAPI(dadosCompleto);
     }
 }
@@ -84,7 +84,7 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        sessionStorage.setItem("idEmployee", data);
+        localStorage.setItem("idEmployee", data);
         window.location.href = "/login";
     })
     .catch(error => {
@@ -97,7 +97,7 @@ export function formatarDoisDigitos(numero) {
 }
 
 export function log() {
-    const dadosInformacao = JSON.parse(sessionStorage.getItem("dadosInformacao"));
+    const dadosInformacao = JSON.parse(localStorage.getItem("dadosInformacao"));
 
     console.log(dadosInformacao);
 }

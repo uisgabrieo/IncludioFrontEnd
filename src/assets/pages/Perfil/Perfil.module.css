@@ -105,6 +105,7 @@
 }
 
 .botaoPerfil {
+  text-decoration: none;
   margin-top: 30px;
   align-items: center;
   height: 40px;

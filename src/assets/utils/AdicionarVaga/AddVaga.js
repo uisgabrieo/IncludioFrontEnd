@@ -9,7 +9,7 @@ export function envioDados(e, vaga, setor, modalidade, pais, estado, cidade, req
     } else {
         const post = new FormData();
 
-        const dadoUsuario = sessionStorage.getItem("dadoUsuario")
+        const dadoUsuario = localStorage.getItem("dadoUsuario")
 
         console.log(vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga)
 

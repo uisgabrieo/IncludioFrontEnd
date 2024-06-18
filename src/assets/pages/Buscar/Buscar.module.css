@@ -54,37 +54,142 @@
     font-size: 22px;
 }
 
-.vagas {
-    margin-top: 40px;
+.verMais {
+    position: relative;
+    width: 80%;
+    height: 620px;
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.verMais .fechar {
+    z-index: 20;
+    font-size: 35px;
+    color: rgb(161, 0, 0);
+    position: absolute;
+    top: 0px;
+    right: 10px;
+}
+
+.verMais .conteudo::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.verMais .conteudo::-webkit-scrollbar-thumb {
+    background-color: #cfcfcf;
+    border-radius: 10px;
+}
+
+.verMais .conteudo {
+    max-height: 450px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.verMais .sobreAVaga {
+    border: 1px black solid;
+    overflow-y: auto;
+}
+
+.janelaVaga {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.janelaVaga.abrir {
+    display: flex;
+}
+
+.abrir .verMais {
+    animation: abrirVerMais 0.5s;
+    margin-left: 50px;
+}
+
+.verMais .cabecalhoVaga {
+    gap: 50px;
+    align-items: center;
+    display: flex;
+}
+
+.verMais .cabecalhoVaga .logoVaga {
+    height: 100px;
+    width: 100px;
+}
+
+.verMais .setores {
+    font-size: 15px;
+    margin: 20px 0px 10px 50px;
+}
+
+.verMais .localHorario {
+    margin: 0px 0px 30px 50px;
+}
+
+.verMais .info {
+    margin-bottom: 30px;
+}
+
+.verMais .botaoEmail {
+    position: fixed;
+    bottom: 20px; /* Distância do fundo da página */
+    right: 20px; /* Distância da borda direita da página */
+    background-color: #000000;
+    color: #fff;
+    width: 100px;
+    height: 30px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    transition: .5s;
+    z-index: 1000; /* Garante que esteja acima de outros conteúdos */
 }
 
-.vagas .imgVazio {
-    display: block;
-    opacity: 40%;
-    height: 400px;
+.verMais .botaoEmail h1{
+    font-size: 15px;
 }
 
-.vagas .imgVazio.comVagas {
-    display: none;
+.verMais .botaoEmail i{
+    font-size: 15px;
 }
+
+.verMais .botaoEmail:hover {
+    background-color: #ff0e0e;
+}
+
 .post {
+    margin-top: 20px;
+    text-align: center;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border: 1px black solid;
     display: flex;
-    height: 200px;
-    width: 500px;
+    height: 250px;
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.post .logoPost{
+.post .logoPost {
+    justify-content: center;
     height: 80px;
     width: 80px;
 }
 
-.post .botao{
+.post .botao {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     border-radius: 8px;
     border: 1px solid transparent;
@@ -109,8 +214,12 @@
 
 .post .informacoes {
     margin-left: 20px;
+    flex: 1;
+    overflow: hidden;
 }
-.post .informacoes p{
-    margin-bottom: 20px;
-    width: 170px;
+
+.post .informacoes p {
+    text-align: center;
+    margin: 0; 
 }
+

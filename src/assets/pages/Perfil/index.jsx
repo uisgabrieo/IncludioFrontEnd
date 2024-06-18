@@ -14,7 +14,7 @@ function Perfil() {
   }, []);
 
   useEffect(() => {
-    const contaResposta = JSON.parse(sessionStorage.getItem("accountResponse"));
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
     const conta = JSON.parse(contaResposta);
 
     const tipoConta = conta.account.toLowerCase();
@@ -47,10 +47,10 @@ function Perfil() {
               <i className="bi bi-pencil-square"></i>
               <p>Editar Perfil</p>
             </button>
-            <button className={styles.botaoPerfil} id={styles.sair}>
+            <Link to={"/"}><button className={styles.botaoPerfil} id={styles.sair}>
               <i className="bi bi-box-arrow-left"></i>
               <p>Sair</p>
-            </button>
+            </button></Link>
           </section>
           <section className={styles.campoVagas}>
             <div className={styles.endereco}>

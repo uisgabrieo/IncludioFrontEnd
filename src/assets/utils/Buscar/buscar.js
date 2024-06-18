@@ -14,6 +14,16 @@ export function rolarScroll() {
         navegacao.classList.remove(styles.rolar);
     }
 }
+export function fecharVaga() {
+    const verMais = document.getElementById("verMais");
+    Array.from(verMais.children).forEach(child => {
+        if (!child.classList.contains(styles.fechar) && !child.classList.contains(styles.botaoEmail)) {
+            verMais.removeChild(child);
+        }
+    });
+    const botao = document.getElementById("janelaVaga");
+    botao.classList.remove(styles.abrir);
+}
 
 //Bucar por vaga
 export function buscarVagas(event, filtro) {
@@ -71,14 +81,13 @@ function criarPost(postagem) {
 
     var data = document.createElement("div")
     data.className = styles.informacoes;
-    data.innerHTML = "<p>DATA DE PUBLICAÇÃO: " + fomatarData(postagem.createAt) + "</p>"
+    data.innerHTML = "<p>DATA DE PUBLICAÇÃO: <br />" + fomatarData(postagem.createAt) + "</p>"
     data.appendChild(botao)
 
     var informacoes = document.createElement("div")
     informacoes.className = styles.informacoes;
-    informacoes.innerHTML = "<p>EMPRESA: " + postagem.author.companyName + "</p>" +
-        "<p>VAGA: " + postagem.role + "</p>" +
-        "<p>DESCRIÇÃO: " + postagem.description + "</p>";
+    informacoes.innerHTML = "<p>EMPRESA: <br />" + postagem.author.companyName + "</p>" +
+        "<p>VAGA: <br />" + postagem.role + "</p>" 
 
     var post = document.createElement("div");
     post.className = styles.post;
@@ -95,4 +104,80 @@ function carregarPost(postagens) {
     postagens.forEach(function (postagem) {
         criarPost(postagem);
     });
+}
+
+async function abrirVaga(vagaId) {
+    const email = document.getElementById("botaoEmail")
+    const botao = document.getElementById("janelaVaga")
+    botao.classList.add(styles.abrir)
+
+    const vaga = await capturarVaga(vagaId)
+    console.log(vaga)
+
+    gerarVaga(vaga)
+
+    email.addEventListener("click", function () {
+        const email = vaga.author.email
+        window.location.href = `mailto:${email}`;
+    })
+}
+
+async function capturarVaga(id) {
+    try {
+        const response = await fetch(`http://localhost:8080/api/account/employer/post/${id}`, {
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            method: "GET",
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Erro: ", error);
+    }
+}
+
+
+function gerarVaga(vaga) {
+
+    let cabecalho = document.createElement("div")
+    cabecalho.className = styles.cabecalhoVaga
+
+    let logo = document.createElement("img")
+    logo.className = styles.logoVaga
+    logo.src = vaga.author.logo
+    logo.alt = "Logo Empresa"
+    cabecalho.appendChild(logo)
+
+    let vagaPost = document.createElement("div")
+    vagaPost.className = styles.tituloVaga
+    vagaPost.innerHTML = "<h1>" + vaga.role + "</h1>"
+    cabecalho.appendChild(vagaPost)
+    document.getElementById("verMais").appendChild(cabecalho)
+
+    let setores = document.createElement("div")
+    setores.className = styles.setores
+    setores.innerHTML = "<h2>" + vaga.field.map(element => element).join(', ') + "</h2>"
+    document.getElementById("verMais").appendChild(setores)
+
+    let localHorario = document.createElement("div")
+    localHorario.className = styles.localHorario
+    localHorario.innerHTML = "<h3>" + vaga.country + "/" + vaga.state + "/" + vaga.city + "-" + fomatarData(vaga.createAt) + "</h3>"
+    document.getElementById("verMais").appendChild(localHorario)
+
+    let info = document.createElement("div")
+    info.className = styles.info
+    info.innerHTML =
+        `<i class="bi bi-clock-fill"></i>` +
+        `<h3>Modalidade: ${vaga.jobType}</h3>` +
+        `<i class="bi bi-exclamation-circle-fill"></i>` +
+        `<h3>Requisitos: ${vaga.requirements}</h3>`;
+    document.getElementById("verMais").appendChild(info)
+
+
+    let sobreAVaga = document.createElement("div")
+    sobreAVaga.className = styles.sobreAVaga
+    sobreAVaga.innerHTML = "<h3> Sobre a vaga:  </h3>" + "<p>" + vaga.description + "</p>"
+    document.getElementById("verMais").appendChild(sobreAVaga)
 }

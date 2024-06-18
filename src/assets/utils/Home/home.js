@@ -2,7 +2,7 @@ import styles from "../../pages/Home/Home.module.css";
 
 
 
-const contaResposta = JSON.parse(sessionStorage.getItem("accountResponse"))
+const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
 const conta = JSON.parse(contaResposta)
 
 const idConta = conta.id
@@ -29,9 +29,9 @@ fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
     .then(data => {
         console.log(data)
         if (tipoConta == "employer"){
-            sessionStorage.setItem("dadoUsuario", (data.employer.email))
+            localStorage.setItem("dadoUsuario", (data.employer.email))
         } else {
-            sessionStorage.setItem("dadoUsuario", (data.email))
+            localStorage.setItem("dadoUsuario", (data.email))
         }
     })
     .catch(error => {
@@ -99,14 +99,13 @@ function criarPost(postagem) {
 
     var data = document.createElement("div")
     data.className = styles.informacoes;
-    data.innerHTML = "<p>DATA DE PUBLICAÇÃO: " + fomatarData(postagem.createAt) + "</p>"
+    data.innerHTML = "<p>DATA DE PUBLICAÇÃO: <br />" + fomatarData(postagem.createAt) + "</p>"
     data.appendChild(botao)
 
     var informacoes = document.createElement("div")
     informacoes.className = styles.informacoes;
-    informacoes.innerHTML = "<p>EMPRESA: " + postagem.author.companyName + "</p>" +
-        "<p>VAGA: " + postagem.role + "</p>" +
-        "<p>DESCRIÇÃO: " + postagem.description + "</p>";
+    informacoes.innerHTML = "<p>EMPRESA: <br />" + postagem.author.companyName + "</p>" +
+        "<p>VAGA: <br />" + postagem.role + "</p>" 
 
     var post = document.createElement("div");
     post.className = styles.post;
@@ -202,7 +201,7 @@ function gerarVaga(vaga) {
 
     let cabecalho = document.createElement("div")
     cabecalho.className = styles.cabecalhoVaga
-    
+
     let logo = document.createElement("img")
     logo.className = styles.logoVaga
     logo.src = vaga.author.logo

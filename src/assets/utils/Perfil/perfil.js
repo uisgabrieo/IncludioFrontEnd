@@ -1,6 +1,6 @@
 import styles from "../../pages/Perfil/Perfil.module.css";
 
-const contaResposta = JSON.parse(sessionStorage.getItem("accountResponse"));
+const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
 const conta = JSON.parse(contaResposta);
 
 const idConta = conta.id;

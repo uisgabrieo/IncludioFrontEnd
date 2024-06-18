@@ -6,7 +6,7 @@ export function envioDados(event, logo, descricao, setErro) {
     } else {
         const cadastroCompleto = new FormData();
 
-        const informacoesEmpresa = JSON.parse(sessionStorage.getItem("informacoesEmpresa"))
+        const informacoesEmpresa = JSON.parse(localStorage.getItem("informacoesEmpresa"))
 
         if (!informacoesEmpresa) {
             setErro("Dados não encontrados")
@@ -50,7 +50,7 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        sessionStorage.setItem("idEmployer", data)
+        localStorage.setItem("idEmployer", data)
         window.location.href = "/login";
     })
     .catch(error => {
@@ -59,6 +59,6 @@ function enviarAPI(dados) {
 }
 
 export function log() {
-    const informacoesEmpresa = JSON.parse(sessionStorage.getItem("informacoesEmpresa"))
+    const informacoesEmpresa = JSON.parse(localStorage.getItem("informacoesEmpresa"))
     console.log(informacoesEmpresa)
 }

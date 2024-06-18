@@ -1,4 +1,4 @@
-const dadosUsuario = JSON.parse(sessionStorage.getItem("dadosUsuario"))
+const dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario"))
 console.log(dadosUsuario)
 
 if (dadosUsuario != null) {

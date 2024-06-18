@@ -5,7 +5,7 @@ export function envioDados(event, pais, estado, cidade, cep, complemento, setErr
         setErro('Dados incompletos');
     } else {
 
-        const dadosRegistro = JSON.parse(sessionStorage.getItem("dadosRegistro"))
+        const dadosRegistro = JSON.parse(localStorage.getItem("dadosRegistro"))
 
         if (!dadosRegistro) {
             setErro("Dados não encontrados")
@@ -26,7 +26,7 @@ export function envioDados(event, pais, estado, cidade, cep, complemento, setErr
             complement: complemento
         }
 
-        sessionStorage.setItem("dadosLocalizacao", JSON.stringify(dadosLocalizacao));
+        localStorage.setItem("dadosLocalizacao", JSON.stringify(dadosLocalizacao));
 
         let url = "/registro/empregador/info";
         window.location.href = url;
@@ -35,6 +35,6 @@ export function envioDados(event, pais, estado, cidade, cep, complemento, setErr
 }
 
 export function log() {
-    const dadosRegistro = JSON.parse(sessionStorage.getItem("dadosRegistro"))
+    const dadosRegistro = JSON.parse(localStorage.getItem("dadosRegistro"))
     console.log(dadosRegistro)
 }

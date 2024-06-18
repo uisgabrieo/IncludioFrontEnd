@@ -159,6 +159,7 @@
 }
 
 .post .logoPost {
+    justify-content: center;
     height: 80px;
     width: 80px;
 }
@@ -193,16 +194,17 @@
 }
 
 .post .informacoes {
-    margin-left: 20px;
-    flex: 1;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
 }
 
-.post .informacoes p {
-    margin-bottom: 20px;
-    width: 170px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.informacoes p {
+    text-align: center;
+    margin: 0; 
 }
 
 .janelaVaga {
@@ -218,14 +220,19 @@
     z-index: 1;
 }
 
+.janelaVaga.abrir {
+    display: flex;
+}
+
 .verMais {
     position: relative;
-    width: 75%;
-    height: 550px;
+    width: 80%;
+    height: 620px;
     background-color: rgb(255, 255, 255);
     backdrop-filter: blur(10px);
     padding: 50px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
 }
 
 .verMais .fechar {
@@ -259,27 +266,6 @@
     overflow-y: auto;
 }
 
-.janelaVaga.abrir {
-    display: flex;
-}
-
-@keyframes abrirVerMais {
-    from {
-        opacity: 0;
-        transform: translate3d(0px, -20px, -5px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-.abrir .verMais {
-    animation: abrirVerMais 0.5s;
-    margin-left: 50px;
-}
-
 .verMais .cabecalhoVaga {
     gap: 50px;
     align-items: center;
@@ -306,8 +292,8 @@
 
 .botaoEmail {
     position: fixed;
-    bottom: 20px; /* Distância do fundo da página */
-    right: 20px; /* Distância da borda direita da página */
+    bottom: 20px; 
+    right: 20px; 
     background-color: #000000;
     color: #fff;
     width: 100px;
@@ -316,7 +302,7 @@
     justify-content: center;
     align-items: center;
     transition: .5s;
-    z-index: 1000; /* Garante que esteja acima de outros conteúdos */
+    z-index: 1000; 
 }
 
 .botaoEmail h1{

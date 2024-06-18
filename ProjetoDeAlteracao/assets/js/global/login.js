@@ -28,7 +28,7 @@ botao.addEventListener("click", function (event) {
         })
         .then(data => {
             console.log(data); 
-            sessionStorage.setItem('accountResponse', JSON.stringify(data))
+            localStorage.setItem('accountResponse', JSON.stringify(data))
             window.location.href = '../global/homePage.html';
         })
         .catch(error => {
