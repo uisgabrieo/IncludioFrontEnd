@@ -1,73 +1,66 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Perfil.module.css";
+import { rolarScroll, carregarDados } from "../../utils/Perfil/perfil";
 
 function Perfil() {
+  useEffect(() => {
+    window.addEventListener("scroll", rolarScroll);
+    return () => {
+      window.removeEventListener("scroll", rolarScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    carregarDados();
+  }, []);
   return (
     <>
       <section className={styles.homePage}>
-        <Header />
-        <nav className={styles.menu}>
-          <Link to="/home" className={styles.navegacaoMenu}>
-            Home
-          </Link>
-          <Link to="/home/busca" className={styles.navegacaoMenu}>
-            Buscar
-          </Link>
-          <Link to="/home/bug" className={styles.navegacaoMenu}>
-            Relatar Bug
-          </Link>
-          <i className={`bi bi-moon-fill ${styles.navegacaoMenu}`}></i>
-        </nav>
+        <section className={styles.header} id="header">
+          <Header />
+          <nav id="navMenu" className={styles.menu}>
+            <Link to="/home" id={styles.paginaAtual} className={styles.navegacaoMenu}>Home</Link>
+            <Link to="/home/busca" className={styles.navegacaoMenu}>Buscar</Link>
+            <Link to="/home/bug" className={styles.navegacaoMenu}>Relatar Bug</Link>
+            <i className={`bi bi-moon-fill ${styles.navegacaoMenu}`}></i>
+          </nav>
+        </section>
         <main className={styles.container}>
           <section className={styles.campoPerfil}>
-            <div className={styles.editar}>
-              <button className={styles.editarButton}>
-                <span>
-                  <i class="bi bi-pencil-fill"></i>Editar
-                </span>
-              </button>
-            </div>
-            <img
-              src="../../../../public/img/global/gato.webp"
-              alt=""
-              className="imgPerfil"
-            />
-            <h1 className={styles.profileName}>Livia Oliveira</h1>
-            <div className={styles.profileDetails}>
-              <div className={styles.profileItem}>
-                <span>E-mail</span>
-                <span>livia@gmail.com</span>
-              </div>
-              <div className={styles.profileItem}>
-                <span>Data de nascimento</span>
-                <span>10/05/2001</span>
-              </div>
-              <div className={styles.profileItem}>
-                <span>Localização</span>
-                <span>Teresina</span>
-              </div>
-              <div className={styles.profileItem}>
-                <span>Contato</span>
-                <span>(94)72743-9983</span>
-              </div>
-              <div className={styles.profileItem}>
-                <span>Gênero</span>
-                <span>Mulher</span>
+            <img src="../../../../public/img/global/gato.webp" alt="" className={styles.imgPerfil} />
+            <h1>Luis Gabriel</h1>
+            <button className={styles.botaoPerfil} id={styles.editar}>
+              <i className="bi bi-pencil-square"></i>
+              <p>Editar Perfil</p>
+            </button>
+            <button className={styles.botaoPerfil} id={styles.sair}>
+              <i className="bi bi-box-arrow-left"></i>
+              <p>Sair</p>
+            </button>
+          </section>
+          <section className={styles.campoVagas}>
+            <div className={styles.endereco}>
+              <h1>ENDEREÇO</h1>
+              <div className={styles.divEndereco} id="divEndereco">
               </div>
             </div>
-            <div className={styles.logout}>
-              <button className={styles.logoutButton}>
-                <span>
-                  <i class="bi bi-box-arrow-left"></i>Log out
-                </span>
-              </button>
+            <div className={styles.pessoais}>
+              <h1>DADOS PESSOAIS</h1>
+              <div className={styles.divPessoais} id="divPessoais">
+              </div>
+            </div>
+            <div className={styles.empresa} id="divEmpresa">
+              <h1>EMPRESA</h1>
+              <div className={styles.divEmpresa}>
+              </div>
             </div>
           </section>
         </main>
+        <Footer />
       </section>
-      <Footer />
     </>
   );
 }

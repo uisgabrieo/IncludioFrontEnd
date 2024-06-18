@@ -155,17 +155,13 @@ function vagasFiltradas(busca) {
 
 //Fechar vaga
 export function fecharVaga() {
-    const botao = document.getElementById("janelaVaga")
-    const verMais = document.getElementById("verMais")
-
-    if (/*verMais != null*/ verMais) {
-        while (verMais.firstChild) {
-            verMais.removeChild(verMais.firstChild)
+    const verMais = document.getElementById("verMais");
+    Array.from(verMais.children).forEach(child => {
+        if (!child.classList.contains(styles.fechar) && !child.classList.contains(styles.botaoEmail)) {
+            verMais.removeChild(child);
         }
-        // verMais.removeChild(document.getElementById("cabecalho"))
-        // verMais.removeChild(document.getElementById("infoVaga"))
-        // verMais.removeChild(document.getElementById("area"))
-    }
+    });
+    const botao = document.getElementById("janelaVaga");
     botao.classList.remove(styles.abrir);
 }
 

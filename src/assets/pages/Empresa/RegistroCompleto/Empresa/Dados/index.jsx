@@ -3,16 +3,12 @@ import React from "react";
 import Header from "../../../../../components/Header";
 import Footer from "../../../../../components/Footer";
 import styles from "./Dados.module.css";
-import { envioDados, log } from "../../../../../utils/Empresa/Empresa/Dados/dados";
+import { envioDados } from "../../../../../utils/Empresa/Empresa/Dados/dados";
 
 function Dados() {
     const [nomeEmpresa, setNomeEmpresa] = useState("")
     const [email, setEmail] = useState("");
     const [erro, setErro] = useState("");
-
-    useEffect(() => {
-        log();
-    }, []);
 
     return (
         <>
