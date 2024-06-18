@@ -72,7 +72,7 @@ const AdicionarVaga = () => {
                                         <option value="Educação">Educação</option>
                                         <option value="Tecnologia da Informação">Tecnologia da Informação (TI)</option>
                                         <option value="Engenharia">Engenharia</option>
-                                        <option value="Adiministração">Administração</option>
+                                        <option value="Administração">Administração</option>
                                         <option value="Finanças">Finanças</option>
                                         <option value="Marketing">Marketing</option>
                                         <option value="Outro">Outro...</option>
