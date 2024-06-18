@@ -1,6 +1,6 @@
 import styles from "../../pages/Perfil/Perfil.module.css";
 
-const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
+const contaResposta = JSON.parse(sessionStorage.getItem("accountResponse"));
 const conta = JSON.parse(contaResposta);
 
 const idConta = conta.id;
@@ -20,7 +20,6 @@ export function rolarScroll() {
     }
 }
 
-export function carregarDados() {
     fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
         headers: {
             "Accept": "application/json",
@@ -39,9 +38,16 @@ export function carregarDados() {
         .catch(error => {
             console.error("Error: ", error);
         });
-}
+
 
 function gerarDadosPessoa(dados) {
+
+    const foto = document.createElement("img")
+    foto.className = styles.imgPerfil
+    foto.src = dados.photograph
+    foto.alt = "Foto de perfil"
+    document.getElementById("img").appendChild(foto)
+
     const endereco = document.createElement("div");
     endereco.className = styles.dados;
     endereco.innerHTML = `

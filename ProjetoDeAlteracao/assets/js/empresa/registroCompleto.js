@@ -3,7 +3,7 @@ const botao = document.querySelector("#submitEmployer");
 botao.addEventListener("click", function(event) {
     event.preventDefault();
 
-    const accountData = JSON.parse(localStorage.getItem('accountData'));
+    const accountData = JSON.parse(sessionStorage.getItem('accountData'));
     
     const iDia = document.querySelector("#dia").value;
     const iMes  = document.querySelector("#mes").value;

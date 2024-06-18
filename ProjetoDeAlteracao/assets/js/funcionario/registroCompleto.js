@@ -3,7 +3,7 @@ const botao = document.querySelector("#submitEmployee");
 botao.addEventListener("click", function (event) {
     event.preventDefault();
 
-    const accountData = JSON.parse(localStorage.getItem('accountData'));
+    const accountData = JSON.parse(sessionStorage.getItem('accountData'));
 
     const dados = new FormData();
 

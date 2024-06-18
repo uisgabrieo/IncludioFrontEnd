@@ -33,7 +33,7 @@ export function envioDados(event, dia, mes, ano, genero, imgPerfil, setErro, nav
     if (!(dia && mes && ano && imgPerfil)) {
         setErro("Erro");
     } else {
-        const dadosInformacao = JSON.parse(localStorage.getItem("dadosInformacao"));
+        const dadosInformacao = JSON.parse(sessionStorage.getItem("dadosInformacao"));
 
         if (!dadosInformacao) {
             setErro("Dados não encontrados")
@@ -97,7 +97,7 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        localStorage.setItem("idEmployer", data);
+        sessionStorage.setItem("idEmployer", data);
         window.location.href = "/registro/empresa/dados";
     })
     .catch(error => {
@@ -110,7 +110,7 @@ export function formatarDoisDigitos(numero) {
 }
 
 export function log() {
-    const dadosInformacao = JSON.parse(localStorage.getItem("dadosInformacao"));
+    const dadosInformacao = JSON.parse(sessionStorage.getItem("dadosInformacao"));
 
     console.log(dadosInformacao);
 }

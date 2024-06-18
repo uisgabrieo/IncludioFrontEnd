@@ -23,7 +23,7 @@ export function envioDados(event, email, senha, setErro) {
     })
     .then(data => {
         console.log(data); 
-        localStorage.setItem("accountResponse", JSON.stringify(data));
+        sessionStorage.setItem("accountResponse", JSON.stringify(data));
         window.location.href = '/home';
     })
     .catch(error => {

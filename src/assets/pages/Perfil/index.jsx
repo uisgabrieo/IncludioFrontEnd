@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Perfil.module.css";
-import { rolarScroll, carregarDados } from "../../utils/Perfil/perfil";
+import { rolarScroll } from "../../utils/Perfil/perfil";
 
 function Perfil() {
   useEffect(() => {
@@ -14,15 +14,26 @@ function Perfil() {
   }, []);
 
   useEffect(() => {
-    carregarDados();
-  }, []);
+    const contaResposta = JSON.parse(sessionStorage.getItem("accountResponse"));
+    const conta = JSON.parse(contaResposta);
+
+    const tipoConta = conta.account.toLowerCase();
+    if (tipoConta === "employee") {
+      const div = document.getElementById("divEmpresa");
+      if (div) {
+        div.remove();
+      }
+    }
+  }, [])
+
   return (
     <>
       <section className={styles.homePage}>
         <section className={styles.header} id="header">
           <Header />
           <nav id="navMenu" className={styles.menu}>
-            <Link to="/home" id={styles.paginaAtual} className={styles.navegacaoMenu}>Home</Link>
+            <Link to="/home" className={styles.navegacaoMenu}>Home</Link>
+            <Link to="/home/perfil" id={styles.paginaAtual} className={styles.navegacaoMenu}>Perfil</Link>
             <Link to="/home/busca" className={styles.navegacaoMenu}>Buscar</Link>
             <Link to="/home/bug" className={styles.navegacaoMenu}>Relatar Bug</Link>
             <i className={`bi bi-moon-fill ${styles.navegacaoMenu}`}></i>
@@ -30,7 +41,7 @@ function Perfil() {
         </section>
         <main className={styles.container}>
           <section className={styles.campoPerfil}>
-            <img src="../../../../public/img/global/gato.webp" alt="" className={styles.imgPerfil} />
+            <div id="img"></div>
             <h1>Luis Gabriel</h1>
             <button className={styles.botaoPerfil} id={styles.editar}>
               <i className="bi bi-pencil-square"></i>

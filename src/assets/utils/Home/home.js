@@ -2,7 +2,7 @@ import styles from "../../pages/Home/Home.module.css";
 
 
 
-const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
+const contaResposta = JSON.parse(sessionStorage.getItem("accountResponse"))
 const conta = JSON.parse(contaResposta)
 
 const idConta = conta.id
@@ -29,9 +29,9 @@ fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
     .then(data => {
         console.log(data)
         if (tipoConta == "employer"){
-            localStorage.setItem("dadoUsuario", (data.employer.email))
+            sessionStorage.setItem("dadoUsuario", (data.employer.email))
         } else {
-            localStorage.setItem("dadoUsuario", (data.email))
+            sessionStorage.setItem("dadoUsuario", (data.email))
         }
     })
     .catch(error => {

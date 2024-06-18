@@ -1,4 +1,4 @@
-const accountResponse = JSON.parse(localStorage.getItem("accountResponse"));
+const accountResponse = JSON.parse(sessionStorage.getItem("accountResponse"));
 const account = JSON.parse(accountResponse)
 const id = account.id;
 const typeAccount = account.account.toLowerCase();
@@ -52,7 +52,7 @@ fetch(`http://localhost:8080/api/account/${typeAccount}/${id}`, {
     .then(data => {
         console.log(data)
         informacoesPerfil(data)
-        localStorage.setItem('dadosUsuario', JSON.stringify(data))
+        sessionStorage.setItem('dadosUsuario', JSON.stringify(data))
     })
     .catch(error => {
         console.error("Error: ", error)

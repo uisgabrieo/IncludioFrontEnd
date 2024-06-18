@@ -24,7 +24,7 @@ botao.addEventListener("click", function (event) {
             "account": iTypeAccount
         };
     
-        localStorage.setItem('accountData', JSON.stringify(accountData));
+        sessionStorage.setItem('accountData', JSON.stringify(accountData));
     
         let url = "../../pages/funcionario/registroCompleto.html";
         if (iTypeAccount === 'EMPLOYER') {

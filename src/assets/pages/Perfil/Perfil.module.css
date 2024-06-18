@@ -32,6 +32,10 @@
   color: aliceblue;
 }
 
+#paginaAtual {
+  color: white;
+}
+
 .container {
   display: flex;
 }

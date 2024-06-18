@@ -218,7 +218,7 @@
     color: rgb(161, 0, 0);
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: 10px;
 }
 
 .verMais .conteudo::-webkit-scrollbar {

@@ -5,7 +5,7 @@ export function envioDados(event, pais, estado, cidade, cep, bairro, rua, numEmp
         setErro('Dados incompletos');
     } else {
 
-        const dadosEmpresa = JSON.parse(localStorage.getItem("dadosEmpresa"))
+        const dadosEmpresa = JSON.parse(sessionStorage.getItem("dadosEmpresa"))
 
         console.log(dadosEmpresa)
 
@@ -23,7 +23,7 @@ export function envioDados(event, pais, estado, cidade, cep, bairro, rua, numEmp
         }
 
 
-        localStorage.setItem("localizacaoEmpresa", JSON.stringify(localizacaoEmpresa));
+        sessionStorage.setItem("localizacaoEmpresa", JSON.stringify(localizacaoEmpresa));
 
         let url = "/registro/empresa/info";
         window.location.href = url;
@@ -32,7 +32,7 @@ export function envioDados(event, pais, estado, cidade, cep, bairro, rua, numEmp
 }
 
 export function log() {
-    const dadosEmpresa = JSON.parse(localStorage.getItem("dadosEmpresa"))
+    const dadosEmpresa = JSON.parse(sessionStorage.getItem("dadosEmpresa"))
 
     console.log(dadosEmpresa)
 }

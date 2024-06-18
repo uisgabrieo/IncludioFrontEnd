@@ -16,7 +16,7 @@ export function envioDados(event, nomeCompleto, email, senha, confirmarSenha, ti
             account: tipoConta
         }
     
-        localStorage.setItem("dadosRegistro", JSON.stringify(registro));
+        sessionStorage.setItem("dadosRegistro", JSON.stringify(registro));
         
         let url = "/registro/funcionario/localizacao";
         if (tipoConta === 'EMPLOYER') {
