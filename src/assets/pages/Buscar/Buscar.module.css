@@ -144,8 +144,8 @@
 
 .verMais .botaoEmail {
     position: fixed;
-    bottom: 20px; /* Distância do fundo da página */
-    right: 20px; /* Distância da borda direita da página */
+    bottom: 20px; 
+    right: 20px; 
     background-color: #000000;
     color: #fff;
     width: 100px;
@@ -154,7 +154,7 @@
     justify-content: center;
     align-items: center;
     transition: .5s;
-    z-index: 1000; /* Garante que esteja acima de outros conteúdos */
+    z-index: 1000; 
 }
 
 .verMais .botaoEmail h1{

@@ -104,17 +104,57 @@
 }
 
 .post {
+    margin-top: 20px;
     text-align: center;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border: 1px black solid;
     display: flex;
-    flex-direction: column; 
     height: 250px;
     width: 100%; 
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.post .logoPost {
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+}
+
+.post .botao {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 15px;
+    font-weight: 400;
+    background-color: var(--black);
+    color: var(--white);
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+.post .botao:hover {
+    background-color: var(--gray);
+    border-color: #646cff;
+}
+
+.post .botao:focus,
+.post .botao:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.post .informacoes {
+    margin-left: 20px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.post .informacoes p {
+    text-align: center;
+    margin: 0; 
 }
 
 .corpoPagina .vagas .imgVaga.comVaga {
@@ -156,55 +196,6 @@
 
 .corpoPagina .btnVaga:hover {
     background-color: var(--secundary);
-}
-
-.post .logoPost {
-    justify-content: center;
-    height: 80px;
-    width: 80px;
-}
-
-.post .botao {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 15px;
-    font-weight: 400;
-    background-color: var(--black);
-    color: var(--white);
-    cursor: pointer;
-    transition: border-color 0.25s;
-}
-
-.post .botao:hover {
-    background-color: var(--gray);
-    border-color: #646cff;
-}
-
-.post .botao:focus,
-.post .botao:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-}
-
-.post .informacoes {
-    margin-left: 20px;
-    flex: 1;
-    overflow: hidden;
-}
-
-.post .informacoes {
-    text-align: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-}
-
-.informacoes p {
-    text-align: center;
-    margin: 0; 
 }
 
 .janelaVaga {
@@ -305,11 +296,11 @@
     z-index: 1000; 
 }
 
-.botaoEmail h1{
+.botaoEmail h1 {
     font-size: 15px;
 }
 
-.botaoEmail i{
+.botaoEmail i {
     font-size: 15px;
 }
 
