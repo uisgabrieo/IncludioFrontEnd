@@ -1,15 +1,18 @@
 import styles from "../../pages/Home/Home.module.css";
 
+export function carregarDados() {
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
+    const conta = JSON.parse(contaResposta)
+    
+    const idConta = conta.id
+    const tipoConta = conta.account.toLowerCase();
 
-
-const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
-const conta = JSON.parse(contaResposta)
-
-const idConta = conta.id
-const tipoConta = conta.account.toLowerCase();
+    perfil(tipoConta, idConta)
+    removerBotao(tipoConta)
+}
 
 //Remover botão adicionar vaga
-export function removerBotao() {
+function removerBotao( tipoConta ) {
     if (tipoConta == "employee") {
         let adicionar = document.getElementById("linkVaga")
         console.log(adicionar)
@@ -18,25 +21,27 @@ export function removerBotao() {
 }
 
 //Carregar perfil
-fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
-    headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-    },
-    method: "GET",
-})
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        if (tipoConta == "employer"){
-            localStorage.setItem("dadoUsuario", (data.employer.email))
-        } else {
-            localStorage.setItem("dadoUsuario", (data.email))
-        }
+function perfil(tipoConta, idConta){
+    fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        method: "GET",
     })
-    .catch(error => {
-        console.error("Error: ", error)
-    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            if (tipoConta == "employer"){
+                localStorage.setItem("dadoUsuario", (data.employer.email))
+            } else {
+                localStorage.setItem("dadoUsuario", (data.email))
+            }
+        })
+        .catch(error => {
+            console.error("Error: ", error)
+        })
+}
 
 
 //Nav fixa quando desce o scroll

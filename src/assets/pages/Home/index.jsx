@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Home.module.css";
-import { rolarScroll, exibirVagas, buscarVagas, fecharVaga, removerBotao/*log*/ } from "../../utils/Home/home";
+import { rolarScroll, exibirVagas, buscarVagas, fecharVaga, carregarDados/*log*/ } from "../../utils/Home/home";
 
 function Home() {
     const [filtro, setFiltro] = useState("");
@@ -20,6 +20,10 @@ function Home() {
     }, []);
 
     useEffect(() => {
+        carregarDados()
+    }, [])
+
+    useEffect(() => {
         const botao = document.getElementById("janelaVaga");
         botao.addEventListener("click", (event) => {
             if (event.target.id === "fechar" || event.target.id === "janelaVaga") {
@@ -27,10 +31,6 @@ function Home() {
             }
         });
     }, []);
-
-    useEffect(() => {
-        removerBotao();
-    })
 
 
     return (

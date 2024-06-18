@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Perfil.module.css";
-import { rolarScroll } from "../../utils/Perfil/perfil";
+import { carregarPerfil, rolarScroll } from "../../utils/Perfil/perfil";
 
 function Perfil() {
   useEffect(() => {
@@ -25,6 +25,10 @@ function Perfil() {
       }
     }
   }, [])
+
+  useEffect(() => {
+    carregarPerfil();
+  }, []);
 
   return (
     <>

@@ -1,10 +1,14 @@
 import styles from "../../pages/Perfil/Perfil.module.css";
 
-const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
-const conta = JSON.parse(contaResposta);
+export function carregarPerfil() {
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
+    const conta = JSON.parse(contaResposta);
+    
+    const idConta = conta.id;
+    const tipoConta = conta.account.toLowerCase();
 
-const idConta = conta.id;
-const tipoConta = conta.account.toLowerCase();
+    perfil(tipoConta, idConta)
+}
 
 export function rolarScroll() {
     const cabecalho = document.querySelector("#header");
@@ -19,6 +23,8 @@ export function rolarScroll() {
         navegacao.classList.remove(styles.rolar);
     }
 }
+
+function perfil(tipoConta, idConta){
 
     fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
         headers: {
@@ -38,9 +44,15 @@ export function rolarScroll() {
         .catch(error => {
             console.error("Error: ", error);
         });
+}
 
 
 function gerarDadosPessoa(dados) {
+    // Limpar os elementos antes de adicionar novos dados
+    document.getElementById("img").innerHTML = "";
+    document.getElementById("nomeUsuario").innerHTML = "";
+    document.getElementById("divEndereco").innerHTML = "";
+    document.getElementById("divPessoais").innerHTML = "";
 
     const foto = document.createElement("img")
     foto.className = styles.imgPerfil
@@ -75,6 +87,9 @@ function gerarDadosPessoa(dados) {
 }
 
 function gerarDadosEmpresa(empresa, funcionario) {
+    // Limpar os elementos antes de adicionar novos dados
+    document.getElementById("divEmpresa").innerHTML = "";
+
     gerarDadosPessoa(funcionario)
     const infoEmpresa = document.createElement("div");
     infoEmpresa.className = styles.dados;
