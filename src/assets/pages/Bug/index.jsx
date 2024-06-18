@@ -1,15 +1,20 @@
-import { Link } from "react-router-dom"
-import { useState, useEffect } from "react"
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
-import styles from "./Bug.module.css"
-import { envioDados, rolarScroll } from "../../utils/Bug/bug"
+import { useState, useEffect } from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import Navigation from "../../components/Navigation";
+import styles from "./Bug.module.css";
+import { envioDados, rolarScroll } from "../../utils/Bug/bug";
 
 function Bug() {
     const [descricao, setDescricao] = useState("");
     const [nomeCompleto, setNomeCompleto] = useState("");
     const [email, setEmail] = useState("");
     const [erro, setErro] = useState("");
+    const [darkTheme, setDarkTheme] = useState(false);
+
+    const toggleTheme = () => {
+        setDarkTheme(!darkTheme);
+    };
 
     useEffect(() => {
         window.addEventListener("scroll", rolarScroll);
@@ -22,15 +27,9 @@ function Bug() {
         <>
             <section className={styles.header} id="header">
                 <Header />
-                <nav id="navMenu" className={styles.menu}>
-                    <Link to="/home" className={styles.navegacaoMenu}>Home</Link>
-                    <Link to="/home/perfil" className={styles.navegacaoMenu}>Perfil</Link>
-                    <Link to="/home/busca" className={styles.navegacaoMenu}>Buscar</Link>
-                    <Link to="/home/bug" id={styles.paginaAtual} className={styles.navegacaoMenu}>Relatar Bug</Link>
-                    <i className={`bi bi-moon-fill ${styles.navegacaoMenu}`}></i>
-                </nav>
+                <Navigation onToggleTheme={toggleTheme} />
             </section>
-            <main className={styles.main}>
+            <main className={darkTheme ? styles.main : styles.mainpreto}>
                 <section className={styles.cardLogin}>
                     <form onSubmit={(e) => envioDados(e, descricao, nomeCompleto, email, setErro)} className={styles.formulario}>
                         <div>
@@ -66,7 +65,7 @@ function Bug() {
             </main>
             <Footer />
         </>
-    )
+    );
 }
 
 export default Bug;
