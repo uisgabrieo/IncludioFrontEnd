@@ -47,10 +47,12 @@ function Perfil() {
           <section className={styles.campoPerfil}>
             <div id="img"></div>
             <div className={styles.nomeUsuario} id="nomeUsuario"></div>
-            <button className={styles.botaoPerfil} id={styles.editar}>
-              <i className="bi bi-pencil-square"></i>
-              <p>Editar Perfil</p>
-            </button>
+            <Link to={"/home/perfil/editar"}>
+              <button className={styles.botaoPerfil} id={styles.editar}>
+                <i className="bi bi-pencil-square"></i>
+                <p>Editar Perfil</p>
+              </button>
+            </Link>
             <Link to={"/"}><button className={styles.botaoPerfil} id={styles.sair}>
               <i className="bi bi-box-arrow-left"></i>
               <p>Sair</p>

@@ -16,6 +16,7 @@ import Home from "./assets/pages/Home";
 import Buscar from "./assets/pages/Buscar";
 import Bug from "./assets/pages/Bug";
 import Perfil from "./assets/pages/Perfil";
+import Editar from "./assets/pages/Editar";
 import AdicionarVaga from "./assets/pages/AdicionarVaga";
 import Pagina404 from "./assets/pages/notFoundPage";
 
@@ -70,6 +71,7 @@ function AppRoutes() {
                 <Route path="/home/busca" element={<Buscar />}></Route>
                 <Route path="/home/bug" element={<Bug />}></Route>
                 <Route path="/home/perfil" element={<Perfil />}></Route>
+                <Route path="/home/perfil/editar" element={<Editar />}></Route>
                 <Route path="/home/adicionarVaga" element={<AdicionarVaga />}></Route>
                 <Route path="*" element={<Pagina404 />}></Route>
             </Routes>

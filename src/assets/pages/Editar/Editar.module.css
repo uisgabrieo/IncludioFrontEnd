@@ -1,0 +1,181 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 241, 241);
+}
+
+.menu {
+  background-color: var(--secundary);
+  height: 30px;
+  display: flex;
+  justify-content: end;
+  gap: 40px;
+  align-items: center;
+}
+
+.menu.rolar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--secundary);
+  z-index: 1000;
+}
+
+.menu .navegacaoMenu {
+  margin-right: 40px;
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.menu .navegacaoMenu:hover {
+  color: aliceblue;
+}
+
+#paginaAtual {
+  color: white;
+}
+
+.container {
+  display: flex;
+}
+
+.campoPerfil {
+  border: 2px black solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin-top: 100px;
+  margin-left: 100px;
+  width: 300px;
+  height: 500px;
+}
+
+.container .campoPerfil img {
+  margin-top: 20px;
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+}
+
+.container .campoVagas {
+  margin-top: 100px;
+  margin-left: 50px;
+  width: 800px;
+  max-width: 700px;
+  min-width: 500px;
+  min-height: 700px;
+  height: auto;
+}
+
+.btnUpload {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: inline-block;
+  background-color: rgb(202, 202, 202);
+  color: var(--gray);
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  padding-top: 5px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.credenciaisFile {
+  display: none;
+}
+
+
+.nomeUsuario {
+  text-align: center;
+  width: 200px;
+
+  white-space:  nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.endereco,
+.pessoais,
+.empresa {
+  padding: 20px;
+  background-color: var(--white);
+  border: 2px black solid;
+  margin-bottom: 30px;
+}
+
+.endereco h1,
+.pessoais h1,
+.empresa h1{
+  text-align: center;
+  background-color: #727272;
+}
+
+.divEndereco,
+.divPessoais,
+.divEmpresa{
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  padding: 20px 0px 0px 30px;
+}
+
+.desabilitado {
+  background-color: #727272;
+}
+
+.divEndereco input,
+.divPessoais input,
+.divPessoais select,
+.divEmpresa input{
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px black solid;
+  background-color: rgb(255, 255, 255);
+  color: var(--gray);
+  height: 40px;
+  width: 400px;
+  border-radius: 2px;
+  padding: 0px 30px 0px 20px;
+  margin-bottom: 20px;
+}
+
+.divEmpresa textarea {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px black solid;
+  background-color: rgb(255, 255, 255);
+  color: var(--gray);
+  height: 70px;
+  width: 400px;
+  border-radius: 2px;
+  padding: 0px 30px 0px 20px;
+  margin-bottom: 20px;
+}
+
+.empresa.remover {
+  display: none;
+}
+
+.botaoPerfil {
+  text-decoration: none;
+  margin-top: 30px;
+  align-items: center;
+  height: 40px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  transition: .5s;
+}
+
+#editar:hover {
+  background-color: var(--secundary);
+  color: var(--white);
+}
+
+#sair:hover {
+  background-color: rgb(179, 1, 1);
+  color: var(--white);
+}

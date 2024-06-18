@@ -1,4 +1,4 @@
-import styles from "../../pages/Perfil/Perfil.module.css";
+// src/assets/utils/Editar/editar.js
 
 export function carregarPerfil() {
     const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
@@ -7,7 +7,7 @@ export function carregarPerfil() {
     const idConta = conta.id;
     const tipoConta = conta.account.toLowerCase();
 
-    perfil(tipoConta, idConta)
+    perfil(tipoConta, idConta);
 }
 
 export function rolarScroll() {
@@ -24,8 +24,7 @@ export function rolarScroll() {
     }
 }
 
-function perfil(tipoConta, idConta){
-
+function perfil(tipoConta, idConta) {
     fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
         headers: {
             "Accept": "application/json",
@@ -33,19 +32,18 @@ function perfil(tipoConta, idConta){
         },
         method: "GET",
     })
-        .then(response => response.json())
-        .then(data => {
-            if (tipoConta === "employer") {
-                gerarDadosEmpresa(data, data.employer);
-            } else {
-                gerarDadosPessoa(data);
-            }
-        })
-        .catch(error => {
-            console.error("Error: ", error);
-        });
+    .then(response => response.json())
+    .then(data => {
+        if (tipoConta === "employer") {
+            gerarDadosEmpresa(data, data.employer);
+        } else {
+            gerarDadosPessoa(data);
+        }
+    })
+    .catch(error => {
+        console.error("Error: ", error);
+    });
 }
-
 
 function gerarDadosPessoa(dados) {
     document.getElementById("img").innerHTML = "";
