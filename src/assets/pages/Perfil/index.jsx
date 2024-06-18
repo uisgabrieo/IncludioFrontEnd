@@ -42,7 +42,7 @@ function Perfil() {
         <main className={styles.container}>
           <section className={styles.campoPerfil}>
             <div id="img"></div>
-            <h1>Luis Gabriel</h1>
+            <div className={styles.nomeUsuario} id="nomeUsuario"></div>
             <button className={styles.botaoPerfil} id={styles.editar}>
               <i className="bi bi-pencil-square"></i>
               <p>Editar Perfil</p>

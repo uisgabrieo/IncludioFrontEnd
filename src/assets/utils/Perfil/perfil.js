@@ -48,6 +48,11 @@ function gerarDadosPessoa(dados) {
     foto.alt = "Foto de perfil"
     document.getElementById("img").appendChild(foto)
 
+    const nome = document.createElement("h1")
+    nome.className = styles.nomeUsuario
+    nome.innerHTML = dados.completeName
+    document.getElementById("nomeUsuario").appendChild(nome)
+
     const endereco = document.createElement("div");
     endereco.className = styles.dados;
     endereco.innerHTML = `

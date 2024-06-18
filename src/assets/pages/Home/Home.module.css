@@ -50,15 +50,14 @@
     align-items: center;
 }
 
-.campoFiltro .iconeFiltro{
+.campoFiltro .iconeFiltro {
     font-size: 20px;
     position: absolute;
     left: 410px;
     top: 105px;
-
 }
 
-.campoFiltro .inputFiltro{
+.campoFiltro .inputFiltro {
     height: 40px;
     width: 500px;
 }
@@ -95,11 +94,27 @@
 }
 
 .corpoPagina .vagas {
-    margin-bottom: 20px;
-    margin-top: 50px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center; 
+    margin: 0 auto; 
+    max-width: 1000px; 
+    padding: 20px;
+}
+
+.post {
+    text-align: center;
+    align-items: center;
     justify-content: center;
-    gap: 60px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px black solid;
+    display: flex;
+    flex-direction: column; 
+    height: 250px;
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .corpoPagina .vagas .imgVaga.comVaga {
@@ -143,22 +158,12 @@
     background-color: var(--secundary);
 }
 
-.post {
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    border: 1px black solid;
-    display: flex;
-    height: 200px;
-    width: 500px;
-}
-
-.post .logoPost{
+.post .logoPost {
     height: 80px;
     width: 80px;
 }
 
-.post .botao{
+.post .botao {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     border-radius: 8px;
     border: 1px solid transparent;
@@ -183,10 +188,21 @@
 
 .post .informacoes {
     margin-left: 20px;
+    flex: 1;
+    overflow: hidden;
 }
-.post .informacoes p{
+
+.post .informacoes {
+    margin-left: 20px;
+    flex: 1;
+}
+
+.post .informacoes p {
     margin-bottom: 20px;
     width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .janelaVaga {
@@ -238,15 +254,21 @@
     overflow-y: scroll;
 }
 
+.verMais .sobreAVaga {
+    border: 1px black solid;
+    overflow-y: auto;
+}
+
 .janelaVaga.abrir {
     display: flex;
 }
 
 @keyframes abrirVerMais {
-    from{
+    from {
         opacity: 0;
         transform: translate3d(0px, -20px, -5px);
     }
+
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
@@ -272,11 +294,10 @@
 .verMais .setores {
     font-size: 15px;
     margin: 20px 0px 10px 50px;
-
 }
 
 .verMais .localHorario {
-    margin: 0px 0px 30px 50px 
+    margin: 0px 0px 30px 50px;
 }
 
 .verMais .info {
@@ -308,9 +329,4 @@
 
 .botaoEmail:hover {
     background-color: #ff0e0e;
-}
-
-.modalidade {
-    display: flex;
-    align-items: center;
 }

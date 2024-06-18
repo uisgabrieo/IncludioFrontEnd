@@ -202,6 +202,7 @@ function gerarVaga(vaga) {
 
     let cabecalho = document.createElement("div")
     cabecalho.className = styles.cabecalhoVaga
+    
     let logo = document.createElement("img")
     logo.className = styles.logoVaga
     logo.src = vaga.author.logo
