@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -6,6 +6,8 @@ import styles from "./Perfil.module.css";
 import { carregarPerfil, rolarScroll } from "../../utils/Perfil/perfil";
 
 function Perfil() {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     window.addEventListener("scroll", rolarScroll);
     return () => {
@@ -16,19 +18,29 @@ function Perfil() {
   useEffect(() => {
     const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
     const conta = JSON.parse(contaResposta);
+    console.log(conta);
 
     const tipoConta = conta.account.toLowerCase();
-    if (tipoConta === "employee") {
-      const div = document.getElementById("divEmpresa");
-      if (div) {
-        div.remove();
+    if (tipoConta != "employer") {
+      const divEmpresa = document.getElementById("divEmpresa");
+      if (divEmpresa) {
+        divEmpresa.innerHTML = "";
       }
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    carregarPerfil();
+    const carregarDados = async () => {
+      await carregarPerfil(); 
+      setLoading(false);
+    };
+
+    carregarDados();
   }, []);
+
+  if (loading) {
+    return <div>Carregando...</div>; 
+  }
 
   return (
     <>
@@ -71,8 +83,7 @@ function Perfil() {
             </div>
             <div className={styles.empresa} id="divEmpresa">
               <h1>EMPRESA</h1>
-              <div className={styles.divEmpresa}>
-              </div>
+              <div className={styles.divEmpresa}></div>
             </div>
           </section>
         </main>

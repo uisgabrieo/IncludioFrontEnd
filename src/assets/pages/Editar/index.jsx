@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Editar.module.css";
-import { carregarPerfil, rolarScroll } from "../../utils/Editar/editar.js";
+import { rolarScroll } from "../../utils/Editar/editar.js";
 
 
 function Perfil() {

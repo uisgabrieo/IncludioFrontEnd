@@ -1,13 +1,13 @@
 import styles from "../../pages/Perfil/Perfil.module.css";
 
-export function carregarPerfil() {
+export async function carregarPerfil() {
     const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
     const conta = JSON.parse(contaResposta);
     
     const idConta = conta.id;
     const tipoConta = conta.account.toLowerCase();
 
-    perfil(tipoConta, idConta)
+    await perfil(tipoConta, idConta); // Aguarda o carregamento do perfil
 }
 
 export function rolarScroll() {
@@ -24,28 +24,27 @@ export function rolarScroll() {
     }
 }
 
-function perfil(tipoConta, idConta){
-
-    fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        method: "GET",
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (tipoConta === "employer") {
-                gerarDadosEmpresa(data, data.employer);
-            } else {
-                gerarDadosPessoa(data);
-            }
-        })
-        .catch(error => {
-            console.error("Error: ", error);
+async function perfil(tipoConta, idConta) {
+    try {
+        const response = await fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            method: "GET",
         });
-}
 
+        const data = await response.json();
+
+        if (tipoConta === "employer") {
+            gerarDadosEmpresa(data, data.employer);
+        } else {
+            gerarDadosPessoa(data);
+        }
+    } catch (error) {
+        console.error("Error: ", error);
+    }
+}
 
 function gerarDadosPessoa(dados) {
     document.getElementById("img").innerHTML = "";
@@ -53,16 +52,16 @@ function gerarDadosPessoa(dados) {
     document.getElementById("divEndereco").innerHTML = "";
     document.getElementById("divPessoais").innerHTML = "";
 
-    const foto = document.createElement("img")
-    foto.className = styles.imgPerfil
-    foto.src = dados.photograph
-    foto.alt = "Foto de perfil"
-    document.getElementById("img").appendChild(foto)
+    const foto = document.createElement("img");
+    foto.className = styles.imgPerfil;
+    foto.src = dados.photograph;
+    foto.alt = "Foto de perfil";
+    document.getElementById("img").appendChild(foto);
 
-    const nome = document.createElement("h1")
-    nome.className = styles.nomeUsuario
-    nome.innerHTML = dados.completeName
-    document.getElementById("nomeUsuario").appendChild(nome)
+    const nome = document.createElement("h1");
+    nome.className = styles.nomeUsuario;
+    nome.innerHTML = dados.completeName;
+    document.getElementById("nomeUsuario").appendChild(nome);
 
     const endereco = document.createElement("div");
     endereco.className = styles.dados;
@@ -88,7 +87,7 @@ function gerarDadosPessoa(dados) {
 function gerarDadosEmpresa(empresa, funcionario) {
     document.getElementById("divEmpresa").innerHTML = "";
 
-    gerarDadosPessoa(funcionario)
+    gerarDadosPessoa(funcionario);
     const infoEmpresa = document.createElement("div");
     infoEmpresa.className = styles.dados;
     infoEmpresa.innerHTML = `
@@ -107,3 +106,4 @@ function gerarDadosEmpresa(empresa, funcionario) {
     <p>Descrição: ${empresa.description}</p>`;
     document.getElementById("divEmpresa").appendChild(infoEmpresa);
 }
+
