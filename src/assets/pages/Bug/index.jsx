@@ -10,7 +10,7 @@ function Bug() {
     const [nomeCompleto, setNomeCompleto] = useState("");
     const [email, setEmail] = useState("");
     const [erro, setErro] = useState("");
-    const [darkTheme, setDarkTheme] = useState(false);
+    const [darkTheme, setDarkTheme] = useState(true);
 
     const toggleTheme = () => {
         setDarkTheme(!darkTheme);

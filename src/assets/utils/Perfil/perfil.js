@@ -7,7 +7,7 @@ export async function carregarPerfil() {
     const idConta = conta.id;
     const tipoConta = conta.account.toLowerCase();
 
-    await perfil(tipoConta, idConta); // Aguarda o carregamento do perfil
+    await perfil(tipoConta, idConta);
 }
 
 export function rolarScroll() {

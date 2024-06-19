@@ -1,21 +1,77 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Editar.module.css";
 import { rolarScroll } from "../../utils/Editar/editar.js";
 
-
 function Perfil() {
+  const [formData, setFormData] = useState({
+    pais: '',
+    estado: '',
+    cidade: '',
+    complemento: '',
+    cep: '',
+    nomeCompleto: '',
+    telefone: '',
+    genero: '',
+    companyName: '',
+    website: '',
+    country: '',
+    state: '',
+    city: '',
+    neighborhood: '',
+    street: '',
+    numCompany: '',
+    companyCep: '',
+    numberPhone: '',
+    description: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("API", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        alert('Dados atualizados com sucesso!');
+      } else {
+        alert('Erro ao atualizar dados.');
+      }
+    } catch (error) {
+      alert('Erro ao atualizar dados.');
+    }
+  };
+  
+  useEffect(() => {
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
+    const conta = JSON.parse(contaResposta);
+    console.log(conta);
+
+    const tipoConta = conta.account.toLowerCase();
+    if (tipoConta === "employee") {
+      const divEmpresa = document.getElementById("divEmpresaExibir");
+      if (divEmpresa) {
+        divEmpresa.innerHTML = "";
+      }
+    }
+  }, []);
+
   useEffect(() => {
     window.addEventListener("scroll", rolarScroll);
     return () => {
       window.removeEventListener("scroll", rolarScroll);
     };
-  }, []);
-
-  useEffect(() => {
-    carregarPerfil();
   }, []);
 
   return (
@@ -38,7 +94,7 @@ function Perfil() {
               <label htmlFor="imagemPerfil" className={styles.btnUpload}>Insira sua Foto</label>
               <input type="file" name="imagemPerfil" id="imagemPerfil" className={styles.credenciaisFile} accept="image/*" />
             </label>
-            <button className={styles.botaoPerfil}>Salvar</button>
+            <button className={styles.botaoPerfil} onClick={handleSubmit}>Salvar</button>
             <Link to={"/"}><button className={styles.botaoPerfil} id={styles.sair}>
               <i className="bi bi-box-arrow-left"></i>
               <p>Sair</p>
@@ -51,23 +107,23 @@ function Perfil() {
                 <form>
                   <div>
                     País
-                    <input type="text" placeholder="Pais" />
+                    <input type="text" name="pais" placeholder="Pais" onChange={handleChange} />
                   </div>
                   <div>
                     Estado
-                    <input type="text" placeholder="estado" />
+                    <input type="text" name="estado" placeholder="estado" onChange={handleChange} />
                   </div>
                   <div>
                     Cidade
-                    <input type="text" placeholder="cidade" />
+                    <input type="text" name="cidade" placeholder="cidade" onChange={handleChange} />
                   </div>
                   <div>
                     Complemento
-                    <input type="text" placeholder="complemento" />
+                    <input type="text" name="complemento" placeholder="complemento" onChange={handleChange} />
                   </div>
                   <div>
                     CEP
-                    <input type="text" placeholder="cep" />
+                    <input type="text" name="cep" placeholder="cep" onChange={handleChange} />
                   </div>
                 </form>
               </div>
@@ -77,21 +133,21 @@ function Perfil() {
               <div className={styles.divPessoais} id="divPessoais">
                 <form>
                   <div>
-                    <label htmlFor="nome">
+                    <label htmlFor="nomeCompleto">
                       Nome Completo
-                      <input type="text" placeholder="nome completo" />
+                      <input type="text" name="nomeCompleto" placeholder="nome completo" onChange={handleChange} />
                     </label>
                   </div>
                   <label htmlFor="telefone">
                     <div>
                       Telefone
-                      <input type="text" placeholder="numero telefone" />
+                      <input type="text" name="telefone" placeholder="numero telefone" onChange={handleChange} />
                     </div>
                   </label>
                   <div>
                     <label htmlFor="genero">
                       Genero
-                      <select name="genero" id="genero" defaultValue="" className={styles.credenciais} onChange={(e) => setGenero(e.target.value)}>
+                      <select name="genero" id="genero" defaultValue="" className={styles.credenciais} onChange={handleChange}>
                         <option value="" disabled>Escolha uma opção</option>
                         <option value="HOMEM">Homem</option>
                         <option value="MULHER">Mulher</option>
@@ -108,47 +164,47 @@ function Perfil() {
                 <form>
                   <div>
                     Nome
-                    <input type="text" name="companyName" placeholder="Nome" />
+                    <input type="text" name="companyName" placeholder="Nome" onChange={handleChange} />
                   </div>
                   <div>
                     Website
-                    <input type="text" name="website" placeholder="Website" />
+                    <input type="text" name="website" placeholder="Website" onChange={handleChange} />
                   </div>
                   <div>
                     País
-                    <input type="text" name="country" placeholder="País" />
+                    <input type="text" name="country" placeholder="País" onChange={handleChange} />
                   </div>
                   <div>
                     Estado
-                    <input type="text" name="state" placeholder="Estado" />
+                    <input type="text" name="state" placeholder="Estado" onChange={handleChange} />
                   </div>
                   <div>
                     Cidade
-                    <input type="text" name="city" placeholder="Cidade" />
+                    <input type="text" name="city" placeholder="Cidade" onChange={handleChange} />
                   </div>
                   <div>
                     Bairro
-                    <input type="text" name="neighborhood" placeholder="Bairro" />
+                    <input type="text" name="neighborhood" placeholder="Bairro" onChange={handleChange} />
                   </div>
                   <div>
                     Rua
-                    <input type="text" name="street" placeholder="Rua" />
+                    <input type="text" name="street" placeholder="Rua" onChange={handleChange} />
                   </div>
                   <div>
                     Número da Empresa
-                    <input type="text" name="numCompany" placeholder="Número da Empresa" />
+                    <input type="text" name="numCompany" placeholder="Número da Empresa" onChange={handleChange} />
                   </div>
                   <div>
                     CEP
-                    <input type="text" name="cep" placeholder="CEP" />
+                    <input type="text" name="companyCep" placeholder="CEP" onChange={handleChange} />
                   </div>
                   <div>
                     Número de Telefone
-                    <input type="text" name="numberPhone" placeholder="Número de Telefone" />
+                    <input type="text" name="numberPhone" placeholder="Número de Telefone" onChange={handleChange} />
                   </div>
                   <div className={styles.descricao}>
                     Descrição
-                    <textarea name="description" placeholder="Descrição" ></textarea>
+                    <textarea name="description" placeholder="Descrição" onChange={handleChange}></textarea>
                   </div>
                 </form>
               </div>

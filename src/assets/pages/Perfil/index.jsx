@@ -6,7 +6,7 @@ import styles from "./Perfil.module.css";
 import { carregarPerfil, rolarScroll } from "../../utils/Perfil/perfil";
 
 function Perfil() {
-  const [loading, setLoading] = useState(true);
+  const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
     window.addEventListener("scroll", rolarScroll);
@@ -32,13 +32,13 @@ function Perfil() {
   useEffect(() => {
     const carregarDados = async () => {
       await carregarPerfil();
-      setLoading(false);
+      setCarregando(false);
     };
 
     carregarDados();
   }, []);
 
-  if (loading) {
+  if (carregando) {
     return <div>Carregando...</div>;
   }
 
