@@ -39,7 +39,11 @@ function Perfil() {
   }, []);
 
   if (carregando) {
-    return <div>Carregando...</div>;
+    return (
+      <div className={styles.loaderContainer}>
+        <div className={styles.loader}></div>
+      </div>
+    );
   }
 
   return (

@@ -117,8 +117,8 @@
 .divEndereco,
 .divPessoais,
 .divEmpresa{
+  justify-content: space-around;
   text-align: center;
-  justify-content: center;
   flex-direction: column;
   display: flex;
   padding: 20px 0px 0px 30px;
@@ -132,6 +132,7 @@
 .divPessoais input,
 .divPessoais select,
 .divEmpresa input{
+  margin-left: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border: 1px black solid;
   background-color: rgb(255, 255, 255);
