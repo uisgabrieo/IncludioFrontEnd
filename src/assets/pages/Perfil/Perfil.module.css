@@ -94,6 +94,11 @@
   background-color: #727272;
 }
 
+.empresa h1{
+  text-align: center;
+  background-color: #727272;
+}
+
 .divEndereco,
 .divPessoais,
 .divEmpresa{

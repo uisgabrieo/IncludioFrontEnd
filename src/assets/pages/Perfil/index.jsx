@@ -21,8 +21,8 @@ function Perfil() {
     console.log(conta);
 
     const tipoConta = conta.account.toLowerCase();
-    if (tipoConta != "employer") {
-      const divEmpresa = document.getElementById("divEmpresa");
+    if (tipoConta === "employee") {
+      const divEmpresa = document.getElementById("divEmpresaExibir");
       if (divEmpresa) {
         divEmpresa.innerHTML = "";
       }
@@ -31,7 +31,7 @@ function Perfil() {
 
   useEffect(() => {
     const carregarDados = async () => {
-      await carregarPerfil(); 
+      await carregarPerfil();
       setLoading(false);
     };
 
@@ -39,7 +39,7 @@ function Perfil() {
   }, []);
 
   if (loading) {
-    return <div>Carregando...</div>; 
+    return <div>Carregando...</div>;
   }
 
   return (
@@ -78,12 +78,11 @@ function Perfil() {
             </div>
             <div className={styles.pessoais}>
               <h1>DADOS PESSOAIS</h1>
-              <div className={styles.divPessoais} id="divPessoais">
-              </div>
+              <div className={styles.divPessoais} id="divPessoais"></div>
             </div>
-            <div className={styles.empresa} id="divEmpresa">
+            <div className={styles.empresa} id="divEmpresaExibir">
               <h1>EMPRESA</h1>
-              <div className={styles.divEmpresa}></div>
+              <div className={styles.divEmpresa} id="divEmpresa"></div>
             </div>
           </section>
         </main>
