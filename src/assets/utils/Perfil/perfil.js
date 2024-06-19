@@ -3,7 +3,7 @@ import styles from "../../pages/Perfil/Perfil.module.css";
 export async function carregarPerfil() {
     const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
     const conta = JSON.parse(contaResposta);
-    
+
     const idConta = conta.id;
     const tipoConta = conta.account.toLowerCase();
 
@@ -88,6 +88,8 @@ function gerarDadosEmpresa(empresa, funcionario) {
     document.getElementById("divEmpresa").innerHTML = "";
 
     gerarDadosPessoa(funcionario);
+    buscarPosts(funcionario.id);
+
     const infoEmpresa = document.createElement("div");
     infoEmpresa.className = styles.dados;
     infoEmpresa.innerHTML = `
@@ -107,3 +109,89 @@ function gerarDadosEmpresa(empresa, funcionario) {
     document.getElementById("divEmpresa").appendChild(infoEmpresa);
 }
 
+function gerarPosts(dados) {
+    var logo = document.createElement("img");
+    logo.className = styles.logoPost;
+    logo.src = dados.author.logo;
+
+    var data = document.createElement("div");
+    data.className = styles.informacoes;
+    data.innerHTML = "<p>DATA DE PUBLICAÇÃO: <br />" + fomatarData(dados.createAt) + "</p>";
+
+    var informacoes = document.createElement("div");
+    informacoes.className = styles.informacoes;
+    informacoes.innerHTML = "<p>VAGA: <br />" + dados.role + "</p>";
+
+    var botao = document.createElement("button")
+    botao.className = styles.botao;
+    botao.innerHTML = "Remover"
+    botao.addEventListener("click", function () {
+        remover(dados.id)
+    })
+
+    var post = document.createElement("div");
+    post.className = styles.post;
+    post.appendChild(logo);
+    post.appendChild(informacoes);
+    post.appendChild(data);
+    post.appendChild(botao)
+
+    document.getElementById("divVagas").appendChild(post);
+}
+
+async function buscarPosts(id) {
+    try {
+        const response = await fetch(`http://localhost:8080/api/account/employer/post/all/${id}`, {
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            method: "GET",
+        });
+        const data = await response.json();
+        carregarPost(data);
+    } catch (error) {
+        console.error("Error: ", error);
+    }
+}
+
+function carregarPost(postagens) {
+    console.log(postagens);
+    const posts = document.getElementById("divVagas");
+    posts.innerHTML = "";
+
+    postagens.forEach(function (postagem) {
+        gerarPosts(postagem);
+    });
+}
+
+function fomatarData(data) {
+    var dataOriginal = new Date(data);
+    var dataFormatada = dataOriginal.toLocaleDateString("pt-BR", {
+        timeZone: "UTC",
+    });
+    return dataFormatada;
+}
+
+async function remover(id) {
+    console.log(id)
+    try {
+        const response = await fetch(`http://localhost:8080/api/account/employer/post/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (response.status === 204) {
+            const data = await response.json();
+            console.log("Removidp", data);    
+        }
+        else{
+            throw new Error(`Erro na remoção: ${response.statusText}`);
+        }
+    } catch (error) {
+        console.error("Erro:", error);
+    }
+}

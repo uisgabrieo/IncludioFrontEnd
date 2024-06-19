@@ -22,9 +22,15 @@ function Perfil() {
 
     const tipoConta = conta.account.toLowerCase();
     if (tipoConta === "employee") {
+      console.log("Ok")
       const divEmpresa = document.getElementById("divEmpresaExibir");
       if (divEmpresa) {
+        console.log("divEmpresa")
         divEmpresa.innerHTML = "";
+      }
+      const divVagas = document.getElementById("divVagasExibir");
+      if (divVagas) {
+        divVagas.innerHTML = ""; 
       }
     }
   }, []);
@@ -87,6 +93,10 @@ function Perfil() {
             <div className={styles.empresa} id="divEmpresaExibir">
               <h1>EMPRESA</h1>
               <div className={styles.divEmpresa} id="divEmpresa"></div>
+            </div>
+            <div className={styles.empresa} id="divVagasExibir">
+              <h1>VAGAS</h1>
+              <div className={styles.divEmpresa} id="divVagas"></div>
             </div>
           </section>
         </main>
