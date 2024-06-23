@@ -53,7 +53,7 @@ function Completo() {
                         </div>
                         <div>
                             <label htmlFor="diagnostico">
-                                Diagnostico<br />
+                                Laudo<br />
                                 <label htmlFor="diagnostico" className={styles.btnUpload}>Insira o diagnostico</label>
                                 <input type="file" name="diagnostico" id="diagnostico" className={styles.credenciaisFile} accept="image/*" onChange={(e) => setImgDiagnostico(e.target.files[0])} />
                             </label>

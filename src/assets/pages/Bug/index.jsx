@@ -32,8 +32,9 @@ function Bug() {
             <main className={darkTheme ? styles.main : styles.mainpreto}>
                 <section className={styles.cardLogin}>
                     <form onSubmit={(e) => envioDados(e, descricao, nomeCompleto, email, setErro)} className={styles.formulario}>
-                        <div>
-                            <h1>FeedBack, Avaliação ou Relatar Bug</h1>
+                        <div className={styles.texto}>
+                            <h1>FeedBack</h1>
+                            <p>Nos relate problemas, experiência ou qualuquer outro problema</p> <br /> <br />
                         </div>
                         <div>
                             <label htmlFor="nomeCompleto">

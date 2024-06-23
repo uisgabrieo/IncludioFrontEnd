@@ -85,11 +85,11 @@ function gerarDadosPessoa(dados) {
 }
 
 function gerarDadosEmpresa(empresa, funcionario) {
-    document.getElementById("divEmpresa").innerHTML = "";
-
+    
     gerarDadosPessoa(funcionario);
     buscarPosts(funcionario.id);
-
+    document.getElementById("divEmpresa").innerHTML = "";
+    
     const infoEmpresa = document.createElement("div");
     infoEmpresa.className = styles.dados;
     infoEmpresa.innerHTML = `
@@ -185,13 +185,16 @@ async function remover(id) {
         });
 
         if (response.status === 204) {
+            console.log("204")
             const data = await response.json();
             console.log("Removidp", data);    
         }
         else{
+            console.log("Erro")
             throw new Error(`Erro na remoção: ${response.statusText}`);
         }
     } catch (error) {
+        console.log("Erro total")
         console.error("Erro:", error);
     }
 }

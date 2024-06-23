@@ -56,7 +56,7 @@ function Home() {
                         </div>
                         <button type="submit" className={styles.btnFiltrar}>Filtrar</button>
                     </form>
-                    <img src="../../../../public/img/Home/undraw_filter_re_sa16.svg" alt="Ilustração de busca" className={styles.imgBusca} />
+                    <img src="../../../../img/Home/undraw_filter_re_sa16.svg" alt="Ilustração de busca" className={styles.imgBusca} />
                 </section>
                 <section className={styles.corpoPagina}>
                     <div className={styles.limite}>
@@ -70,8 +70,8 @@ function Home() {
 
                     <h1 className={styles.titulo}>EXPLORAR VAGAS</h1>
                     <div className={styles.vagas} id="posts">
-                        <img className={styles.imgVaga} id="imgVaga" src="../../../../public/img/Home/undraw_posts_1aht.svg" alt="" />
-                        <img className={styles.imgVaga} id="imgVaga" src="../../../../public/img/Home/undraw_posts_1aht.svg" alt="" />
+                        <img className={styles.imgVaga} id="imgVaga" src="../../../../img/Home/undraw_posts_1aht.svg" alt="" />
+                        <img className={styles.imgVaga} id="imgVaga" src="../../../../img/Home/undraw_posts_1aht.svg" alt="" />
                     </div>
                 </section>
             </section>

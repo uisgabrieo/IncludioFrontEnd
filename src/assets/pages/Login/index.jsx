@@ -44,7 +44,7 @@ function Login() {
                         </div>
                     </form>
                     <section className={styles.ilustracaoLogin}>
-                        <img src="../../../../public/img/Login/undraw_undraw_undraw_undraw_sign_up_ln1s_-1-_s4bc_-1-_ee41_-1-_kf4d.svg" alt="Representação login" className={styles.ilustracaoLogin} />
+                        <img src="../../../../img/Login/undraw_undraw_undraw_undraw_sign_up_ln1s_-1-_s4bc_-1-_ee41_-1-_kf4d.svg" alt="Representação login" className={styles.ilustracaoLogin} />
                     </section>
                 </section>
                 <section className="registre">

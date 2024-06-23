@@ -94,6 +94,10 @@
     box-sizing: border-box;
 }
 
+.texto {
+    text-align: center;
+}
+
 .cardLogin .btnConfirme {
     margin-right: 0;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
