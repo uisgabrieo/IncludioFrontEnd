@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Container from "../../components/Container"
 import styles from "./Inicio.module.css";
+import Button from "../../components/Button";
 
 function Inicio() {
     return (
@@ -15,10 +16,12 @@ function Inicio() {
 
                     <div className={styles.divBotoes}>
                         <Link to="/login">
-                            <button className={styles.botao}>Login</button>
+                            <Button textButton={"Login"}/>
+                            {/* <button className={styles.botao}>Login</button> */}
                         </Link>
                         <Link to="/registro">
-                            <button className={styles.botao}>Sign Up</button>
+                            <Button textButton={"Sing Up"}/>
+                            {/* <button className={styles.botao}>Sign Up</button> */}
                         </Link>
                     </div>
                 </nav>
