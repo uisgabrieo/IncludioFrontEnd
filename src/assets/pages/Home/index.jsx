@@ -16,10 +16,6 @@ function Home() {
     }, []);
 
     useEffect(() => {
-        exibirVagas();
-    }, []);
-
-    useEffect(() => {
         carregarDados()
     }, [])
 

@@ -5,7 +5,7 @@ export function envioDados(event, dia, mes, ano, cnpj, telefone, website, setErr
         setErro('Dados incompletos');
     } else {
 
-        const localizacaoEmpresa = JSON.parse(localStorage.getItem("localizacaoEmpresa"))
+        const localizacaoEmpresa = JSON.parse(sessionStorage.getItem("localizacaoEmpresa"))
 
         if (!localizacaoEmpresa) {
             setErro("Dados não encontrados")
@@ -16,7 +16,6 @@ export function envioDados(event, dia, mes, ano, cnpj, telefone, website, setErr
         const mesFomr = formatarDoisDigitos(mes);
         const createdAt = `${diaFomr}/${mesFomr}/${ano}`;
         
-        console.log(localizacaoEmpresa)
         const informacoesEmpresa = {
             idEmployer: localizacaoEmpresa.idEmployer,
             companyName: localizacaoEmpresa.companyName,
@@ -34,7 +33,7 @@ export function envioDados(event, dia, mes, ano, cnpj, telefone, website, setErr
             numberPhone: telefone
         }
 
-        localStorage.setItem("informacoesEmpresa", JSON.stringify(informacoesEmpresa));
+        sessionStorage.setItem("informacoesEmpresa", JSON.stringify(informacoesEmpresa));
 
         let url = "/registro/empresa/descricao";
         window.location.href = url;
@@ -73,9 +72,4 @@ export function preencherData() {
         optAnos.textContent = i;
         ano.appendChild(optAnos);
     }
-}
-
-export function log() {
-    const localizacaoEmpresa = JSON.parse(localStorage.getItem("localizacaoEmpresa"))
-    console.log(localizacaoEmpresa)
 }

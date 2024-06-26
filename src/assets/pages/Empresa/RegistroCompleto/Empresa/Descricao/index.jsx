@@ -2,16 +2,12 @@ import { useState, useEffect } from "react";
 import Footer from "../../../../../components/Footer";
 import Header from "../../../../../components/Header";
 import styles from "./Descricao.module.css"
-import { envioDados, log } from "../../../../../utils/Empresa/Empresa/Descricao/descricao"
+import { envioDados } from "../../../../../utils/Empresa/Empresa/Descricao/descricao"
 
 function Descricao() {
     const [logo, setLogo] = useState("")
     const [descricao, setDescricao] = useState("");
     const [erro, setErro] = useState("")
-
-    useEffect(() => {
-        log();
-    }, []);
 
     return (
         <>

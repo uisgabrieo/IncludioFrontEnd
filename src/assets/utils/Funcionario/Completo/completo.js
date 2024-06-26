@@ -34,7 +34,7 @@ export function envioDados(event, dia, mes, ano, genero, imgPerfil, imgDiagnosti
         setErro("Erro");
     } else {
         const dadosCompleto = new FormData();
-        const dadosInformacao = JSON.parse(localStorage.getItem("dadosInformacao"));
+        const dadosInformacao = JSON.parse(sessionStorage.getItem("dadosInformacao"));
 
         if (!dadosInformacao) {
             setErro("Dados não encontrados")
@@ -46,6 +46,8 @@ export function envioDados(event, dia, mes, ano, genero, imgPerfil, imgDiagnosti
         const dateOfBirth = `${diaFomr}/${mesFomr}/${ano}`;
 
         console.log(dadosInformacao);
+
+        console.log("Completo1")
 
         dadosCompleto.append("completeName", dadosInformacao.completeName);
         dadosCompleto.append("email", dadosInformacao.email);
@@ -66,7 +68,9 @@ export function envioDados(event, dia, mes, ano, genero, imgPerfil, imgDiagnosti
         dadosCompleto.append("photograph", imgPerfil);
         dadosCompleto.append("diagnostic", imgDiagnostico);
 
-        localStorage.setItem("dadosCompletos", JSON.stringify(dadosCompleto));
+        console.log("Completo1")
+        sessionStorage.clear();
+        console.log("Completo1")
         enviarAPI(dadosCompleto);
     }
 }
@@ -84,8 +88,10 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        localStorage.setItem("idEmployee", data);
-        window.location.href = "/login";
+        console.log("Completo1")
+        if(data === 200)
+            console.log("Completo1")
+            window.location.href = "/login";
     })
     .catch(error => {
         console.log("Erro: " + error.message);

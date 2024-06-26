@@ -6,7 +6,7 @@ export function envioDados(event, email, senha, setErro) {
         password: senha
     };
 
-    fetch("http://localhost:8080/api/account/login", {
+    fetch("http://localhost:8080/auth/login", {
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"

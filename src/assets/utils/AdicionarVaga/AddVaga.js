@@ -1,7 +1,12 @@
 import styles from "../../pages/AdicionarVaga/AddVaga.module.css";
 
-export function envioDados(e, vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga, setErro) {
+function retornarToken() {
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
+    const conta = JSON.parse(contaResposta)
+    return conta.token;
+}
 
+export function envioDados(e, vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga, setErro) {
 
     e.preventDefault();
     if (!(vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga)){
@@ -29,7 +34,13 @@ export function envioDados(e, vaga, setor, modalidade, pais, estado, cidade, req
 }
 
 function enviarAPI(dados) {
+    const token = retornarToken();
     fetch("http://localhost:8080/api/account/employer/post/create", {
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
         method: "POST",
         body: dados
     })

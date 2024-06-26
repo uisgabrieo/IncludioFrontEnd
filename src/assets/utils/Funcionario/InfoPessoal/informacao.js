@@ -5,7 +5,7 @@ export function envioDados(event, cpf, telefone, setor, formacao, instituicao, s
         setErro('Dados incompletos');
     } else {
 
-        const dadosLocalizacao = JSON.parse(localStorage.getItem("dadosLocalizacao"))
+        const dadosLocalizacao = JSON.parse(sessionStorage.getItem("dadosLocalizacao"))
 
         if (!dadosLocalizacao) {
             setErro("Dados não encontrados")
@@ -30,7 +30,7 @@ export function envioDados(event, cpf, telefone, setor, formacao, instituicao, s
         }
 
 
-        localStorage.setItem("dadosInformacao", JSON.stringify(dadosInformacao));
+        sessionStorage.setItem("dadosInformacao", JSON.stringify(dadosInformacao));
 
         let url = "/registro/funcionario/completo";
         window.location.href = url;

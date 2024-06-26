@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Footer from "../../../../components/Footer";
 import Header from "../../../../components/Header";
 import styles from "./Localization.module.css"
-import { envioDados, log } from "../../../../utils/Funcionario/Localizacao/localizacao";
+import { envioDados } from "../../../../utils/Funcionario/Localizacao/localizacao";
 
 function Localizacao() {
     const [pais, setPais] = useState("");
@@ -12,9 +12,6 @@ function Localizacao() {
     const [complemento, setComplemento] = useState("");
     const [erro, setErro] = useState("")
 
-    useEffect(() => {
-        log();
-    }, []);
     return (
         <>
             <Header />

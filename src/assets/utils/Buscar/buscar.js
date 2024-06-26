@@ -1,5 +1,11 @@
 import styles from "../../pages/Buscar/Buscar.module.css"
 
+function retornarToken() {
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
+    const conta = JSON.parse(contaResposta)
+    return conta.token;
+}
+
 //Nav fixa quando desce o scroll
 export function rolarScroll() {
     const cabecalho = document.querySelector("#header");
@@ -38,11 +44,13 @@ export function buscarVagas(event, filtro) {
 }
 
 function vagasFiltradas(busca) {
+    const token = retornarToken();
     const imgPost = document.getElementById("imgVaga");
     fetch(busca, {
         headers: {
             "Accept": "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
         },
         method: "GET",
     })
@@ -123,11 +131,13 @@ async function abrirVaga(vagaId) {
 }
 
 async function capturarVaga(id) {
+    const token = retornarToken();
     try {
         const response = await fetch(`http://localhost:8080/api/account/employer/post/${id}`, {
             headers: {
                 "Accept": "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
             method: "GET",
         });

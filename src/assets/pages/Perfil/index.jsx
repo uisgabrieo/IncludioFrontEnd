@@ -8,6 +8,10 @@ import { carregarPerfil, rolarScroll } from "../../utils/Perfil/perfil";
 function Perfil() {
   const [carregando, setCarregando] = useState(true);
 
+  const deslogar = () => {
+    localStorage.clear();
+  }
+
   useEffect(() => {
     window.addEventListener("scroll", rolarScroll);
     return () => {
@@ -22,10 +26,8 @@ function Perfil() {
 
     const tipoConta = conta.account.toLowerCase();
     if (tipoConta === "employee") {
-      console.log("Ok")
       const divEmpresa = document.getElementById("divEmpresaExibir");
       if (divEmpresa) {
-        console.log("divEmpresa")
         divEmpresa.innerHTML = "";
       }
       const divVagas = document.getElementById("divVagasExibir");
@@ -75,7 +77,7 @@ function Perfil() {
                 <p>Editar Perfil</p>
               </button>
             </Link>
-            <Link to={"/"}><button className={styles.botaoPerfil} id={styles.sair}>
+            <Link to={"/"}><button className={styles.botaoPerfil} id={styles.sair} onClick={deslogar}>
               <i className="bi bi-box-arrow-left"></i>
               <p>Sair</p>
             </button></Link>

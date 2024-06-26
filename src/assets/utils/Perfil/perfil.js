@@ -6,8 +6,9 @@ export async function carregarPerfil() {
 
     const idConta = conta.id;
     const tipoConta = conta.account.toLowerCase();
+    const token = conta.token;
 
-    await perfil(tipoConta, idConta);
+    await perfil(tipoConta, idConta, token);
 }
 
 export function rolarScroll() {
@@ -24,12 +25,13 @@ export function rolarScroll() {
     }
 }
 
-async function perfil(tipoConta, idConta) {
+async function perfil(tipoConta, idConta, token) {
     try {
         const response = await fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
             headers: {
                 "Accept": "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
             method: "GET",
         });

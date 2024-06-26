@@ -1,4 +1,9 @@
 import styles from "../../pages/Home/Home.module.css";
+function retornarToken() {
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
+    const conta = JSON.parse(contaResposta)
+    return conta.token;
+}
 
 export function carregarDados() {
     const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
@@ -6,8 +11,10 @@ export function carregarDados() {
     
     const idConta = conta.id
     const tipoConta = conta.account.toLowerCase();
+    const token = conta.token;
 
-    perfil(tipoConta, idConta)
+    perfil(tipoConta, idConta, token)
+    exibirVagas(token)
     removerBotao(tipoConta)
 }
 
@@ -21,11 +28,12 @@ function removerBotao( tipoConta ) {
 }
 
 //Carregar perfil
-function perfil(tipoConta, idConta){
+function perfil(tipoConta, idConta, token){
     fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
         headers: {
             "Accept": "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
         },
         method: "GET",
     })
@@ -60,14 +68,15 @@ export function rolarScroll() {
 }
 
 //Retorna as vagas do db
-export function exibirVagas() {
+export function exibirVagas(token) {
     const imgPost = document.getElementById("imgVaga")
 
     fetch("http://localhost:8080/api/account/employer/post",
         {
             headers: {
                 "Accept": "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
             method: "GET",
         })
@@ -141,10 +150,12 @@ export function buscarVagas(event, filtro) {
 }
 
 function vagasFiltradas(busca) {
+    const token = retornarToken();
     fetch(busca, {
         headers: {
             "Accept": "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
         },
         method: "GET",
     })
@@ -187,11 +198,13 @@ async function abrirVaga(vagaId) {
 }
 
 async function capturarVaga(id) {
+    const token = retornarToken();
     try {
         const response = await fetch(`http://localhost:8080/api/account/employer/post/${id}`, {
             headers: {
                 "Accept": "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
             method: "GET",
         });

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../../../../components/Footer";
 import Header from "../../../../../components/Header";
 import styles from "./Completo.module.css";
-import { envioDados, preencherData, log } from "../../../../../utils/Empresa/Empregador/CompletoEmpregador/completo";
+import { envioDados, preencherData } from "../../../../../utils/Empresa/Empregador/CompletoEmpregador/completo";
 
 function Completo() {
     const [dia, setDia] = useState("");
@@ -16,7 +16,6 @@ function Completo() {
 
     useEffect(() => {
         preencherData();
-        log();
     }, []);
 
     return (
@@ -58,7 +57,7 @@ function Completo() {
                         </div>
                     </form>
                     <section className={styles.ilustracaoLocalizacao}>
-                        <img src="../../../../public/img/Funcionario/Completo/undraw_project_completed_re_jr7u.svg" alt="Representação login" className={styles.ilustracaoLocalizacao} />
+                        <img src="../../../../img/Funcionario/Completo/undraw_project_completed_re_jr7u.svg" alt="Representação login" className={styles.ilustracaoLocalizacao} />
                     </section>
                 </section>
             </main>

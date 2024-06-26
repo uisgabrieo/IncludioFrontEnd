@@ -33,7 +33,7 @@ export function envioDados(event, dia, mes, ano, genero, imgPerfil, setErro, nav
     if (!(dia && mes && ano && imgPerfil)) {
         setErro("Erro");
     } else {
-        const dadosInformacao = JSON.parse(localStorage.getItem("dadosInformacao"));
+        const dadosInformacao = JSON.parse(sessionStorage.getItem("dadosInformacao"));
 
         if (!dadosInformacao) {
             setErro("Dados não encontrados")
@@ -80,6 +80,7 @@ export function envioDados(event, dia, mes, ano, genero, imgPerfil, setErro, nav
         dadosCompleto.append("gender", genero);
         dadosCompleto.append("photograph", imgPerfil);
 
+        sessionStorage.clear();
         enviarAPI(dadosCompleto)
     }
 }
@@ -97,7 +98,7 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        localStorage.setItem("idEmployer", data);
+        sessionStorage.setItem("idEmployer", data);
         window.location.href = "/registro/empresa/dados";
     })
     .catch(error => {
@@ -107,10 +108,4 @@ function enviarAPI(dados) {
 
 export function formatarDoisDigitos(numero) {
     return numero.toString().padStart(2, "0");
-}
-
-export function log() {
-    const dadosInformacao = JSON.parse(localStorage.getItem("dadosInformacao"));
-
-    console.log(dadosInformacao);
 }

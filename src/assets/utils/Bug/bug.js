@@ -1,5 +1,11 @@
 import styles from "../../pages/Bug/Bug.module.css";
 
+function retornarToken() {
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
+    const conta = JSON.parse(contaResposta)
+    return conta.token;
+}
+
 export function envioDados(event, descricao, nomeCompleto, email, setErro) {
     event.preventDefault();
 
@@ -18,7 +24,13 @@ export function envioDados(event, descricao, nomeCompleto, email, setErro) {
 }
 
 function enviarAPI(dados) {
+    const token = retornarToken();
     fetch("http://localhost:8080/api/account/feedback", {
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
         method: "POST",
         headers: {
             'Content-Type': 'application/json'

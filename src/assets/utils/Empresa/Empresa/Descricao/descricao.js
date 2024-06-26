@@ -6,7 +6,7 @@ export function envioDados(event, logo, descricao, setErro) {
     } else {
         const cadastroCompleto = new FormData();
 
-        const informacoesEmpresa = JSON.parse(localStorage.getItem("informacoesEmpresa"))
+        const informacoesEmpresa = JSON.parse(sessionStorage.getItem("informacoesEmpresa"))
 
         if (!informacoesEmpresa) {
             setErro("Dados não encontrados")
@@ -14,7 +14,10 @@ export function envioDados(event, logo, descricao, setErro) {
         }
 
         console.log(informacoesEmpresa)
+        console.log("Completo1")
 
+        console.log(logo)
+        console.log(descricao)
 
         cadastroCompleto.append("idEmployer", informacoesEmpresa.idEmployer)
         cadastroCompleto.append("companyName", informacoesEmpresa.companyName)
@@ -33,11 +36,15 @@ export function envioDados(event, logo, descricao, setErro) {
         cadastroCompleto.append("logo", logo)
         cadastroCompleto.append("desciption", descricao)
 
+        console.log("Completo1")
+
+        console.log(cadastroCompleto.get("idEmployer"))
         enviarAPI(cadastroCompleto)
     }
 }
 
 function enviarAPI(dados) {
+    console.log(dados.get("idEmployer"))
     fetch("http://localhost:8080/api/account/company/register", {
         method: "POST",
         body: dados
@@ -50,15 +57,14 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        localStorage.setItem("idEmployer", data)
-        window.location.href = "/login";
+        console.log("Completo1")
+
+        if(data === 200)
+            console.log("Completo1")
+
+            window.location.href = "/login";
     })
     .catch(error => {
         console.log("Erro: " + error.message);
     });
-}
-
-export function log() {
-    const informacoesEmpresa = JSON.parse(localStorage.getItem("informacoesEmpresa"))
-    console.log(informacoesEmpresa)
 }

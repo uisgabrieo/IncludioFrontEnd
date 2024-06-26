@@ -2,17 +2,13 @@ import { useState, useEffect } from "react";
 import Footer from "../../../../../components/Footer";
 import Header from "../../../../../components/Header";
 import styles from "./Informacoes.module.css"
-import { envioDados, log } from "../../../../../utils/Empresa/Empregador/InfoPessoalEmpregador/informacao"
+import { envioDados } from "../../../../../utils/Empresa/Empregador/InfoPessoalEmpregador/informacao"
 
 function Informacoes() {
     const [cpf, setCPF] = useState("");
     const [telefone, setTelefone] = useState("");
     const [cargo, setCargo] = useState("");
     const [erro, setErro] = useState("")
-
-    useEffect(() => {
-        log();
-    }, []);
 
     return (
         <>

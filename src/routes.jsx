@@ -27,46 +27,16 @@ function AppRoutes() {
                 <Route path="/" element={<Inicio />}></Route>
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/registro" element={<Registro />}></Route>
-                <Route
-                    path="/registro/funcionario/localizacao"
-                    element={<RegistroLocalizacaoFuncionario />}
-                ></Route>
-                <Route
-                    path="/registro/funcionario/info"
-                    element={<RegistroInformacoesFuncionario />}
-                ></Route>
-                <Route
-                    path="/registro/funcionario/completo"
-                    element={<RegistroCompletoFuncionario />}
-                ></Route>
-                <Route
-                    path="/registro/empregador/localizacao"
-                    element={<RegistroLocalizacaoEmpregador />}
-                ></Route>
-                <Route
-                    path="/registro/empregador/info"
-                    element={<RegistroInformacoesEmpregador />}
-                ></Route>
-                <Route
-                    path="/registro/empregador/completo"
-                    element={<RegistroCompletoEmpregador />}
-                ></Route>
-                <Route
-                    path="/registro/empresa/dados"
-                    element={<RegistroDadosEmpresa />}
-                ></Route>
-                <Route
-                    path="/registro/empresa/localizacao"
-                    element={<RegistroLocalizacaoEmpresa />}
-                ></Route>
-                <Route
-                    path="/registro/empresa/info"
-                    element={<RegistroInformacaoEmpresa />}
-                ></Route>
-                <Route
-                    path="/registro/empresa/descricao"
-                    element={<RegistroDescricaoEmpresa />}
-                ></Route>
+                <Route path="/registro/funcionario/localizacao" element={<RegistroLocalizacaoFuncionario />}></Route>
+                <Route path="/registro/funcionario/info" element={<RegistroInformacoesFuncionario />}></Route>
+                <Route path="/registro/funcionario/completo" element={<RegistroCompletoFuncionario />}></Route>
+                <Route path="/registro/empregador/localizacao" element={<RegistroLocalizacaoEmpregador />}></Route>
+                <Route path="/registro/empregador/info" element={<RegistroInformacoesEmpregador />}></Route>
+                <Route path="/registro/empregador/completo" element={<RegistroCompletoEmpregador />}></Route>
+                <Route path="/registro/empresa/dados" element={<RegistroDadosEmpresa />}></Route>
+                <Route path="/registro/empresa/localizacao" element={<RegistroLocalizacaoEmpresa />}></Route>
+                <Route path="/registro/empresa/info" element={<RegistroInformacaoEmpresa />}></Route>
+                <Route path="/registro/empresa/descricao" element={<RegistroDescricaoEmpresa />}></Route>
                 <Route path="/home" element={<Home />}></Route>
                 <Route path="/home/busca" element={<Buscar />}></Route>
                 <Route path="/home/bug" element={<Bug />}></Route>
