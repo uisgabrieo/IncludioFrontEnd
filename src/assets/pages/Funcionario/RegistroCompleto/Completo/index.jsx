@@ -3,6 +3,7 @@ import Footer from "../../../../components/Footer";
 import Header from "../../../../components/Header";
 import styles from "./Completo.module.css";
 import { envioDados, preencherData} from "../../../../utils/Funcionario/Completo/completo";
+import Button from "../../../../components/Button";
 
 function Completo() {
     const [dia, setDia] = useState("");
@@ -59,7 +60,8 @@ function Completo() {
                         </div>
                         <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>
                         <div>
-                            <button type="submit" className={styles.btnConfirme}>Continuar</button>
+                            <Button type="submit" textButton={"Cadastrar"} />
+                            {/* <button type="submit" className={styles.btnConfirme}>Continuar</button> */}
                         </div>
                     </form>
                     <section className={styles.ilustracaoLocalizacao}>

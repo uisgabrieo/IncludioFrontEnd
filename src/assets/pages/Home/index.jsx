@@ -44,9 +44,6 @@ function Home() {
                 </section>
                 <section className={styles.campoBusca} id="campoBusca">
                     <form onSubmit={(e) => buscarVagas(e, filtro)} className={styles.campoFiltro} id="campoFiltro">
-                        <div className={styles.lupaFiltro} id="lupaFiltro">
-                            <i className={`bi bi-filter ${styles.iconeFiltro}`} id="imgFiltro"></i>
-                        </div>
                         <div className={styles.inputFiltro}>
                             <input type="text" name="filtro" id="filtrar" className={styles.filtrar} placeholder="Filtrar" onChange={(e) => setFiltro(e.target.value)} />
                         </div>

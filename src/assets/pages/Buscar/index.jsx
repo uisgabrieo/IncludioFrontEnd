@@ -48,7 +48,7 @@ function Buscar() {
                 </section>
                 <section>
                     <div className={styles.vagas} id="posts">
-                        <img src="../../../../public/img/Busca/undraw_no_data_re_kwbl.svg" alt="Vagas vazias" className={styles.imgVazio} id="imgVazio" />
+                        <img src="../../../../img/Busca/undraw_no_data_re_kwbl.svg" alt="Vagas vazias" className={styles.imgVazio} id="imgVazio" />
                     </div>
                     <div id="janelaVaga" className={styles.janelaVaga}>
                         <div className={styles.verMais} id="verMais">

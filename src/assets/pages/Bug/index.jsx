@@ -4,6 +4,7 @@ import Footer from "../../components/Footer";
 import Navigation from "../../components/Navigation";
 import styles from "./Bug.module.css";
 import { envioDados, rolarScroll } from "../../utils/Bug/bug";
+import Button from "../../components/Button";
 
 function Bug() {
     const [descricao, setDescricao] = useState("");
@@ -60,7 +61,8 @@ function Bug() {
                                 </div>
                             </label>
                         </div>
-                        <button type="submit" className={styles.btnConfirme}>Enviar</button>
+                        <Button type="submit" textButton={"Enviar"} /> 
+                        {/* <button type="submit" className={styles.btnConfirme}>Enviar</button> */}
                     </form>
                 </section>
             </main>

@@ -16,11 +16,11 @@ function Inicio() {
 
                     <div className={styles.divBotoes}>
                         <Link to="/login">
-                            <Button textButton={"Login"}/>
+                            <Button textButton={"Login"} />
                             {/* <button className={styles.botao}>Login</button> */}
                         </Link>
                         <Link to="/registro">
-                            <Button textButton={"Sing Up"}/>
+                            <Button textButton={"Sing Up"} />
                             {/* <button className={styles.botao}>Sign Up</button> */}
                         </Link>
                     </div>
@@ -38,7 +38,8 @@ function Inicio() {
                         </p>
                         <div>
                             <Link to="/login">
-                                <button className={styles.btnLogin}>Entrar com e-mail</button>
+                                <Button textButton={"Entrar com e-mail"} />
+                                {/* <button className={styles.btnLogin}>Entrar com e-mail</button> */}
                             </Link>
                         </div>
                     </div>

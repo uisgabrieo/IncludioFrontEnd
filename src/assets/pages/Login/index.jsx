@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import styles from "./Login.module.css";
 import { envioDados, mostrarSenha } from "../../utils/Login/login";
+import Button from "../../components/Button";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -40,7 +41,8 @@ function Login() {
                         </div>
                         <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>
                         <div>
-                            <button type="submit" className={styles.btnConfirme}>Login</button>
+                            <Button type="submit" textButton={"Login"} />
+                            {/* <button type="submit" className={styles.btnConfirme}>Login</button> */}
                         </div>
                     </form>
                     <section className={styles.ilustracaoLogin}>

@@ -3,6 +3,7 @@ import Footer from "../../../../components/Footer";
 import Header from "../../../../components/Header";
 import styles from "./Informacoes.module.css"
 import { envioDados } from "../../../../utils/Funcionario/InfoPessoal/informacao"
+import Button from "../../../../components/Button";
 
 function Informacoes() {
     const [cpf, setCPF] = useState("");
@@ -62,7 +63,8 @@ function Informacoes() {
                         </div>
                         <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>
                         <div>
-                            <button type="submit" className={styles.btnConfirme}>Continuar</button>
+                            <Button type="submit" textButton={"Continuar"} />
+                            {/* <button type="submit" className={styles.btnConfirme}>Continuar</button> */}
                         </div>
                     </form>
                     <section className={styles.ilustracaoLocalizacao}>

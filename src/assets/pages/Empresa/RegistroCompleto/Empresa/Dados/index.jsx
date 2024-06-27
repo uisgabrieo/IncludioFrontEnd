@@ -4,6 +4,7 @@ import Header from "../../../../../components/Header";
 import Footer from "../../../../../components/Footer";
 import styles from "./Dados.module.css";
 import { envioDados } from "../../../../../utils/Empresa/Empresa/Dados/dados";
+import Button from "../../../../../components/Button";
 
 function Dados() {
     const [nomeEmpresa, setNomeEmpresa] = useState("")
@@ -38,7 +39,8 @@ function Dados() {
                         </div>
                         <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>
                         <div>
-                            <button type="submit" className={styles.btnConfirme}>Cadastrar-se</button>
+                            <Button type="submit" textButton={"Continuar"} />
+                            {/* <button type="submit" className={styles.btnConfirme}>Cadastrar-se</button> */}
                         </div>
                     </form>
                     <section>

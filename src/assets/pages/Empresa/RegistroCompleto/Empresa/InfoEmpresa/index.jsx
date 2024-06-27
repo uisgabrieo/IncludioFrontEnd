@@ -3,6 +3,7 @@ import Footer from "../../../../../components/Footer";
 import Header from "../../../../../components/Header";
 import styles from "./Info.module.css"
 import { envioDados, preencherData } from "../../../../../utils/Empresa/Empresa/InfoEmpresa/info"
+import Button from "../../../../../components/Button";
 
 function Info() {
     const [dia, setDia]  = useState("");
@@ -58,6 +59,7 @@ function Info() {
                         </div>
                         <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>
                         <div>
+                            <Button type="submit" textButton={"Continuar"} />
                             <button type="submit" className={styles.btnConfirme}>Continuar</button>
                         </div>
                     </form>

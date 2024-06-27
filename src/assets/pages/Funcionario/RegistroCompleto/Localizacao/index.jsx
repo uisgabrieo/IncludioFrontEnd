@@ -3,6 +3,7 @@ import Footer from "../../../../components/Footer";
 import Header from "../../../../components/Header";
 import styles from "./Localization.module.css"
 import { envioDados } from "../../../../utils/Funcionario/Localizacao/localizacao";
+import Button from "../../../../components/Button";
 
 function Localizacao() {
     const [pais, setPais] = useState("");
@@ -61,7 +62,8 @@ function Localizacao() {
                         </div>
                         <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>
                         <div>
-                            <button type="submit" className={styles.btnConfirme}>Continuar</button>
+                            <Button type="submit" textButton={"Continuar"} />
+                            {/* <button type="submit" className={styles.btnConfirme}>Continuar</button> */}
                         </div>
                     </form>
                     <section className={styles.ilustracaoLocalizacao}>

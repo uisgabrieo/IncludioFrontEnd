@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import styles from "./AddVaga.module.css";
 import { exibirSetor, rolarScroll, envioDados } from '../../utils/AdicionarVaga/AddVaga';
+import Button from '../../components/Button';
 
 const AdicionarVaga = () => {
     const [vaga, setVaga] = useState('');
@@ -122,7 +123,8 @@ const AdicionarVaga = () => {
                             </label>
                         </div>
                         <div>
-                            <button type="submit" className={styles.btnConfirme}>Criar Vaga</button>
+                            <Button type="submit" textButton={"Criar Vaga"} />
+                            {/* <button type="submit" className={styles.btnConfirme}>Criar Vaga</button> */}
                         </div>
                     </form>
                 </section>
