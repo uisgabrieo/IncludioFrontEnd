@@ -1,0 +1,11 @@
+.erro {
+    display: flex;
+    align-items: center;
+    padding: 0px 30px 0px 10px;
+    background-color: rgb(175, 0, 0);
+    color: var(--white);
+    gap: 10px;
+    height: 35px;
+    width: auto;
+    border-radius: 8px;
+}

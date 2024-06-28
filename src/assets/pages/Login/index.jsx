@@ -1,21 +1,29 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Alert from "../../components/Alert";
+import Button from "../../components/Button";
 import styles from "./Login.module.css";
 import { envioDados, mostrarSenha } from "../../utils/Login/login";
-import Button from "../../components/Button";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [erro, setErro] = useState("");
 
+    const limpar = () => {
+        setErro("");
+    };
+
     return (
         <>
             <Header />
             <main className={styles.main}>
+                <div className={styles.alert} id="alert">
+                    <Alert msg={erro} limpar={limpar} />
+                </div>
                 <section className={styles.cardLogin}>
                     <form onSubmit={(e) => envioDados(e, email, senha, setErro)} id="loginPage">
                         <h1>Entrar</h1>
@@ -39,7 +47,6 @@ function Login() {
                                 </div>
                             </label>
                         </div>
-                        <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>
                         <div>
                             <Button type="submit" textButton={"Login"} />
                             {/* <button type="submit" className={styles.btnConfirme}>Login</button> */}
