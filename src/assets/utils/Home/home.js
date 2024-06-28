@@ -1,12 +1,12 @@
 import styles from "../../pages/Home/Home.module.css";
 function retornarToken() {
-    const contaResposta = JSON.parse(localStorage.getItem("login"))
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
     const conta = JSON.parse(contaResposta)
     return conta.token;
 }
 
 export function carregarDados() {
-    const contaResposta = JSON.parse(localStorage.getItem("login"))
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
     console.log(contaResposta)
     const conta = JSON.parse(contaResposta)
     console.log(conta)
@@ -256,7 +256,7 @@ function gerarVaga(vaga) {
 
     let info = document.createElement("div")
     info.className = styles.info
-    
+
     let modalidade = document.createElement("div")
     modalidade.className = styles.modalidade;
     modalidade.innerHTML =
