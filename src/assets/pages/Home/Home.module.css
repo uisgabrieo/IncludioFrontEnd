@@ -262,6 +262,7 @@
     gap: 50px;
     align-items: center;
     display: flex;
+    border: 1px var(--black) solid;
 }
 
 .verMais .cabecalhoVaga .logoVaga {
@@ -269,23 +270,58 @@
     width: 100px;
 }
 
+.cabecalhoVaga h1 {
+    font-weight: 500;
+    font-size: 45px;
+}
+
 .verMais .setores {
     font-size: 15px;
-    margin: 20px 0px 10px 50px;
+    border: 1px var(--black) solid;
+    display: flex;
+    align-items: center;
+}
+
+.setores h2 {
+    padding-left: 50px;
+    font-weight: 500;
 }
 
 .verMais .localHorario {
-    margin: 0px 0px 30px 50px;
+    border: 1px var(--black) solid;
+    display: flex;
+    align-items: center;
+}
+
+.localHorario h3 {
+    padding-left: 50px;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .verMais .info {
     margin-bottom: 30px;
+    border: 1px var(--black) solid;
+}
+
+.info .modalidade {
+    display: flex;
+    align-items: center;
+}
+
+.info .requisitos {
+    display: flex;
+    align-items: center;
+}
+
+.info h3 {
+    padding-left: 30px;
 }
 
 .botaoEmail {
-    position: fixed;
-    bottom: 20px; 
-    right: 20px; 
+    position: absolute;
+    top: 10px; 
+    left: 50px; 
     background-color: #000000;
     color: #fff;
     width: 100px;

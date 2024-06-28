@@ -1,14 +1,16 @@
 import styles from "../../pages/Home/Home.module.css";
 function retornarToken() {
-    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
+    const contaResposta = JSON.parse(localStorage.getItem("login"))
     const conta = JSON.parse(contaResposta)
     return conta.token;
 }
 
 export function carregarDados() {
-    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
+    const contaResposta = JSON.parse(localStorage.getItem("login"))
+    console.log(contaResposta)
     const conta = JSON.parse(contaResposta)
-    
+    console.log(conta)
+
     const idConta = conta.id
     const tipoConta = conta.account.toLowerCase();
     const token = conta.token;
@@ -19,7 +21,7 @@ export function carregarDados() {
 }
 
 //Remover botão adicionar vaga
-function removerBotao( tipoConta ) {
+function removerBotao(tipoConta) {
     if (tipoConta == "employee") {
         let adicionar = document.getElementById("linkVaga")
         console.log(adicionar)
@@ -28,7 +30,7 @@ function removerBotao( tipoConta ) {
 }
 
 //Carregar perfil
-function perfil(tipoConta, idConta, token){
+function perfil(tipoConta, idConta, token) {
     fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
         headers: {
             "Accept": "application/json",
@@ -40,7 +42,7 @@ function perfil(tipoConta, idConta, token){
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            if (tipoConta == "employer"){
+            if (tipoConta == "employer") {
                 localStorage.setItem("dadoUsuario", (data.employer.email))
             } else {
                 localStorage.setItem("dadoUsuario", (data.email))
@@ -119,7 +121,7 @@ function criarPost(postagem) {
     var informacoes = document.createElement("div")
     informacoes.className = styles.informacoes;
     informacoes.innerHTML = "<p>EMPRESA: <br />" + postagem.author.companyName + "</p>" +
-        "<p>VAGA: <br />" + postagem.role + "</p>" 
+        "<p>VAGA: <br />" + postagem.role + "</p>"
 
     var post = document.createElement("div");
     post.className = styles.post;
@@ -234,23 +236,42 @@ function gerarVaga(vaga) {
 
     let setores = document.createElement("div")
     setores.className = styles.setores
-    setores.innerHTML = "<h2>" + vaga.field.map(element => element).join(', ') + "</h2>"
+    setores.innerHTML =
+        `<i class="bi bi-person-workspace"></i>` +
+        "<h2>" + vaga.field.map(element => element).join(', ') + "</h2>"
     document.getElementById("verMais").appendChild(setores)
 
     let localHorario = document.createElement("div")
     localHorario.className = styles.localHorario
-    localHorario.innerHTML = "<h3>" + vaga.country + "/" + vaga.state + "/" + vaga.city + "-" + fomatarData(vaga.createAt) + "</h3>"
+    if (vaga.city == null) {
+        localHorario.innerHTML =
+            `<i class="bi bi-globe-americas"></i>` +
+            "<h3>" + vaga.country + "/" + vaga.state + "-" + fomatarData(vaga.createAt) + "</h3>"
+    } else {
+        localHorario.innerHTML =
+            `<i class="bi bi-globe-americas"></i>` +
+            "<h3>" + vaga.country + "/" + vaga.state + "/" + vaga.city + "-" + fomatarData(vaga.createAt) + "</h3>"
+    }
     document.getElementById("verMais").appendChild(localHorario)
 
     let info = document.createElement("div")
     info.className = styles.info
-    info.innerHTML =
+    
+    let modalidade = document.createElement("div")
+    modalidade.className = styles.modalidade;
+    modalidade.innerHTML =
         `<i class="bi bi-clock-fill"></i>` +
-        `<h3>Modalidade: ${vaga.jobType}</h3>` +
-        `<i class="bi bi-exclamation-circle-fill"></i>` +
-        `<h3>Requisitos: ${vaga.requirements}</h3>`;
-    document.getElementById("verMais").appendChild(info)
+        `<h3>Modalidade: ${vaga.jobType}</h3>`
+    info.appendChild(modalidade)
 
+    let requisitos = document.createElement("div")
+    requisitos.className = styles.requisitos
+    requisitos.innerHTML =
+        `<i class="bi bi-list-check"></i>` +
+        `<h3>Requisitos: ${vaga.requirements}</h3>`;
+    info.appendChild(requisitos)
+
+    document.getElementById("verMais").appendChild(info)
 
     let sobreAVaga = document.createElement("div")
     sobreAVaga.className = styles.sobreAVaga
