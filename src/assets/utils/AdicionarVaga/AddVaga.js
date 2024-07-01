@@ -8,13 +8,8 @@ function retornarToken() {
     return conta.token;
 }
 
-export function envioDados(e, vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga, setErro) {
+export function envioDados(e, vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga) {
     e.preventDefault();
-
-    if (!vaga || !setor || !modalidade || !pais || !estado || !cidade || !requesitos || !sobreVaga) {
-        setErro("Dados incompletos");
-        return;
-    } 
 
     const post = new FormData();
     const email = localStorage.getItem("dadoUsuario");
@@ -46,15 +41,10 @@ function enviarAPI(dados) {
         method: "POST",
         body: dados
     })
-    .then(response => {
-        if (response.ok) {
-            return response.text();
-        } else {
-            throw new Error('Credenciais inválidas');
-        }
-    })
+    .then(response => response.json)
     .then(data => {
-        console.log(data);
+        alert("Vaga criada")
+        window.location.href = '/home';
     })
     .catch(error => {
         console.log("Erro:", error.message);
