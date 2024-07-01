@@ -1,44 +1,46 @@
+
 import styles from "../../pages/AdicionarVaga/AddVaga.module.css";
 
 function retornarToken() {
     const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
     const conta = JSON.parse(contaResposta)
+    console.log(conta.token)
     return conta.token;
 }
 
 export function envioDados(e, vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga, setErro) {
-
     e.preventDefault();
-    if (!(vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga)){
-        setErro("Dados incompletos")
-    } else {
-        const post = new FormData();
 
-        const dadoUsuario = localStorage.getItem("dadoUsuario")
+    if (!vaga || !setor || !modalidade || !pais || !estado || !cidade || !requesitos || !sobreVaga) {
+        setErro("Dados incompletos");
+        return;
+    } 
 
-        console.log(vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga)
+    const post = new FormData();
+    const email = localStorage.getItem("dadoUsuario");
 
-        post.append("email", dadoUsuario)
-        post.append("role", vaga);
-        post.append("field", setor);
-        post.append("jobType", modalidade);
-        post.append("country", pais);
-        post.append("state", estado);
-        post.append("city", cidade);
-        post.append("requirements", requesitos);
-        post.append("description", sobreVaga);
+    console.log("vagas:", vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga, email);
 
-        enviarAPI(post)
+    post.append("email", email);
+    post.append("role", vaga);
+    post.append("field", setor);
+    post.append("jobType", modalidade);
+    post.append("country", pais);
+    post.append("state", estado);
+    post.append("city", cidade);
+    post.append("requirements", requesitos);
+    post.append("description", sobreVaga);
 
-    }
+    enviarAPI(post);
 }
 
 function enviarAPI(dados) {
+    console.log("dados:", dados);
     const token = retornarToken();
+    console.log(token);
+
     fetch("http://localhost:8080/api/account/employer/post/create", {
         headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
         },
         method: "POST",
@@ -52,20 +54,19 @@ function enviarAPI(dados) {
         }
     })
     .then(data => {
-        console.log(data)
+        console.log(data);
     })
     .catch(error => {
-        console.log("Erro: " + error.message);
+        console.log("Erro:", error.message);
     });
 }
 
-
-//Criar uma Lista de setores selecionados
+// Criar uma Lista de setores selecionados
 export function exibirSetor(e, setor, setSetor) {
-    const aetorSelecionada = e.target.value;
+    const setorSelecionado = e.target.value;
 
-    if (!setor.includes(aetorSelecionada)) {
-        setSetor([...setor, aetorSelecionada]);
+    if (!setor.includes(setorSelecionado)) {
+        setSetor([...setor, setorSelecionado]);
     }
 }
 

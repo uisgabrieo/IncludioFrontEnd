@@ -47,6 +47,7 @@ function perfil(tipoConta, idConta, token) {
             } else {
                 localStorage.setItem("dadoUsuario", (data.email))
             }
+            console.log(localStorage.getItem("dadoUsuario"))
         })
         .catch(error => {
             console.error("Error: ", error)
