@@ -20,9 +20,9 @@ function Perfil() {
   }, []);
 
   useEffect(() => {
+    //rever
     const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
     const conta = JSON.parse(contaResposta);
-    console.log(conta);
 
     const tipoConta = conta.account.toLowerCase();
     if (tipoConta === "employee") {

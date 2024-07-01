@@ -1,14 +1,21 @@
 import styles from "../../pages/Perfil/Perfil.module.css";
 
+const token = () => {
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
+    const conta = JSON.parse(contaResposta);
+
+    return conta.token;
+}
+
 export async function carregarPerfil() {
     const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
     const conta = JSON.parse(contaResposta);
 
     const idConta = conta.id;
     const tipoConta = conta.account.toLowerCase();
-    const token = conta.token;
 
-    await perfil(tipoConta, idConta, token);
+
+    await perfil(tipoConta, idConta);
 }
 
 export function rolarScroll() {
@@ -25,13 +32,13 @@ export function rolarScroll() {
     }
 }
 
-async function perfil(tipoConta, idConta, token) {
+async function perfil(tipoConta, idConta) {
     try {
         const response = await fetch(`http://localhost:8080/api/account/${tipoConta}/${idConta}`, {
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Bearer ${token()}`
             },
             method: "GET",
         });
@@ -39,8 +46,10 @@ async function perfil(tipoConta, idConta, token) {
         const data = await response.json();
 
         if (tipoConta === "employer") {
+            console.log(data, data.employer)
             gerarDadosEmpresa(data, data.employer);
         } else {
+            console.log(data)
             gerarDadosPessoa(data);
         }
     } catch (error) {
@@ -146,7 +155,8 @@ async function buscarPosts(id) {
         const response = await fetch(`http://localhost:8080/api/account/employer/post/all/${id}`, {
             headers: {
                 "Accept": "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token()}`
             },
             method: "GET",
         });
@@ -176,13 +186,13 @@ function fomatarData(data) {
 }
 
 async function remover(id) {
-    console.log(id)
     try {
         const response = await fetch(`http://localhost:8080/api/account/employer/post/${id}`, {
             method: "DELETE",
             headers: {
                 "Accept": "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token()}`
             }
         });
 
