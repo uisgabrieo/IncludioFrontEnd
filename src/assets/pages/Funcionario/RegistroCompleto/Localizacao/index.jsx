@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Footer from "../../../../components/Footer";
 import Header from "../../../../components/Header";
+import Alert from "../../../../components/Alert";
 import styles from "./Localization.module.css"
 import { envioDados } from "../../../../utils/Funcionario/Localizacao/localizacao";
 import Button from "../../../../components/Button";
@@ -13,10 +14,17 @@ function Localizacao() {
     const [complemento, setComplemento] = useState("");
     const [erro, setErro] = useState("")
 
+    const limpar = () => {
+        setErro("");
+    };
+
     return (
         <>
             <Header />
             <main className={styles.main}>
+                <div className={styles.alert} id="alert">
+                    <Alert msg={erro} limpar={limpar} />
+                </div>
                 <section className={styles.cardLocalizacao}>
                     <form onSubmit={(e) => envioDados(e, pais, estado, cidade, cep, complemento, setErro)} id="localizacaoPage">
                         <h1>Localização</h1>
@@ -24,7 +32,7 @@ function Localizacao() {
                             <label htmlFor="pais">
                                 <div>
                                     País<br />
-                                    <input type="text" name="pais" id="pais" className={styles.credenciais} placeholder="Brasil" onChange={(e) => setPais(e.target.value)}/>
+                                    <input type="text" name="pais" id="pais" className={styles.credenciais} placeholder="Brasil" onChange={(e) => setPais(e.target.value)} />
                                 </div>
                             </label>
                         </div>
@@ -32,7 +40,7 @@ function Localizacao() {
                             <label htmlFor="estado">
                                 <div>
                                     Estado<br />
-                                    <input type="text" name="estado" id="estado" className={styles.credenciais} placeholder="Piauí" onChange={(e) => setEstado(e.target.value)}/>
+                                    <input type="text" name="estado" id="estado" className={styles.credenciais} placeholder="Piauí" onChange={(e) => setEstado(e.target.value)} />
                                 </div>
                             </label>
                         </div>
@@ -40,7 +48,7 @@ function Localizacao() {
                             <label htmlFor="cidade">
                                 <div>
                                     Cidade<br />
-                                    <input type="text" name="cidade" id="cidade" className={styles.credenciais} placeholder="Teresina" onChange={(e) => setCidade(e.target.value)}/>
+                                    <input type="text" name="cidade" id="cidade" className={styles.credenciais} placeholder="Teresina" onChange={(e) => setCidade(e.target.value)} />
                                 </div>
                             </label>
                         </div>
@@ -48,7 +56,7 @@ function Localizacao() {
                             <label htmlFor="cep">
                                 <div>
                                     CEP<br />
-                                    <input type="text" name="cep" id="cep" className={styles.credenciais} placeholder="64999-600" onChange={(e) => setCep(e.target.value)}/>
+                                    <input type="text" name="cep" id="cep" className={styles.credenciais} placeholder="64999-600" onChange={(e) => setCep(e.target.value)} />
                                 </div>
                             </label>
                         </div>
@@ -56,11 +64,10 @@ function Localizacao() {
                             <label htmlFor="complemento">
                                 <div>
                                     Complemento<br />
-                                    <input type="text" name="complemento" id="complemento" className={styles.credenciais} placeholder="Jokey(OPCIONAL)" onChange={(e) => setComplemento(e.target.value)}/>
+                                    <input type="text" name="complemento" id="complemento" className={styles.credenciais} placeholder="Jokey(OPCIONAL)" onChange={(e) => setComplemento(e.target.value)} />
                                 </div>
                             </label>
                         </div>
-                        <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>
                         <div>
                             <Button type="submit" textButton={"Continuar"} />
                             {/* <button type="submit" className={styles.btnConfirme}>Continuar</button> */}

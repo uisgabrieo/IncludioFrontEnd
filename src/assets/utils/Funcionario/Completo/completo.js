@@ -31,48 +31,49 @@ export function envioDados(event, dia, mes, ano, genero, imgPerfil, imgDiagnosti
     event.preventDefault();
 
     if (!(dia && mes && ano && imgPerfil && imgDiagnostico)) {
-        setErro("Erro");
-    } else {
-        const dadosCompleto = new FormData();
-        const dadosInformacao = JSON.parse(sessionStorage.getItem("dadosInformacao"));
-
-        if (!dadosInformacao) {
-            setErro("Dados não encontrados")
-            return
-        }
-
-        const diaFomr = formatarDoisDigitos(dia);
-        const mesFomr = formatarDoisDigitos(mes);
-        const dateOfBirth = `${diaFomr}/${mesFomr}/${ano}`;
-
-        console.log(dadosInformacao);
-
-        console.log("Completo1")
-
-        dadosCompleto.append("completeName", dadosInformacao.completeName);
-        dadosCompleto.append("email", dadosInformacao.email);
-        dadosCompleto.append("password", dadosInformacao.password);
-        dadosCompleto.append("account", dadosInformacao.account);
-        dadosCompleto.append("country", dadosInformacao.country);
-        dadosCompleto.append("state", dadosInformacao.state);
-        dadosCompleto.append("city", dadosInformacao.city);
-        dadosCompleto.append("cep", dadosInformacao.cep);
-        dadosCompleto.append("complement", dadosInformacao.complement);
-        dadosCompleto.append("cpf", dadosInformacao.cpf);
-        dadosCompleto.append("numberPhone", dadosInformacao.numberPhone);
-        dadosCompleto.append("sector", dadosInformacao.sector);
-        dadosCompleto.append("training", dadosInformacao.training);
-        dadosCompleto.append("institution", dadosInformacao.institution);
-        dadosCompleto.append("dateOfBirth", dateOfBirth);
-        dadosCompleto.append("gender", genero);
-        dadosCompleto.append("photograph", imgPerfil);
-        dadosCompleto.append("diagnostic", imgDiagnostico);
-
-        console.log("Completo1")
-        sessionStorage.clear();
-        console.log("Completo1")
-        enviarAPI(dadosCompleto);
+        setErro("Algum campo está vazio!");
+        return;
     }
+
+    const dadosCompleto = new FormData();
+    const dadosInformacao = JSON.parse(sessionStorage.getItem("dadosInformacao"));
+
+    if (!dadosInformacao) {
+        setErro("Dados não encontrados")
+        return
+    }
+
+    const diaFomr = formatarDoisDigitos(dia);
+    const mesFomr = formatarDoisDigitos(mes);
+    const dateOfBirth = `${diaFomr}/${mesFomr}/${ano}`;
+
+    console.log(dadosInformacao);
+
+    console.log("Completo1")
+
+    dadosCompleto.append("completeName", dadosInformacao.completeName);
+    dadosCompleto.append("email", dadosInformacao.email);
+    dadosCompleto.append("password", dadosInformacao.password);
+    dadosCompleto.append("account", dadosInformacao.account);
+    dadosCompleto.append("country", dadosInformacao.country);
+    dadosCompleto.append("state", dadosInformacao.state);
+    dadosCompleto.append("city", dadosInformacao.city);
+    dadosCompleto.append("cep", dadosInformacao.cep);
+    dadosCompleto.append("complement", dadosInformacao.complement);
+    dadosCompleto.append("cpf", dadosInformacao.cpf);
+    dadosCompleto.append("numberPhone", dadosInformacao.numberPhone);
+    dadosCompleto.append("sector", dadosInformacao.sector);
+    dadosCompleto.append("training", dadosInformacao.training);
+    dadosCompleto.append("institution", dadosInformacao.institution);
+    dadosCompleto.append("dateOfBirth", dateOfBirth);
+    dadosCompleto.append("gender", genero);
+    dadosCompleto.append("photograph", imgPerfil);
+    dadosCompleto.append("diagnostic", imgDiagnostico);
+
+    console.log("Completo1")
+    sessionStorage.clear();
+    console.log("Completo1")
+    enviarAPI(dadosCompleto);
 }
 
 function enviarAPI(dados) {
@@ -80,22 +81,22 @@ function enviarAPI(dados) {
         method: "POST",
         body: dados
     })
-    .then(response => {
-        if (response.ok) {
-            return response.text();
-        } else {
-            throw new Error('Credenciais inválidas');
-        }
-    })
-    .then(data => {
-        console.log("Completo1")
-        if(data === 200)
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Credenciais inválidas');
+            }
+        })
+        .then(data => {
             console.log("Completo1")
+            if (data === 200)
+                console.log("Completo1")
             window.location.href = "/login";
-    })
-    .catch(error => {
-        console.log("Erro: " + error.message);
-    });
+        })
+        .catch(error => {
+            console.log("Erro: " + error.message);
+        });
 }
 
 export function formatarDoisDigitos(numero) {

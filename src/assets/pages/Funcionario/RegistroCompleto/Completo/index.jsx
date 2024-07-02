@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import Footer from "../../../../components/Footer";
 import Header from "../../../../components/Header";
+import Alert from "../../../../components/Alert";
 import styles from "./Completo.module.css";
-import { envioDados, preencherData} from "../../../../utils/Funcionario/Completo/completo";
+import { envioDados, preencherData } from "../../../../utils/Funcionario/Completo/completo";
 import Button from "../../../../components/Button";
 
 function Completo() {
@@ -14,6 +15,10 @@ function Completo() {
     const [imgDiagnostico, setImgDiagnostico] = useState("");
     const [erro, setErro] = useState("");
 
+    const limpar = () => {
+        setErro("");
+    };
+
     useEffect(() => {
         preencherData();
     }, []);
@@ -22,6 +27,9 @@ function Completo() {
         <>
             <Header />
             <main className={styles.main}>
+                <div className={styles.alert} id="alert">
+                    <Alert msg={erro} limpar={limpar} />
+                </div>
                 <section className={styles.cardLocalizacao}>
                     <form id="localizacaoPage" onSubmit={(e) => envioDados(e, dia, mes, ano, genero, imgPerfil, imgDiagnostico, setErro)} encType="multipart/form-data">
                         <h1>Informações Finais</h1>

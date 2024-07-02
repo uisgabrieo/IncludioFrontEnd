@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import styles from "./Registro.module.css";
 import { mostrarSenha, mostrarSenhaConfirmar, envioDados } from "../../utils/Registro/registro";
 import Button from "../../components/Button";
+import Alert from "../../components/Alert";
 
 function Registro() {
     const [nomeCompleto, setNomeCompleto] = useState("")
@@ -13,10 +14,18 @@ function Registro() {
     const [confirmarSenha, setConfirmarSenha] = useState("");
     const [tipoConta, setTipoConta] = useState("");
     const [erro, setErro] = useState("");
+
+    const limpar = () => {
+        setErro("");
+    };
+    
     return (
         <>
             <Header />
             <main className={styles.main}>
+            <div className={styles.alert} id="alert">
+                    <Alert msg={erro} limpar={limpar} />
+                </div>
                 <section className={styles.cardRegistro}>
                     <form onSubmit={(e) => envioDados(e, nomeCompleto, email, senha, confirmarSenha, tipoConta, setErro)} id="registro">
                         <div className={styles.tituloEsubTitulo}>
@@ -73,7 +82,6 @@ function Registro() {
                                 </div>
                             </label>
                         </div>
-                        <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>
                         <div>
                             <Button type="submit" textButton={"Cadastre-se"} />
                             {/* <button type="submit" className={styles.btnConfirme}>Cadastrar-se</button> */}

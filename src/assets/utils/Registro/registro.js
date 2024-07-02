@@ -1,30 +1,39 @@
 export function envioDados(event, nomeCompleto, email, senha, confirmarSenha, tipoConta, setErro) {
     event.preventDefault();
 
-    console.log(nomeCompleto, email, senha, confirmarSenha, tipoConta)
-    if (senha != confirmarSenha){
-        setErro('Senhas diferentes');
+    console.log(nomeCompleto, email, senha, confirmarSenha, tipoConta);
+
+    if (senha !== confirmarSenha) {
+        setErro('Senhas diferentes!');
+        return;
+    }
+    if (senha.length < 6) {
+        setErro("A senha tem que ter no mínimo 6 caracteres");
+        return;
     }
     if (!tipoConta) {
         setErro("Por favor, selecione um tipo de conta!");
-    } else {
+        return;
+    }
+    if (!(nomeCompleto && email && senha && confirmarSenha && tipoConta)) {
+        setErro("Algum campo está vazio!");
+        return;
+    } 
 
-        const registro = {
-            completeName: nomeCompleto,
-            email: email,
-            password: senha,
-            account: tipoConta
-        }
-    
-        sessionStorage.setItem("dadosRegistro", JSON.stringify(registro));
-        
-        let url = "/registro/funcionario/localizacao";
-        if (tipoConta === 'EMPLOYER') {
-            url = "/registro/empregador/localizacao";
-        }
-        window.location.href = url;
+    const registro = {
+        completeName: nomeCompleto,
+        email: email,
+        password: senha,
+        account: tipoConta
     }
 
+    sessionStorage.setItem("dadosRegistro", JSON.stringify(registro));
+
+    let url = "/registro/funcionario/localizacao";
+    if (tipoConta === 'EMPLOYER') {
+        url = "/registro/empregador/localizacao";
+    }
+    window.location.href = url;
 }
 
 export function mostrarSenha() {
@@ -52,4 +61,3 @@ export function mostrarSenhaConfirmar() {
         exporSenha.classList.replace("bi-eye-slash-fill", "bi-eye-fill");
     }
 }
-

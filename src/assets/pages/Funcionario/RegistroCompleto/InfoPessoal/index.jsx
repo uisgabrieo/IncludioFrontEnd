@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Footer from "../../../../components/Footer";
 import Header from "../../../../components/Header";
+import Alert from "../../../../components/Alert";
 import styles from "./Informacoes.module.css"
 import { envioDados } from "../../../../utils/Funcionario/InfoPessoal/informacao"
 import Button from "../../../../components/Button";
@@ -13,10 +14,17 @@ function Informacoes() {
     const [instituicao, setInstituicao] = useState("");
     const [erro, setErro] = useState("")
 
+    const limpar = () => {
+        setErro("");
+    };
+
     return (
         <>
             <Header />
             <main className={styles.main}>
+                <div className={styles.alert} id="alert">
+                    <Alert msg={erro} limpar={limpar} />
+                </div>
                 <section className={styles.cardLocalizacao}>
                     <form onSubmit={(e) => envioDados(e, cpf, telefone, setor, formacao, instituicao, setErro)} id="localizacaoPage">
                         <h1>Dados</h1>
@@ -24,7 +32,7 @@ function Informacoes() {
                             <label htmlFor="cpf">
                                 <div>
                                     CPF<br />
-                                    <input type="text" name="cpf" id="cpf" className={styles.credenciais} placeholder="123.456.789-10" onChange={(e) => setCPF(e.target.value)}/>
+                                    <input type="text" name="cpf" id="cpf" className={styles.credenciais} placeholder="123.456.789-10" onChange={(e) => setCPF(e.target.value)} />
                                 </div>
                             </label>
                         </div>
@@ -32,7 +40,7 @@ function Informacoes() {
                             <label htmlFor="telefone">
                                 <div>
                                     Telefone<br />
-                                    <input type="tel" name="telefone" id="telefone" className={styles.credenciais} placeholder="(00) 0000-0000" onChange={(e) => setTelefone(e.target.value)}/>
+                                    <input type="tel" name="telefone" id="telefone" className={styles.credenciais} placeholder="(00) 0000-0000" onChange={(e) => setTelefone(e.target.value)} />
                                 </div>
                             </label>
                         </div>
@@ -40,7 +48,7 @@ function Informacoes() {
                             <label htmlFor="setor">
                                 <div>
                                     Setor de Atuação<br />
-                                    <input type="text" name="setor" id="setor" className={styles.credenciais} placeholder="Educação" onChange={(e) => setSetor(e.target.value)}/>
+                                    <input type="text" name="setor" id="setor" className={styles.credenciais} placeholder="Educação" onChange={(e) => setSetor(e.target.value)} />
                                 </div>
                             </label>
                         </div>
@@ -48,20 +56,18 @@ function Informacoes() {
                             <label htmlFor="formação">
                                 <div>
                                     Formação Academica<br />
-                                    <input type="text" name="complemento" id="complemento" className={styles.credenciais} placeholder="Engenharia de Software" onChange={(e) => setFormacao(e.target.value)}/>
+                                    <input type="text" name="complemento" id="complemento" className={styles.credenciais} placeholder="Engenharia de Software" onChange={(e) => setFormacao(e.target.value)} />
                                 </div>
-                                <p>*Deixar o campo vazio considera-se sem formação.</p>
                             </label>
                         </div>
                         <div>
                             <label htmlFor="instituicao">
                                 <div>
                                     Intituição Acadêmica<br />
-                                    <input type="text" name="instituicao" id="instituicao" className={styles.credenciais} placeholder="ICEV" onChange={(e) => setInstituicao(e.target.value)}/>
+                                    <input type="text" name="instituicao" id="instituicao" className={styles.credenciais} placeholder="ICEV" onChange={(e) => setInstituicao(e.target.value)} />
                                 </div>
                             </label>
                         </div>
-                        <p className={styles.mensagemErro} style={{ color: "red" }}>{erro}</p>
                         <div>
                             <Button type="submit" textButton={"Continuar"} />
                             {/* <button type="submit" className={styles.btnConfirme}>Continuar</button> */}
