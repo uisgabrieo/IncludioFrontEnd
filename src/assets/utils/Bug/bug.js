@@ -1,8 +1,10 @@
 import styles from "../../pages/Bug/Bug.module.css";
 
-function retornarToken() {
-    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"))
-    const conta = JSON.parse(contaResposta)
+const token = () => {
+    const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
+    const conta = JSON.parse(contaResposta);
+    
+    console.log(conta.token)
     return conta.token;
 }
 
@@ -20,16 +22,17 @@ export function envioDados(event, descricao, nomeCompleto, email, setErro) {
         description: descricao
     };
 
+    console.log(feedback)
+
     enviarAPI(feedback);
 }
 
 function enviarAPI(dados) {
-    const token = retornarToken();
     fetch("http://localhost:8080/api/account/feedback", {
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            "Authorization": `Bearer ${token()}`
         },
         method: "POST",
         headers: {
@@ -37,15 +40,10 @@ function enviarAPI(dados) {
         },
         body: JSON.stringify(dados)
     })
-    .then(response => {
-        if (response.ok) {
-            return response.text();
-        } else {
-            throw new Error('Credenciais inválidas');
-        }
-    })
+    .then(response => response.json)
     .then(data => {
-        console.log(data);
+        alert("Feedback enviado!")
+        window.location.href="/home";
     })
     .catch(error => {
         console.log("Erro: " + error.message);
