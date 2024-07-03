@@ -3,69 +3,48 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import styles from "./Editar.module.css";
-import { rolarScroll } from "../../utils/Editar/editar.js";
+import { envioDados, rolarScroll } from "../../utils/Editar/editar.js";
 
 function Perfil() {
   const [formData, setFormData] = useState({
-    pais: '',
-    estado: '',
-    cidade: '',
-    complemento: '',
-    cep: '',
-    nomeCompleto: '',
-    telefone: '',
-    genero: '',
-    companyName: '',
-    website: '',
     country: '',
     state: '',
     city: '',
-    neighborhood: '',
+    complement: '',
+    cep: '',
+    completeName: '',
+    numberPhone: '',
+    gender: '',
+    jobTitle: '', 
+    companyName: '',
+    website: '',
+    countryCompany: '',
+    stateCompany: '',
+    cityCompany: '',
+    neighbordhood: '',
     street: '',
     numCompany: '',
     companyCep: '',
-    numberPhone: '',
-    description: ''
+    numberPhoneCompany: '',
+    description: '',
+    photograph: null
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("API", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        alert('Dados atualizados com sucesso!');
-      } else {
-        alert('Erro ao atualizar dados.');
-      }
-    } catch (error) {
-      alert('Erro ao atualizar dados.');
+    const { name, value, type, files } = e.target;
+    if (type === "file") {
+      setFormData({ ...formData, photograph: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
     }
   };
-  
-  useEffect(() => {
+
+  const email = () => {
     const contaResposta = JSON.parse(localStorage.getItem("accountResponse"));
     const conta = JSON.parse(contaResposta);
-    console.log(conta);
 
-    const tipoConta = conta.account.toLowerCase();
-    if (tipoConta === "employee") {
-      const divEmpresa = document.getElementById("divEmpresaExibir");
-      if (divEmpresa) {
-        divEmpresa.innerHTML = "";
-      }
-    }
-  }, []);
+    return conta.email;
+}
 
   useEffect(() => {
     window.addEventListener("scroll", rolarScroll);
@@ -73,6 +52,18 @@ function Perfil() {
       window.removeEventListener("scroll", rolarScroll);
     };
   }, []);
+
+  const enviar = (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    for (const key in formData) {
+      console.log(key, " : ", formData[key])
+      data.append(key, formData[key]);
+    }
+    console.log(email())
+    data.append("email", email())
+    envioDados(data);
+  };
 
   return (
     <>
@@ -85,16 +76,16 @@ function Perfil() {
             <Link to="/home/busca" className={styles.navegacaoMenu}>Buscar</Link>
             <Link to="/home/bug" className={styles.navegacaoMenu}>Relatar Bug</Link>
             <i className={`bi bi-moon-fill ${styles.navegacaoMenu}`}></i>
-          </nav>  
+          </nav>
         </section>
         <main className={styles.container}>
           <section className={styles.campoPerfil}>
-            <label htmlFor="foto">
+            <label htmlFor="foto" className={styles.fotoEdit}>
               Foto<br />
-              <label htmlFor="imagemPerfil" className={styles.btnUpload}>Insira sua Foto</label>
-              <input type="file" name="imagemPerfil" id="imagemPerfil" className={styles.credenciaisFile} accept="image/*" />
+              <label htmlFor="photograph" className={styles.btnUpload}>Insira sua Foto</label>
+              <input type="file" name="photograph" id="photograph" className={styles.credenciaisFile} accept="image/*" onChange={handleChange} />
             </label>
-            <button className={styles.botaoPerfil} onClick={handleSubmit}>Salvar</button>
+            <button className={styles.botaoPerfil} onClick={enviar}>Salvar</button>
             <Link to={"/"}><button className={styles.botaoPerfil} id={styles.sair}>
               <i className="bi bi-box-arrow-left"></i>
               <p>Sair</p>
@@ -107,19 +98,19 @@ function Perfil() {
                 <form>
                   <div>
                     País
-                    <input type="text" name="pais" placeholder="Pais" onChange={handleChange} />
+                    <input type="text" name="country" placeholder="Pais" onChange={handleChange} />
                   </div>
                   <div>
                     Estado
-                    <input type="text" name="estado" placeholder="estado" onChange={handleChange} />
+                    <input type="text" name="state" placeholder="estado" onChange={handleChange} />
                   </div>
                   <div>
                     Cidade
-                    <input type="text" name="cidade" placeholder="cidade" onChange={handleChange} />
+                    <input type="text" name="city" placeholder="cidade" onChange={handleChange} />
                   </div>
                   <div>
                     Complemento
-                    <input type="text" name="complemento" placeholder="complemento" onChange={handleChange} />
+                    <input type="text" name="complement" placeholder="complemento" onChange={handleChange} />
                   </div>
                   <div>
                     CEP
@@ -133,21 +124,21 @@ function Perfil() {
               <div className={styles.divPessoais} id="divPessoais">
                 <form>
                   <div>
-                    <label htmlFor="nomeCompleto">
+                    <label htmlFor="completeName">
                       Nome Completo
-                      <input type="text" name="nomeCompleto" placeholder="nome completo" onChange={handleChange} />
+                      <input type="text" name="completeName" placeholder="nome completo" onChange={handleChange} />
                     </label>
                   </div>
-                  <label htmlFor="telefone">
+                  <label htmlFor="numberPhone">
                     <div>
                       Telefone
-                      <input type="text" name="telefone" placeholder="numero telefone" onChange={handleChange} />
+                      <input type="text" name="numberPhone" placeholder="numero telefone" onChange={handleChange} />
                     </div>
                   </label>
                   <div>
-                    <label htmlFor="genero">
+                    <label htmlFor="gender">
                       Genero
-                      <select name="genero" id="genero" defaultValue="" className={styles.credenciais} onChange={handleChange}>
+                      <select name="gender" id="genero" defaultValue="" className={styles.credenciais} onChange={handleChange}>
                         <option value="" disabled>Escolha uma opção</option>
                         <option value="HOMEM">Homem</option>
                         <option value="MULHER">Mulher</option>
@@ -163,6 +154,10 @@ function Perfil() {
               <div className={styles.divEmpresa}>
                 <form>
                   <div>
+                    Cargo na empresa
+                    <input type="text" name="jobTitle" placeholder="Cargo" onChange={handleChange} />
+                  </div>
+                  <div>
                     Nome
                     <input type="text" name="companyName" placeholder="Nome" onChange={handleChange} />
                   </div>
@@ -172,19 +167,19 @@ function Perfil() {
                   </div>
                   <div>
                     País
-                    <input type="text" name="country" placeholder="País" onChange={handleChange} />
+                    <input type="text" name="countryCompany" placeholder="País" onChange={handleChange} />
                   </div>
                   <div>
                     Estado
-                    <input type="text" name="state" placeholder="Estado" onChange={handleChange} />
+                    <input type="text" name="stateCompany" placeholder="Estado" onChange={handleChange} />
                   </div>
                   <div>
                     Cidade
-                    <input type="text" name="city" placeholder="Cidade" onChange={handleChange} />
+                    <input type="text" name="cityCompany" placeholder="Cidade" onChange={handleChange} />
                   </div>
                   <div>
                     Bairro
-                    <input type="text" name="neighborhood" placeholder="Bairro" onChange={handleChange} />
+                    <input type="text" name="neighbordhood" placeholder="Bairro" onChange={handleChange} />
                   </div>
                   <div>
                     Rua
@@ -200,7 +195,7 @@ function Perfil() {
                   </div>
                   <div>
                     Número de Telefone
-                    <input type="text" name="numberPhone" placeholder="Número de Telefone" onChange={handleChange} />
+                    <input type="text" name="numberPhoneCompany" placeholder="Número de Telefone" onChange={handleChange} />
                   </div>
                   <div className={styles.descricao}>
                     Descrição
