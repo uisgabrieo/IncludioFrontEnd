@@ -10,8 +10,8 @@ function Inicio() {
                 <Link to="/"><img src="/img/global/Logo_Site_Autismo.png" alt="Logo Includio" className={styles.logo} /></Link>
                 <nav className={styles.navegacao}>
                     <div>
-                        <a href="" className={styles.link}>Sobre</a>
-                        <a href="../../../../public/file/ArtigoAutismo.pdf" className={styles.link}>Entenda Sobre o Autismo</a>
+                        {/* <a href="" className={styles.link}>Sobre</a> */}
+                        <a href="../../../../public/file/ArtigoAutismo.pdf" className={styles.link}>TEAs no mercadode trabalho</a>
                     </div>
 
                     <div className={styles.divBotoes}>
