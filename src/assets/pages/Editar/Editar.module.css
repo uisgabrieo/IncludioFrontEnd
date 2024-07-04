@@ -117,10 +117,21 @@
 .divPessoais,
 .divEmpresa{
   justify-content: space-around;
-  text-align: center;
+  text-align: start;
   flex-direction: column;
   display: flex;
   padding: 20px 0px 0px 30px;
+}
+
+.descricao {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.descricao textarea {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 
 .desabilitado {
