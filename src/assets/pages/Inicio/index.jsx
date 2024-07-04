@@ -11,7 +11,7 @@ function Inicio() {
                 <nav className={styles.navegacao}>
                     <div>
                         <a href="" className={styles.link}>Sobre</a>
-                        <a href="" className={styles.link}>Entenda Sobre o Autismo</a>
+                        <a href="../../../../public/file/ArtigoAutismo.pdf" className={styles.link}>Entenda Sobre o Autismo</a>
                     </div>
 
                     <div className={styles.divBotoes}>
