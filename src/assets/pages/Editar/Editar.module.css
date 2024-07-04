@@ -118,7 +118,7 @@
 .divEmpresa{
   justify-content: space-around;
   text-align: start;
-  flex-direction: column;
+  flex-direction: row;
   display: flex;
   padding: 20px 0px 0px 30px;
 }
