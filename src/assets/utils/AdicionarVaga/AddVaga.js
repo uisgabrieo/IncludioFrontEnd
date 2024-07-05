@@ -9,7 +9,6 @@ function retornarToken() {
 }
 
 export function envioDados(e, vaga, setor, modalidade, pais, estado, cidade, requesitos, sobreVaga) {
-    e.preventDefault();
 
     const post = new FormData();
     const email = localStorage.getItem("dadoUsuario");
@@ -47,7 +46,7 @@ function enviarAPI(dados) {
         window.location.href = '/home';
     })
     .catch(error => {
-        console.log("Erro:", error.message);
+        alert("Ocorreu um erro no momento da criação da vaga!");
     });
 }
 

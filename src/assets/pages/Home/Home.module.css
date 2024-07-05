@@ -254,11 +254,13 @@
 }
 
 .verMais .sobreAVaga {
+    padding: 20px;
     border: 1px black solid;
     overflow-y: auto;
 }
 
 .verMais .cabecalhoVaga {
+    padding: 20px;
     gap: 50px;
     align-items: center;
     display: flex;
@@ -276,6 +278,7 @@
 }
 
 .verMais .setores {
+    padding: 10px;
     font-size: 15px;
     border: 1px var(--black) solid;
     display: flex;
@@ -288,6 +291,7 @@
 }
 
 .verMais .localHorario {
+    padding: 10px;
     border: 1px var(--black) solid;
     display: flex;
     align-items: center;
@@ -300,16 +304,19 @@
 }
 
 .verMais .info {
+    padding: 10px;
     margin-bottom: 30px;
     border: 1px var(--black) solid;
 }
 
 .info .modalidade {
+    padding: 10px;
     display: flex;
     align-items: center;
 }
 
 .info .requisitos {
+    padding: 10px;
     display: flex;
     align-items: center;
 }
